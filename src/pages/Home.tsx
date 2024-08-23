@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion } from 'framer-motion';
-import { FaVirusCovid, FaWhatsapp } from 'react-icons/fa6';
+import { FaVirusCovid, FaWhatsapp, FaCircleInfo, FaCirclePlay } from 'react-icons/fa6';
 import Typed from "typed.js"
 import TextCarousel from "../components/utility/TextCarousel";
 import DropdownItem from "../components/utility/DropdownItem";
 import TinderCard from "react-tinder-card";
 import { ValidationError, useForm } from "@formspree/react";
-
+import AvatarExample, { User } from "../components/utility/AvatarExample";
 
 
 interface Gif {
@@ -59,11 +59,14 @@ const Home: React.FC = () => {
     // const ref = useRef<HTMLDivElement>(null);
     const el = useRef(null);
 
+
+
     const [currentGifIndex, setCurrentGifIndex] = useState<number>(0);
 
     const handleGifNavigation = (index: number) => {
         setCurrentGifIndex(index);
     };
+
 
 
     useEffect(() => {
@@ -89,6 +92,27 @@ const Home: React.FC = () => {
         "Content Writing",
         "RNA Health Tech"
     ]
+
+
+    const users: User[] = [
+
+        {
+            id: 1,
+            name: "Rajat",
+            avatar: "https://pyxis.nymag.com/v1/imgs/bc9/ccb/936534d0b82b77cf0ffbac92010ee38ea3-06-al-pacino.2x.rvertical.w512.jpg"
+        },
+        {
+            id: 2,
+            name: "Vinay",
+            avatar: "https://s3.eu-central-1.amazonaws.com/datajournalismcom/userPhotos/profileDP.jpg"
+        },
+        {
+            id: 3,
+            name: "Adhrit",
+            avatar: "https://static.wikia.nocookie.net/near_pure_evil/images/3/37/AlexTheLarge.jpg"
+        },
+
+    ];
 
 
 
@@ -160,7 +184,7 @@ const Home: React.FC = () => {
 
     useEffect(() => {
         const intervalId = setInterval(() => {
-            if (Date.now() - lastInteraction > 1000 && texts2.length > 0) {
+            if (Date.now() - lastInteraction > 10000 && texts2.length > 0) {
                 const direction = Math.random() < 0.5 ? "left" : "right";
                 cardRefs.current[texts2.length - 1]?.swipe(direction);
             }
@@ -178,7 +202,7 @@ const Home: React.FC = () => {
         setTexts2(prev => prev.filter(card => card.title !== title));
     }
 
-    
+
     const [state, handleSubmit] = useForm('xblrdjdp');
     console.log(state);
 
@@ -187,31 +211,34 @@ const Home: React.FC = () => {
     return (
         <main className="flex-grow px-4 py-8 sm:px-6 md:px-8 lg:px-12">
             {/* landing section */}
+            <motion.div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-purple to-verypurple rounded-br-[70%] z-0 lg:hidden"></motion.div>
+            {/* <motion.div className="absolute top-0 right-0 w-full h-full bg-contain bg-no-repeat bg-right-top opacity-10 md:opacity-20 z-0" style={{ backgroundImage: "url('/images/dr-ajay-aggarwal.png')" }}></motion.div> */}
 
             <motion.section className="mb-12 flex flex-col min-h-screen text-center items-center relative">
+
                 <motion.div className="w-full flex flex-col lg:flex-row items-center justify-between mb-8 lg:mb-16 z-10">
                     <motion.div
-                        className={`absolute -right-60 -top-28 w-full lg:w-5/6 h-screen hidden lg:h-screen lg:block`}
-                    >
+                        className={`absolute hidden -right-60 -top-28 w-full lg:w-3/4 h-screen lg:h-screen lg:block`}>
                         <img
                             src="/images/rna.gif"
                             alt="RNA GIF"
-                            className={`w-[80vw] h-screen object-contain transform rotate-90`}
+                            className={`w-[60vw] h-screen object-contain lg:object-contain transform rotate-90`}
                         />
-                       
+
                     </motion.div>
 
                     <motion.div
-                        className={`w-full lg:w-1/2 pr-0 lg:pr-8 mt-24 mb-8 lg:mb-0 ${window.innerWidth >= 1024 ? '' : 'mb-64'
+                        className={`w-full lg:w-1/2 pr-0 lg:pr-8 mt-24 mb-8 text-white lg:text-zinc-800 lg:mb-0 ${window.innerWidth >= 1024 ? '' : 'mb-64'
                             }`}
+
                     >
-                        <p className="bg-accent bg-clip-text py-2 text-2xl font-bold text-zinc-800 sm:text-xl md:text-3xl xl:text-4xl">
+                        <p className="bg-accent bg-clip-text py-2 text-2xl font-bold sm:text-xl md:text-3xl xl:text-4xl">
                             Revolutionize Your Healthcare Practice with
                         </p>
-                        <h1 className="bg-accent bg-clip-text py-2 text-4xl font-pt-serif-regular text-zinc-800 sm:text-3xl md:text-5xl xl:text-6xl">
+                        <h1 className="bg-accent bg-clip-text py-2 text-4xl font-pt-serif-regular sm:text-3xl md:text-5xl xl:text-6xl">
                             RNA HealthTech
                         </h1>
-                        <span className="text-md font-semibold text-zinc-400 md:text-2xl">
+                        <span className="text-md font-semibold text-gray-100 md:text-2xl">
                             Seamlessly Connecting Healthcare Providers and Patients in the Digital Era
                         </span>
                         <motion.div className="mt-8 flex flex-col items-center space-y-4">
@@ -269,6 +296,7 @@ const Home: React.FC = () => {
                         <p className="text-lg md:text-xl mb-8">
                             At RNA HealthTech, our mission is to revolutionize the digital health landscape by bridging the gap between cutting-edge medical innovations and their target audience. We are dedicated to creating impactful, compliant, and user-centric digital experiences that accelerate the growth and adoption of transformative health tech solutions.
                         </p>
+
                         <motion.div className="grid grid-cols-2 gap-8 mt-16">
                             <motion.div
                                 onClick={() => handleGifNavigation(0)}
@@ -296,6 +324,7 @@ const Home: React.FC = () => {
                                 <p className="text-lg md:text-xl mt-2">Growing Satisfied Customers</p>
                             </motion.div>
                         </motion.div>
+
                     </motion.div>
 
                     {/* right side content */}
@@ -366,10 +395,29 @@ const Home: React.FC = () => {
                             muted
                             playsInline
                         />
-                        <div className="absolute bottom-6 left-4 right-4 text-center p-4 rounded-[20px] lg:rounded-[40px] bg-white/30 ring-1 ring-zinc-100/50 backdrop-blur-md shadow-md">
-                            <h3 className="text-lg font-bold mb-2 text-white">Meet Our Team of Experts</h3>
-                            <button className="text-black font-semibold bg-white rounded-[30px] px-6 py-2 shadow-md">Explore More</button>
-                        </div>
+                        <motion.div className="absolute flex flex-row gap-4 top-20 right-4">
+                            {[FaCircleInfo, FaCirclePlay].map((Icon, index) => (
+                                <motion.div
+                                    key={index}
+                                    className="bg-white rounded-full p-2 shadow-md hover:shadow-lg transition-shadow duration-300"
+                                    whileHover={{ scale: 1.1 }}
+                                    whileTap={{ scale: 0.95 }}
+                                >
+                                    <Icon className="text-2xl sm:text-3xl md:text-4xl text-zinc-800" />
+                                </motion.div>
+                            ))}
+                        </motion.div>
+                        <motion.div className="absolute flex flex-col sm:flex-row justify-end bottom-2 sm:bottom-4 md:bottom-6  lg:right-56 left-4 lg:left-4 text-center p-0 lg:p-2 rounded-[15px] md:rounded-[20px] lg:rounded-[40px] bg-white/30 ring-1 ring-zinc-100/50 backdrop-blur-md shadow-xl">
+
+
+                            <div className="mb-2 sm:mb-0 sm:mr-4">
+                                <AvatarExample users={users} max={3} />
+                            </div>
+                            <motion.div className="flex flex-col items-center">
+                                <h3 className="text-sm sm:text-base lg:text-lg font-bold mb-1 sm:mb-2 text-white">Meet Our Team of Experts</h3>
+                                <button className="text-xs sm:text-sm text-black font-semibold bg-white rounded-full px-3 lg:px-4 py-2 lg:py-2 mb-2 shadow-md hover:bg-gray-100 transition-colors duration-300">Meet Team</button>
+                            </motion.div>
+                        </motion.div>
                     </motion.div>
 
                     <motion.div className="lg:col-span-1 mt-12 lg:mt-0 lg:mr-24 flex flex-col h-full">
@@ -397,6 +445,7 @@ const Home: React.FC = () => {
 
                         {/* second div  */}
                         <motion.div className="absolute -bottom-20 sm:-bottom-24 lg:-bottom-20 left-0 right-24 mx-auto w-9/12  max-w-md text-center py-4 sm:p-6 rounded-[20px] lg:rounded-[40px] bg-gray-100/30 ring-1 ring-zinc-100 shadow-lg">
+
                             <h3 className="text-xl lg:text-2xl font-bold mb-2 sm:mb-4 text-black/90">Give Our Team of Experts a Brief</h3>
                             <button className="text-white text-sm sm:text-base font-semibold bg-purple rounded-[30px] px-4 sm:px-6 py-2 shadow-md hover:bg-purple-700 transition-colors duration-300">
                                 Call Us Now!

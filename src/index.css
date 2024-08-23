@@ -11,6 +11,8 @@
 @layer base {
   :root {
     --purple: 258 52% 56%;
+    --lightpurple:  258 52% 85%;
+    --verylight: 258 52% 95%;
     --lavender: 240 25% 84%;
     --grey: 0 0% 96%;
     --white: 0 0% 100%;

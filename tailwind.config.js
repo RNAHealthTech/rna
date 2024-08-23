@@ -8,6 +8,8 @@ module.exports = {
     extend: {
       colors: {
         purple: 'hsl(var(--purple))',
+        lightpurple: 'hsl(var(--lightpurple))',
+        verylight: 'hsl(var(--verylight))', 
         lavender: 'hsl(var(--lavender))',
         grey: 'hsl(var(--grey))',
         white: 'hsl(var(--white))',

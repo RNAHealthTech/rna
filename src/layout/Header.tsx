@@ -47,20 +47,6 @@ const Header: React.FC = () => {
     }, []);
 
 
-
-    //   const services = [
-    //     { name: "Headache & Migraine", path: "/services/headache-migraine" },
-    //     { name: "Anger and Stress Management", path: "/services/anger-stress-management" },
-    //     { name: "Anxiety + Depression", path: "/services/anxiety-depression" },
-    //     { name: "Bipolar Disorder", path: "/services/bipolar-disorder" },
-    //     { name: "Pyschosis", path: "/services/psychosis" },
-    //     { name: "Child & Adolescent Guidance", path: "/services/child-adolescent-guidance" },
-    //     { name: "Internet & Technology Addiction", path: "/services/internet-technology-addiction" },
-    //     { name: "Lifestyle & Relationship Issues", path: "/services/lifestyle-relationship-issues" },
-    //     { name: "Counselling", path: "/services/counselling" },
-    //     { name: "Psychotherapy", path: "/services/psychotherapy" }
-    //   ]
-
     const handleServicesClick = (e: React.MouseEvent) => {
         if (window.innerWidth < 768) {
             e.preventDefault();
@@ -77,7 +63,7 @@ const Header: React.FC = () => {
 
     return (
         <header
-            className={`font-pt-serif-regular sticky top-0 left-0 right-0 z-[9999] transition-all duration-300 ring-1 ring-zinc-300 backdrop-blur-xl ${isSticky ? 'bg-white' : 'bg-transparent'
+            className={`font-pt-serif-regular sticky top-0 left-0 right-0 z-[9999] transition-all duration-300 backdrop-blur-xl ${isSticky ? 'bg-transparent' : 'bg-transparent'
                 }`}
         >
             <div className="container mx-auto px-4">
@@ -140,9 +126,7 @@ const Header: React.FC = () => {
                             </svg>
                         </button>
                     </div>
-
-
-
+                    
                     <button
                         className="md:hidden relative z-20"
                         onClick={toggleMenu}

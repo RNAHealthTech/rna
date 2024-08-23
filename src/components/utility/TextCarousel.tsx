@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaCircle, FaPlusCircle } from 'react-icons/fa';
+
 
 interface TextCarouselProps {
   texts: string[];
