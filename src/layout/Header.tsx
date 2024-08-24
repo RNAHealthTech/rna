@@ -1,13 +1,24 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import AnimatedLogo from '../components/utility/AnimatedLogo';
 
 const Header: React.FC = () => {
     const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
     const [isSticky, setIsSticky] = useState<boolean>(false);
-    const [isServicesOpen, setIsServicesOpen] = useState<boolean>(false);
     const [isScrolled, setIsScrolled] = useState<boolean>(false);
+    const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
-    const navigate = useNavigate();
+
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth < 768);
+        };
+
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
+   
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
@@ -47,18 +58,9 @@ const Header: React.FC = () => {
     }, []);
 
 
-    const handleServicesClick = (e: React.MouseEvent) => {
-        if (window.innerWidth < 768) {
-            e.preventDefault();
-            setIsServicesOpen(!isServicesOpen);
-        } else {
-            navigate('/services');
-        }
-    };
-
     const handleLinkClick = () => {
         setIsMenuOpen(false);
-        setIsServicesOpen(false);
+        
     };
 
     return (
@@ -70,25 +72,20 @@ const Header: React.FC = () => {
                 <nav className="flex flex-wrap justify-between items-center">
                     <div className='flex flex-wrap justify-start'>
                         <Link to="/" className="flex items-center mt-4 mb-4">
-                            <img src="/logo.png" alt="RNA Health Tech"
-                                className={`transition-all duration-300 ${isScrolled
-                                    ? 'h-12 w-18 md:h-12 md:w-28 lg:h-18 lg:w-72'
-                                    : 'h-14 w-30 md:h-16 md:w-32 lg:h-18 lg:w-80'
-                                    }`} />
+                            <AnimatedLogo color={isMobile ? (isScrolled ? '#000' : '#fff') : (isScrolled ? '#000' : '#000')} />
                         </Link>
 
-
+                        {/* desktop toggle */}
                         <button
-                            className="hidden sm:hidden md:flex md:items-center md:ml-28 md:relative md:z-100"
+                            className='hidden md:flex md:items-center md:ml-28 md:relative md:z-100'
                             onClick={toggleMenu}
                             aria-label='menu'
-
                         >
                             <svg
                                 className="w-12 h-12"
                                 fill="none"
                                 stroke="currentColor"
-                                viewBox="0 0 40 40"
+                                viewBox="0 0 48 48"
                                 xmlns="http://www.w3.org/2000/svg"
                             >
                                 {isMenuOpen ? (
@@ -96,7 +93,7 @@ const Header: React.FC = () => {
                                         strokeLinecap="round"
                                         strokeLinejoin="round"
                                         strokeWidth={2}
-                                        d="M12 36L36 12M12 12l24 24"
+                                        d="M8 40L40 8M8 8l32 32"
                                     />
                                 ) : (
                                     <g>
@@ -104,21 +101,21 @@ const Header: React.FC = () => {
                                             strokeLinecap="round"
                                             strokeLinejoin="round"
                                             strokeWidth={2}
-                                            d="M4 8h28"
+                                            d="M6 12h36"
                                             className="origin-center"
                                         />
                                         <path
                                             strokeLinecap="round"
                                             strokeLinejoin="round"
                                             strokeWidth={2}
-                                            d="M6 18h20"
+                                            d="M10 24h28"
                                             className="origin-center"
                                         />
                                         <path
                                             strokeLinecap="round"
                                             strokeLinejoin="round"
                                             strokeWidth={2}
-                                            d="M8 28h12"
+                                            d="M14 36h20"
                                             className="origin-center"
                                         />
                                     </g>
@@ -126,42 +123,36 @@ const Header: React.FC = () => {
                             </svg>
                         </button>
                     </div>
-
+                    {/* mobile toggle */}
                     <button
-                        className="fixed md:hidden relative z-20"
+                        className={`md:hidden fixed ${isScrolled ? 'text-black' : 'text-white'} top-4 right-4 z-20`}
                         onClick={toggleMenu}
                         aria-label="Toggle menu"
                     >
-                        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            {/* <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={isMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} /> */}
+                        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">                            {/* <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={isMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} /> */}
                             {isMenuOpen ? (
-                                <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth={2}
-                                    d="M12 36L36 12M12 12l24 24"
-                                />
+                                ''
                             ) : (
                                 <g>
                                     <path
                                         strokeLinecap="round"
                                         strokeLinejoin="round"
                                         strokeWidth={2}
-                                        d="M4 8h28"
+                                        d="M4 9h28"
                                         className="origin-center"
                                     />
                                     <path
                                         strokeLinecap="round"
                                         strokeLinejoin="round"
                                         strokeWidth={2}
-                                        d="M6 18h20"
+                                        d="M4 18h28"
                                         className="origin-center"
                                     />
                                     <path
                                         strokeLinecap="round"
                                         strokeLinejoin="round"
                                         strokeWidth={2}
-                                        d="M8 28h12"
+                                        d="M4 27h28"
                                         className="origin-center"
                                     />
                                 </g>
@@ -173,7 +164,7 @@ const Header: React.FC = () => {
 
                     {/* Mobile menu */}
 
-                    {isMenuOpen && (<div className="fixed inset-x-0 top-0 bg-gray-100 z-10 flex flex-col w-full md:w-1/2 transition-none min-h-screen overflow-y-auto">
+                    {isMenuOpen && (<div className="fixed inset-x-0 top-0 bg-lavender z-10 flex flex-col w-full md:w-1/2 transition-none min-h-screen overflow-y-auto">
                         <div className="p-4 pt-16 flex flex-col flex-grow">
                             <button
                                 className="absolute top-4 right-4 text-gray-800 hover:text-foreground focus:outline-none"
@@ -184,16 +175,11 @@ const Header: React.FC = () => {
                                 </svg>
                             </button>
                             <Link to="/" className="block py-2 text-gray-800 hover:text-foreground text-lg font-semibold" onClick={handleLinkClick}>Home</Link>
-                            <Link to="/about" className="block py-2 text-gray-800 hover:text-foreground text-lg font-semibold" onClick={handleLinkClick}>Portfolio</Link>
-                            <button
-                                className="w-full text-left py-2 text-gray-800 hover:text-foreground text-lg font-semibold flex justify-between items-center"
-                                onClick={handleServicesClick}
-                            >
-                                What We Do?
-                            </button>
+                            <Link to="/about" className="block py-2 text-gray-800 hover:text-foreground text-lg font-semibold" onClick={handleLinkClick}>Our Work & Projects</Link>
+                           
                         </div>
-                        <div className="mt-12 p-4 lg:hidden">
-                            <button onClick={handleLinkClick} className="w-full border-2 border-solid border-purple text-purple px-6 py-2 rounded-[40px] hover:bg-purple transition-colors text-lg font-semibold">
+                        <div className="p-4 flex flex-col items-center">
+                            <button onClick={handleLinkClick} className="w-1/2 text-purple px-6 py-2 rounded-[40px] bg-white transition-colors text-lg font-semibold">
                                 <Link to='/contact'>Get In Touch</Link>
                             </button>
                         </div>

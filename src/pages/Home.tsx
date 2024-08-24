@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { motion} from 'framer-motion';
+import { motion } from 'framer-motion';
 import { FaVirusCovid, FaWhatsapp, FaCircleInfo, FaCirclePlay } from 'react-icons/fa6';
 import Typed from "typed.js"
 import TextCarousel from "../components/utility/TextCarousel";
@@ -8,7 +8,7 @@ import TinderCard from "react-tinder-card";
 import { ValidationError, useForm } from "@formspree/react";
 import AvatarExample, { User } from "../components/utility/AvatarExample";
 import TeamModal from "../components/utility/TeamModal";
-
+import { Link } from "react-router-dom";
 
 interface Gif {
     image: string,
@@ -40,6 +40,20 @@ const gifs = [
     }
 ]
 
+const useIsMobile = () => {
+    const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth < 768);
+        };
+
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
+    return isMobile;
+}
 
 
 const ServiceCard: React.FC<ServiceCardProps> = ({ title, image }) => (
@@ -64,7 +78,7 @@ const Home: React.FC = () => {
     const [state, handleSubmit] = useForm('xblrdjdp');
     console.log(state);
 
-
+    const isMobile = useIsMobile();
 
 
     const [currentGifIndex, setCurrentGifIndex] = useState<number>(0);
@@ -72,6 +86,22 @@ const Home: React.FC = () => {
     const handleGifNavigation = (index: number) => {
         setCurrentGifIndex(index);
     };
+
+    useEffect(() => {
+        let intervalId: NodeJS.Timeout;
+
+        if (isMobile) {
+            intervalId = setInterval(() => {
+                setCurrentGifIndex((prevIndex) => (prevIndex + 1) % gifs.length);
+            }, 3000);
+        }
+
+        return () => {
+            if (intervalId) {
+                clearInterval(intervalId);
+            }
+        };
+    }, [isMobile]);
 
 
 
@@ -143,20 +173,19 @@ const Home: React.FC = () => {
     const renderCard = (gif: Gif, index: number) => (
         <motion.div
             key={index}
-            className="bg-white rounded-xl shadow-lg overflow-hidden"
+            className="bg-white rounded-xl shadow-lg overflow-hidden w-full max-w-sm mx-auto"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
         >
-            <div className="relative h-72 md:h-80 lg:h-96 w-full ring-1 ring-zinc-100/50 backdrop-blur-md">
+            <div className="relative aspect-square w-full ring-1 ring-zinc-100/50 backdrop-blur-md">
                 <img
                     src={gif?.image}
                     alt={gif?.title}
-                    className="w-full h-full"
+                    className="w-full h-full object-cover"
                 />
-
             </div>
-            <div className="p-6">
+            <div className="p-4 text-center">
                 <h3 className="text-xl font-semibold mb-2 text-gray-800">{gif?.title}</h3>
             </div>
         </motion.div>
@@ -189,16 +218,6 @@ const Home: React.FC = () => {
     console.log(lastInteraction);
     const cardRefs = useRef<any[]>([]);
 
-    // useEffect(() => {
-    //     const intervalId = setInterval(() => {
-    //         if (Date.now() - lastInteraction > 10000 && texts2.length > 0) {
-    //             const direction = Math.random() < 0.5 ? "left" : "right";
-    //             cardRefs.current[texts2.length - 1]?.swipe(direction);
-    //         }
-    //     }, 5000);
-    //     return () => clearInterval(intervalId);
-    // }, [texts2, lastInteraction]);
-
     const onSwipe = (direction: string, title: string) => {
         console.log('You swiped: ' + direction + ' on ' + title);
         setLastInteraction(Date.now());
@@ -210,8 +229,8 @@ const Home: React.FC = () => {
     }
 
 
-  
-    
+
+
 
 
 
@@ -220,7 +239,7 @@ const Home: React.FC = () => {
 
             {/* Landing section */}
 
-            <motion.div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-purple to-verypurple rounded-br-[70%] z-0 lg:hidden"></motion.div>
+            <motion.div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-purple to-purple/80 rounded-br-[50%] z-0 lg:hidden"></motion.div>
             {/* <motion.div className="absolute top-0 right-0 w-full h-full bg-contain bg-no-repeat bg-right-top opacity-10 md:opacity-20 z-0" style={{ backgroundImage: "url('/images/dr-ajay-aggarwal.png')" }}></motion.div> */}
 
             <motion.section id="landing"
@@ -240,24 +259,24 @@ const Home: React.FC = () => {
                     </motion.div>
 
                     <motion.div
-                        className={`w-full lg:w-1/2 pr-0 lg:pr-8 mt-24 mb-8 text-white lg:text-zinc-800 lg:mb-0 ${window.innerWidth >= 1024 ? '' : 'mb-64'
+                        className={`w-full lg:w-1/2 pr-0 lg:pr-8 mt-8 lg:mt-24 mb-8 text-white lg:text-zinc-400 lg:mb-0 ${window.innerWidth >= 1024 ? '' : 'mb-64'
                             }`}
 
                     >
                         <p className="bg-accent bg-clip-text py-2 text-2xl font-bold sm:text-xl md:text-3xl xl:text-4xl">
-                            Revolutionize Your Healthcare Practice with
+                            Uplifting Healthcare Practices
                         </p>
-                        <h1 className="bg-accent bg-clip-text py-2 text-4xl font-pt-serif-regular sm:text-3xl md:text-5xl xl:text-6xl">
+                        <h1 className="bg-accent bg-clip-text py-2 text-4xl font-pt-serif-regular text-white lg:text-black/80 sm:text-3xl md:text-5xl xl:text-6xl">
                             RNA HealthTech
                         </h1>
-                        <span className="text-md font-semibold text-gray-100 md:text-2xl">
+                        <span className="text-md font-semibold text-gray-300 md:text-2xl">
                             Seamlessly Connecting Healthcare Providers and Patients in the Digital Era
                         </span>
                         <motion.div className="mt-8 flex flex-col items-center space-y-4">
                             <motion.div className="w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl">
                                 <motion.div className="relative">
                                     <motion.div className="absolute inset-y-0 left-0 flex items-center pl-3">
-                                        <FaVirusCovid className="w-5 h-5 text-indigo-500 animate-spin" />
+                                        <FaVirusCovid className="w-5 h-5 text-purple animate-spin" />
                                     </motion.div>
                                     <input
                                         ref={el}
@@ -266,12 +285,13 @@ const Home: React.FC = () => {
                                     />
                                 </motion.div>
                             </motion.div>
-                            <button className="flex items-center px-6 py-3 text-black font-semibold rounded-full border-2 border-solid border-black transition duration-300 ease-in-out transform hover:scale-105 shadow-md !cursor-pointer">
+                            <button className="flex items-center px-6 py-3 text-purple bg-white font-bold rounded-full transition duration-300 ease-in-out transform hover:scale-105 shadow-md !cursor-pointer">
                                 <FaWhatsapp className="mr-2" />
-                                Schedule Your Consultation
+                                Contact Us
                             </button>
                         </motion.div>
                     </motion.div>
+
                 </motion.div>
                 <motion.div className="w-full bg-gray-100/80 backdrop-blur-md mb-12 rounded-t-[40px] p-6 lg:p-8 lg:mt-48 z-10">
                     <motion.div
@@ -297,121 +317,6 @@ const Home: React.FC = () => {
                 <motion.div className="container mx-auto px-4">
                     <TextCarousel texts={texts} speed={30} />
                 </motion.div>
-
-            </motion.section>
-
-
-
-
-            {/*  About Section */}
-
-
-
-
-            <motion.section
-                id="mission"
-                className="flex flex-col items-center justify-center"
-
-            >
-                <motion.div className="bg-white text-black p-12 flex flex-col md:flex-row">
-
-                    <motion.div
-
-                        className="w-full md:w-1/2 pr-0 lg:pr-12 mb-12 md:mb-0"
-                        initial={{ opacity: 0, y: 50 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: false, amount: 0.3 }}
-                        transition={{ duration: 0.6, ease: "easeOut" }}
-                    >
-                        <h1 className="text-4xl md:text-5xl font-bold mb-6">
-                            Empowering the Future of Digital Health
-                            <span className="text-gray-400"> with Innovative Solutions</span>
-                        </h1>
-                        <p className="text-lg md:text-xl mb-8">
-                            At RNA HealthTech, our mission is to revolutionize the digital health landscape by bridging the gap between cutting-edge medical innovations and their target audience. We are dedicated to creating impactful, compliant, and user-centric digital experiences that accelerate the growth and adoption of transformative health tech solutions.
-                        </p>
-
-                        <motion.div className="grid grid-cols-2 gap-8 mt-16">
-                            <motion.div
-                                onClick={() => handleGifNavigation(0)}
-                                className="cursor-pointer"
-                            >
-
-                                <h2 className="text-4xl md:text-6xl font-bold">1+ week</h2>
-                                <p className="text-lg md:text-xl mt-2">Fast Prototyping</p>
-                            </motion.div>
-                            <motion.div
-                                onClick={() => handleGifNavigation(1)}
-                                className="cursor-pointer"
-                            >
-                                <h2 className="text-4xl md:text-6xl font-bold">20+</h2>
-                                <p className="text-lg md:text-xl mt-2">Technologies Used In Services</p>
-                            </motion.div>
-                            <motion.div onClick={() => handleGifNavigation(2)}
-                                className="cursor-pointer">
-                                <h2 className="text-4xl md:text-6xl font-bold">99%</h2>
-                                <p className="text-lg md:text-xl mt-2">Accuracy Rate in Generating Targets</p>
-                            </motion.div>
-                            <motion.div onClick={() => handleGifNavigation(3)}
-                                className="cursor-pointer">
-                                <h2 className="text-4xl md:text-6xl font-bold">N+</h2>
-                                <p className="text-lg md:text-xl mt-2">Growing Satisfied Customers</p>
-                            </motion.div>
-                        </motion.div>
-
-                    </motion.div>
-
-                    {/* right side content */}
-                    <motion.div className="w-full md:w-1/2 relative">
-                        <motion.div className="relative w-full h-[400px] md:h-[600px]">
-                            <motion.div>
-                                <motion.div className="sticky top-10 h-[calc(90vh-10rem)] flex items-center justify-center">
-                                    {renderCard(gifs[currentGifIndex], currentGifIndex)}
-                                </motion.div>
-                            </motion.div>
-                        </motion.div>
-                    </motion.div>
-
-                </motion.div>
-            </motion.section>
-
-
-            {/*  Service cards section */}
-
-
-            <motion.section
-                id="cards"
-                className="px-6 py-20 lg:py-28 relative overflow-hidden z-10"
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: false, amount: 0.3 }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
-            >
-                <h2 className="text-5xl lg:text-6xl font-semibold text-center font-fraunces-slab">Our Services</h2>
-
-                {/* TextCarousel positioned as a background  */}
-                <motion.div className="text-purple text-2xl absolute top-0 left-0 right-0 bottom-0 flex items-center">
-                    <TextCarousel texts={texts} speed={30} />
-                </motion.div>
-
-                <motion.div className="relative h-screen w-full max-w-2xl mx-auto flex items-center justify-center">
-                    {texts2.length > 0 && texts2.map((text, index) => (
-                        <TinderCard
-                            ref={(ref) => cardRefs.current[index] = ref}
-                            key={text.title}
-                            onSwipe={(dir) => onSwipe(dir, text.title)}
-                            onCardLeftScreen={() => onCardLeftScreen(text.title)}
-                            preventSwipe={['up', 'down']}
-                            className="absolute w-[90%] h-[55%] lg:h-[70%]"
-                        >
-                            <ServiceCard
-                                title={text.title}
-                                image={text.image}
-                            />
-                        </TinderCard>
-                    ))}
-                </motion.div>
-
 
             </motion.section>
 
@@ -477,11 +382,11 @@ const Home: React.FC = () => {
                             <motion.div className="flex flex-col items-center">
                                 <h3 className="text-sm sm:text-base lg:text-lg font-bold mb-1 sm:mb-2 text-white">Meet Our Team of Experts</h3>
                                 <button
-                                className="text-xs sm:text-sm text-black font-semibold bg-white rounded-full px-3 lg:px-4 py-2 lg:py-2 mb-2 shadow-md hover:bg-gray-100 transition-colors duration-300"
-                                onClick={() => setIsModalOpen(true)}
+                                    className="text-xs sm:text-sm text-black font-semibold bg-white rounded-full px-3 lg:px-4 py-2 lg:py-2 mb-2 shadow-md hover:bg-gray-100 transition-colors duration-300"
+                                    onClick={() => setIsModalOpen(true)}
                                 >
                                     Meet Team</button>
-                                  
+
                             </motion.div>
                         </motion.div>
                     </motion.div>
@@ -535,7 +440,116 @@ const Home: React.FC = () => {
                 </motion.div>
             </motion.section>
 
-            {/* Portfolio section */}
+            {/*  Service cards section */}
+
+
+            <motion.section
+                id="cards"
+                className="px-6 py-20 lg:py-28 relative overflow-hidden z-10"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false, amount: 0.3 }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+            >
+                <h2 className="text-5xl lg:text-6xl font-semibold text-center font-fraunces-slab">Our Services</h2>
+
+                {/* TextCarousel positioned as a background  */}
+                <motion.div className="text-purple text-2xl absolute top-0 left-0 right-0 bottom-0 flex items-center">
+                    <TextCarousel texts={texts} speed={30} />
+                </motion.div>
+
+                <motion.div className="relative min-h-screen w-full max-w-2xl mx-auto flex items-center justify-center">
+                    {texts2.length > 0 && texts2.map((text, index) => (
+                        <TinderCard
+                            ref={(ref) => cardRefs.current[index] = ref}
+                            key={text.title}
+                            onSwipe={(dir) => onSwipe(dir, text.title)}
+                            onCardLeftScreen={() => onCardLeftScreen(text.title)}
+                            preventSwipe={['up', 'down']}
+                            className="absolute w-[90%] h-[55%] lg:h-[70%]"
+                        >
+                            <ServiceCard
+                                title={text.title}
+                                image={text.image}
+                            />
+                        </TinderCard>
+                    ))}
+                </motion.div>
+
+
+            </motion.section>
+
+            {/* about section */}
+
+
+            <motion.section
+                id="mission"
+                className="flex flex-col items-center justify-center"
+
+            >
+                <motion.div className="bg-white text-black p-12 flex flex-col md:flex-row">
+
+                    <motion.div
+
+                        className="w-full md:w-1/2 pr-0 lg:pr-12 mb-12 md:mb-0"
+                        initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: false, amount: 0.3 }}
+                        transition={{ duration: 0.6, ease: "easeOut" }}
+                    >
+                        <h1 className="text-4xl md:text-5xl font-bold mb-6">
+                            Empowering the Future of Digital Health
+                            <span className="text-gray-400"> with Innovative Solutions</span>
+                        </h1>
+                        <p className="text-lg md:text-xl mb-8">
+                            At RNA HealthTech, our mission is to revolutionize the digital health landscape by bridging the gap between cutting-edge medical innovations and their target audience. We are dedicated to creating impactful, compliant, and user-centric digital experiences that accelerate the growth and adoption of transformative health tech solutions.
+                        </p>
+
+                        <motion.div className="grid grid-cols-2 gap-8 mt-16">
+                            <motion.div
+                                onClick={() => handleGifNavigation(0)}
+                                className="cursor-pointer"
+                            >
+
+                                <h2 className="text-4xl md:text-6xl font-bold">1+ week</h2>
+                                <p className="text-lg md:text-xl mt-2">Fast Prototyping</p>
+                            </motion.div>
+                            <motion.div
+                                onClick={() => handleGifNavigation(1)}
+                                className="cursor-pointer"
+                            >
+                                <h2 className="text-4xl md:text-6xl font-bold">20+</h2>
+                                <p className="text-lg md:text-xl mt-2">Technologies Used In Services</p>
+                            </motion.div>
+                            <motion.div onClick={() => handleGifNavigation(2)}
+                                className="cursor-pointer">
+                                <h2 className="text-4xl md:text-6xl font-bold">99%</h2>
+                                <p className="text-lg md:text-xl mt-2">Accuracy Rate in Generating Targets</p>
+                            </motion.div>
+                            <motion.div onClick={() => handleGifNavigation(3)}
+                                className="cursor-pointer">
+                                <h2 className="text-4xl md:text-6xl font-bold">N+</h2>
+                                <p className="text-lg md:text-xl mt-2">Growing Satisfied Customers</p>
+                            </motion.div>
+                        </motion.div>
+
+                    </motion.div>
+
+                    {/* right side content */}
+
+                    <motion.div className="w-full md:w-1/2 relative px-4 md:px-0">
+                        <motion.div className="relative w-full h-[400px] md:h-[600px]">
+                            <motion.div className="h-full flex items-center justify-center">
+                                {renderCard(gifs[currentGifIndex], currentGifIndex)}
+                            </motion.div>
+                        </motion.div>
+                    </motion.div>
+
+                </motion.div>
+            </motion.section>
+
+
+
 
 
             <motion.section
@@ -545,6 +559,7 @@ const Home: React.FC = () => {
             >
                 <h2 className="text-5xl lg:text-6xl font-semibold text-center font-fraunces-slab mb-12">Portfolio</h2>
                 <motion.div className="grid grid-cols-1 gap-8 lg:grid-cols-4 items-start px-4 md:px-6 lg:px-8 lg:mt-32">
+                  
                     <motion.div className="lg:col-span-2 bg-gray-100 w-full lg:w-[35vw] h-[75vh] md:h-[80vh] lg:h-[90vh] rounded-[20px] md:rounded-[60px] lg:rounded-[80px] relative overflow-hidden shadow-md">
                         <motion.div className="relative"
                             initial={{ opacity: 0, y: 50 }}
@@ -563,230 +578,260 @@ const Home: React.FC = () => {
                             <motion.div
                                 className="absolute inset-0 bg-purple/60 backdrop-blur-sm rounded-[30px] sm:rounded-[40px] lg:rounded-[50px] flex flex-col justify-center items-center p-4 cursor-pointer"
                                 initial={{ opacity: 1 }}
-                                whileHover={{ opacity: 0 }}
                             >
                                 <h3 className="text-xl font-bold text-white mb-2">Prominent Hospital in Delhi </h3>
                                 <p className="text-md text-gray-100 text-center mb-4">We outbrusted a responsive website with modern technologies and top ranking in search index.</p>
 
-                            </motion.div>
-                            </motion.div>
-</motion.div>
-
-                            <motion.div className="lg:col-span-1 space-y-8 flex flex-col h-full">
-                                <motion.div
-                                    className="relative"
-                                    initial={{ opacity: 0, y: 50 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: false, amount: 0.3 }}
-                                    transition={{ duration: 0.6, ease: "easeOut" }}
-                                >
-                                    <img
-                                        src="/images/projects2.jpg"
-                                        alt="Molecule Interaction"
-                                        className="w-full h-60 object-cover rounded-[30px] sm:rounded-[40px] lg:rounded-[50px] shadow-md"
-                                    />
-
-                                    <motion.div
-                                        className="absolute inset-0 bg-purple/60 backdrop-blur-sm rounded-[30px] sm:rounded-[40px] lg:rounded-[50px] flex flex-col justify-center items-center p-4 cursor-pointer"
-                                        initial={{ opacity: 1 }}
-                                        whileHover={{ opacity: 0 }}
-                                    >
-                                        <h3 className="text-xl font-bold text-white mb-2">Prominent Hospital in Delhi </h3>
-                                        <p className="text-md text-gray-100 text-center mb-4">We outbrusted a responsive website with modern technologies and top ranking in search index.</p>
-
-                                    </motion.div>
-                                </motion.div>
-                                <motion.div
-                                    className="relative"
-                                    initial={{ opacity: 0, y: 50 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: false, amount: 0.3 }}
-                                    transition={{ duration: 0.6, ease: "easeOut" }}
-                                >
-                                    <img
-                                        src="/images/projects3.jpg"
-                                        alt="Molecule Interaction"
-                                        className="w-full h-60 object-cover rounded-[30px] sm:rounded-[40px] lg:rounded-[50px] shadow-md"
-                                    />
-                                    <motion.div
-                                        className="absolute inset-0 bg-purple/60 backdrop-blur-sm rounded-[30px] sm:rounded-[40px] lg:rounded-[50px] flex flex-col justify-center items-center p-4 cursor-pointer"
-                                        initial={{ opacity: 1 }}
-                                        whileHover={{ opacity: 0 }}
-                                    >
-                                        <h3 className="text-xl font-bold text-white mb-2"> MENTAL HEALTH CLINIC </h3>
-                                        <p className="text-md text-gray-100 text-center mb-4">We outbrusted a responsive website with modern technologies and top ranking in search index.</p>
-
-                                    </motion.div>
+                                <motion.div className="flex flex-col sm:flex-row justify-center items-center space-y-2 sm:space-y-0 sm:space-x-4 w-full">
+                                    <Link to="https://karunahospital.in" target="_blank" rel="noopener noreferrer" className="bg-white text-purple-600 px-4 py-2 rounded-full text-sm font-semibold hover:bg-purple-100 transition-colors duration-300 w-full sm:w-auto text-center">
+                                        Visit Website
+                                    </Link>
+                                    <Link to="" className="bg-transparent border border-white text-white px-4 py-2 rounded-full text-sm font-semibold transition-colors duration-300 w-full sm:w-auto text-center">
+                                        View Project Details
+                                    </Link>
                                 </motion.div>
                             </motion.div>
+                        </motion.div>
+                    </motion.div>
+
+                    <motion.div className="lg:col-span-1 space-y-8 flex flex-col h-full">
+                        <motion.div
+                            className="relative"
+                            initial={{ opacity: 0, y: 50 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: false, amount: 0.3 }}
+                            transition={{ duration: 0.6, ease: "easeOut" }}
+                        >
+                            <img
+                                src="/images/projects2.jpg"
+                                alt="Molecule Interaction"
+                                className="w-full h-60 object-cover rounded-[30px] sm:rounded-[40px] lg:rounded-[50px] shadow-md"
+                            />
+
                             <motion.div
-                                className="lg:col-span-1 bg-gray-100 w-full h-[60vh] sm:h-[50vh] lg:h-[40vh] rounded-[30px] sm:rounded-[40px] lg:rounded-[50px] relative overflow-visible"
-                                initial={{ opacity: 0, y: 50 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: false, amount: 0.3 }}
-                                transition={{ duration: 0.6, ease: "easeOut" }}
+                                className="absolute inset-0 bg-purple/60 backdrop-blur-sm rounded-[30px] sm:rounded-[40px] lg:rounded-[50px] flex flex-col justify-center items-center p-4 cursor-pointer"
+                                initial={{ opacity: 1 }}
+
                             >
-                                <motion.div className="relative">
-                                    <video
-                                        src="/images/projects4.mp4"
-                                        className="w-full h-full object-cover rounded-[40px] shadow-xl"
-                                        autoPlay
-                                        loop
-                                        muted
-                                        playsInline
-                                    />
-                                    <motion.div
-                                        className="absolute inset-0 bg-purple/60 backdrop-blur-sm rounded-[30px] sm:rounded-[40px] lg:rounded-[50px] flex flex-col justify-center items-center p-4 cursor-pointer"
-                                        initial={{ opacity: 1 }}
-                                        whileHover={{ opacity: 0 }}
-                                    >
-                                        <h3 className="text-xl font-bold text-white mb-2">Prominent Hospital in Delhi </h3>
-                                        <p className="text-md text-gray-100 text-center mb-4">We outbrusted a responsive website with modern technologies and top ranking in search index.</p>
+                                <h3 className="text-xl font-bold text-white mb-2">Reputated Endocrinologist of NCR </h3>
+                                <p className="text-md text-gray-100 text-center mb-4">We crafted a cutting-edge, responsive website that harnesses modern technologies to dominate search rankings and captivate audience.</p>
+                                <motion.div className="flex flex-col sm:flex-row justify-center items-center space-y-2 sm:space-y-0 sm:space-x-4 w-full">
+                                    <Link to="https://drajayaggarwal.in" target="_blank" rel="noopener noreferrer" className="bg-white text-purple-600 px-4 py-2 rounded-full text-sm font-semibold hover:bg-purple-100 transition-colors duration-300 w-full sm:w-auto text-center">
+                                        Visit Website
+                                    </Link>
+                                    <Link to="" className="bg-transparent border border-white text-white px-4 py-2 rounded-full text-sm font-semibold transition-colors duration-300 w-full sm:w-auto text-center">
+                                        View Project Details
+                                    </Link>
+                                </motion.div>
 
-                                    </motion.div>
-                                </motion.div>
-                                <motion.div className="mx-auto mt-12 space-y-6 text-center">
-                                    <h3 className="text-2xl font-bold text-gray-800">Discover Our Impact</h3>
-                                    <p className="text-lg text-gray-600">
-                                        Explore our portfolio of groundbreaking digital health solutions that are transforming patient care and medical innovation.
-                                    </p>
-                                    <p className="text-md text-gray-700">
-                                        From SEO-optimized websites to engaging social media campaigns, see how we're helping health tech leaders connect with their audience.
-                                    </p>
-                                    <motion.button
-                                        className="mt-4 px-6 py-3 border border-r border-solid border-purple text-lg font-semibold text-zinc-800 rounded-full hover:bg-purple hover:text-white transition duration-300 shadow-xl"
-                                        whileHover={{ scale: 1.05 }}
-                                        whileTap={{ scale: 0.95 }}
-                                    >
-                                        View All Projects
-                                    </motion.button>
-                                </motion.div>
                             </motion.div>
-
-
                         </motion.div>
-                    </motion.section>
-
-                    {/* Contact section */}
-
-
-                    <motion.section id="contact"
-                        className="flex flex-col items-center text-center py-20 mt-[28rem] lg:mt-14"
-
-                    >
-
-                        <h2 className="text-5xl lg:text-6xl font-semibold font-fraunces-slab ">Contact Us</h2>
-
-                        <motion.div className="container mx-auto px-4 mt-20 lg:mt-28 p-6 rounded-[30px] bg-lavender/50">
+                        <motion.div
+                            className="relative"
+                            initial={{ opacity: 0, y: 50 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: false, amount: 0.3 }}
+                            transition={{ duration: 0.6, ease: "easeOut" }}
+                        >
+                            <img
+                                src="/images/projects3.jpg"
+                                alt="Molecule Interaction"
+                                className="w-full h-60 object-cover rounded-[30px] sm:rounded-[40px] lg:rounded-[50px] shadow-md"
+                            />
                             <motion.div
-
-                                className="max-w-6xl mx-auto">
-                                <motion.div className="flex flex-col lg:flex-row items-center">
-                                    {/* Image section */}
-                                    <motion.div className="w-full h-5/6 lg:w-1/2 lg:pl-8 mb-8 mt-12 lg:mt-0 lg:mb-0 order-2">
-                                        <img
-                                            src="/images/contact.gif"
-                                            alt="Doctor consultation"
-                                            className="w-full h-full object-cover"
-                                        />
-                                    </motion.div>
-                                    {/* Form section */}
-                                    <motion.div
-                                        className="w-full lg:w-1/2 lg:pr-8 order-1"
-                                    >
-                                        {state.succeeded ? (
-                                            <h3 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 lg:mb-8 text-center lg:text-left mt-4 sm:mt-6 lg:mt-0 px-4 lg:px-0">
-                                                Your Form has been sent successfully!
-                                            </h3>
-                                        ) : (
-                                            <motion.div
-                                                initial={{ opacity: 0, y: 50 }}
-                                                whileInView={{ opacity: 1, y: 0 }}
-                                                viewport={{ once: false, amount: 0.3 }}
-                                                transition={{ duration: 0.6, ease: "easeOut" }}
-                                            >
-
-                                                <h3 className="text-3xl font-bold mb-8 text-center lg:text-left mt-8 lg:mt-0">Schedule Your Appointment</h3>
-
-                                                <form onSubmit={handleSubmit} className="space-y-6">
-                                                    <motion.div className="mb-8">
-                                                        <label htmlFor="name" className="block text-oxford-blue text-sm font-semibold mb-2">Name </label>
-                                                        <input
-                                                            type="text"
-                                                            name="name"
-                                                            id="name"
-                                                            required
-                                                            placeholder="Type Name"
-                                                            className="border-b  bg-peacher  border-platinum py-2 text-lg w-full"
-                                                        />
-                                                    </motion.div>
-
-                                                    <motion.div className="mb-8">
-                                                        <label htmlFor="phone" className="block text-oxford-blue text-sm font-semibold mb-2">Phone</label>
-                                                        <input
-                                                            type="tel"
-                                                            name="phone"
-                                                            id="phone"
-                                                            placeholder="Type Phone Number"
-                                                            className="border-b  bg-peacher  border-platinum py-2 text-lg w-full"
-                                                        />
-                                                    </motion.div>
-
-                                                    <motion.div className="mb-8">
-                                                        <label htmlFor="email" className="block text-oxford-blue text-sm font-semibold mb-2">Email Address </label>
-                                                        <input
-                                                            type="email"
-                                                            name="email"
-                                                            id="email"
-                                                            required
-                                                            placeholder="Type Email Address"
-                                                            className="border-b  bg-peacher  border-platinum py-2 text-lg w-full"
-                                                        />
-                                                        <ValidationError prefix="Email" field="email" errors={state.errors} />
-                                                    </motion.div>
-                                                    <motion.div className="mb-8">
-                                                        <label htmlFor="date" className="block text-oxford-blue text-sm font-semibold mb-2">Date</label>
-                                                        <input
-                                                            type="date"
-                                                            name="date"
-                                                            id="date"
-                                                            required
-                                                            placeholder="Select Date"
-                                                            className="border-b bg-peacher border-platinum py-2 text-lg w-full"
-                                                        />
-                                                        <ValidationError prefix="Date" field="date" errors={state.errors} />
-                                                    </motion.div>
-
-                                                    <motion.div className="mb-8">
-                                                        <label htmlFor="message" className="block text-oxford-blue text-sm font-semibold mb-2">How can I help You?</label>
-                                                        <textarea
-                                                            name="message"
-                                                            id="message"
-                                                            placeholder="Type Description"
-                                                            required
-                                                            className="border-b bg-peacher border-platinum py-2 text-lg w-full max-h-72 min-h-24 h-24 resize-vertical"
-                                                        ></textarea>
-                                                    </motion.div>
-
-                                                    <button
-                                                        type="submit"
-                                                        className="w-full bg-purple text-white font-semibold py-3 px-6 rounded-md hover:text-black/90 hover:bg-lavender transition duration-300 ease-in-out transform hover:scale-105"
-                                                    >
-                                                        Schedule Appointment
-                                                    </button>
-                                                </form>
-
-                                            </motion.div>)}
-                                    </motion.div>
-
-
+                                className="absolute inset-0 bg-purple/60 backdrop-blur-sm rounded-[30px] sm:rounded-[40px] lg:rounded-[50px] flex flex-col justify-center items-center p-4 cursor-pointer"
+                                initial={{ opacity: 1 }}
+                                
+                            >
+                                <h3 className="text-xl font-bold text-white mb-2"> MENTAL HEALTH CLINIC </h3>
+                                <p className="text-md text-gray-100 text-center mb-4">Discover our newly launched, user-friendly website designed to connect you with one of the best psychologist of India</p>
+                                <motion.div className="flex flex-col sm:flex-row justify-center items-center space-y-2 sm:space-y-0 sm:space-x-4 w-full">
+                                    <Link to="https://delhimentalhealth.com" target="_blank" rel="noopener noreferrer" className="bg-white text-purple-600 px-4 py-2 rounded-full text-sm font-semibold hover:bg-purple-100 transition-colors duration-300 w-full sm:w-auto text-center">
+                                        Visit Website
+                                    </Link>
+                                    <Link to="" className="bg-transparent border border-white text-white px-4 py-2 rounded-full text-sm font-semibold transition-colors duration-300 w-full sm:w-auto text-center">
+                                        View Project Details
+                                    </Link>
                                 </motion.div>
+
                             </motion.div>
                         </motion.div>
+                    </motion.div>
+                    <motion.div
+                        className="lg:col-span-1 bg-gray-100 w-full h-[60vh] sm:h-[50vh] lg:h-[40vh] rounded-[30px] sm:rounded-[40px] lg:rounded-[50px] relative overflow-visible"
+                        initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: false, amount: 0.3 }}
+                        transition={{ duration: 0.6, ease: "easeOut" }}
+                    >
+                        <motion.div className="relative">
+                            <video
+                                src="/images/projects4.mp4"
+                                className="w-full h-full object-cover rounded-[40px] shadow-xl"
+                                autoPlay
+                                loop
+                                muted
+                                playsInline
+                            />
+                            <motion.div
+                                className="absolute inset-0 bg-purple/60 backdrop-blur-sm rounded-[30px] sm:rounded-[40px] lg:rounded-[50px] flex flex-col justify-center items-center p-4 cursor-pointer"
+                                initial={{ opacity: 1 }}
+                            >
+                                <h3 className="text-xl font-bold text-white mb-2">Nationally Recognized Neurosurgical Excellence</h3>
+                                <p className="text-md text-gray-100 text-center mb-4">Discover our expertly crafted website, showcasing cutting-edge care and seamless access to top-tier neurosurgical services.</p>
+                                <motion.div className="flex flex-col sm:flex-row justify-center items-center space-y-2 sm:space-y-0 sm:space-x-4 w-full">
+                                    <Link to="https://drgangeshgunjanneuro.com" target="_blank" rel="noopener noreferrer" className="bg-white text-purple-600 px-4 py-2 rounded-full text-sm font-semibold hover:bg-purple-100 transition-colors duration-300 w-full sm:w-auto text-center">
+                                        Visit Website
+                                    </Link>
+                                    <Link to="" className="bg-transparent border border-white text-white px-4 py-2 rounded-full text-sm font-semibold transition-colors duration-300 w-full sm:w-auto text-center">
+                                        View Project Details
+                                    </Link>
+                                </motion.div>
 
-                    </motion.section>
-                </main >
-                )
+                            </motion.div>
+                        </motion.div>
+                        <motion.div className="mx-auto mt-12 space-y-6 text-center">
+                            <h3 className="text-2xl font-bold text-gray-800">Discover Our Impact</h3>
+                            <p className="text-lg text-gray-600">
+                                Explore our portfolio of groundbreaking digital health solutions that are transforming patient care and medical innovation.
+                            </p>
+                            <p className="text-md text-gray-700">
+                                From SEO-optimized websites to engaging social media campaigns, see how we're helping health tech leaders connect with their audience.
+                            </p>
+                            <motion.button
+                                className="mt-4 px-6 py-3 border border-r border-solid border-purple text-lg font-semibold text-zinc-800 rounded-full hover:bg-purple hover:text-white transition duration-300 shadow-xl"
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
+                            >
+                                View All Projects
+                            </motion.button>
+                        </motion.div>
+                    </motion.div>
+
+
+                </motion.div>
+            </motion.section>
+
+            {/* Contact section */}
+
+
+            <motion.section id="contact"
+                className="flex flex-col items-center text-center py-20 mt-[28rem] lg:mt-14"
+
+            >
+
+                <h2 className="text-5xl lg:text-6xl font-semibold font-fraunces-slab ">Contact Us</h2>
+
+                <motion.div className="container mx-auto px-4 mt-20 lg:mt-28 p-6 rounded-[30px] bg-lavender/50">
+                    <motion.div
+
+                        className="max-w-6xl mx-auto">
+                        <motion.div className="flex flex-col lg:flex-row items-center">
+                            {/* Image section */}
+                            <motion.div className="w-full h-5/6 lg:w-1/2 lg:pl-8 mb-8 mt-12 lg:mt-0 lg:mb-0 order-2">
+                                <img
+                                    src="/images/contact.gif"
+                                    alt="Doctor consultation"
+                                    className="w-full h-full object-cover"
+                                />
+                            </motion.div>
+                            {/* Form section */}
+                            <motion.div
+                                className="w-full lg:w-1/2 lg:pr-8 order-1"
+                            >
+                                {state.succeeded ? (
+                                    <h3 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 lg:mb-8 text-center lg:text-left mt-4 sm:mt-6 lg:mt-0 px-4 lg:px-0">
+                                        Your Form has been sent successfully!
+                                    </h3>
+                                ) : (
+                                    <motion.div
+                                        initial={{ opacity: 0, y: 50 }}
+                                        whileInView={{ opacity: 1, y: 0 }}
+                                        viewport={{ once: false, amount: 0.3 }}
+                                        transition={{ duration: 0.6, ease: "easeOut" }}
+                                    >
+
+                                        <h3 className="text-3xl font-bold mb-8 text-center lg:text-left mt-8 lg:mt-0">Schedule Your Appointment</h3>
+
+                                        <form onSubmit={handleSubmit} className="space-y-6">
+                                            <motion.div className="mb-8">
+                                                <label htmlFor="name" className="block text-oxford-blue text-sm font-semibold mb-2">Name </label>
+                                                <input
+                                                    type="text"
+                                                    name="name"
+                                                    id="name"
+                                                    required
+                                                    placeholder="Type Name"
+                                                    className="border-b  bg-peacher  border-platinum py-2 text-lg w-full"
+                                                />
+                                            </motion.div>
+
+                                            <motion.div className="mb-8">
+                                                <label htmlFor="phone" className="block text-oxford-blue text-sm font-semibold mb-2">Phone</label>
+                                                <input
+                                                    type="tel"
+                                                    name="phone"
+                                                    id="phone"
+                                                    placeholder="Type Phone Number"
+                                                    className="border-b  bg-peacher  border-platinum py-2 text-lg w-full"
+                                                />
+                                            </motion.div>
+
+                                            <motion.div className="mb-8">
+                                                <label htmlFor="email" className="block text-oxford-blue text-sm font-semibold mb-2">Email Address </label>
+                                                <input
+                                                    type="email"
+                                                    name="email"
+                                                    id="email"
+                                                    required
+                                                    placeholder="Type Email Address"
+                                                    className="border-b  bg-peacher  border-platinum py-2 text-lg w-full"
+                                                />
+                                                <ValidationError prefix="Email" field="email" errors={state.errors} />
+                                            </motion.div>
+                                            <motion.div className="mb-8">
+                                                <label htmlFor="date" className="block text-oxford-blue text-sm font-semibold mb-2">Date</label>
+                                                <input
+                                                    type="date"
+                                                    name="date"
+                                                    id="date"
+                                                    required
+                                                    placeholder="Select Date"
+                                                    className="border-b bg-peacher border-platinum py-2 text-lg w-full"
+                                                />
+                                                <ValidationError prefix="Date" field="date" errors={state.errors} />
+                                            </motion.div>
+
+                                            <motion.div className="mb-8">
+                                                <label htmlFor="message" className="block text-oxford-blue text-sm font-semibold mb-2">How can I help You?</label>
+                                                <textarea
+                                                    name="message"
+                                                    id="message"
+                                                    placeholder="Type Description"
+                                                    required
+                                                    className="border-b bg-peacher border-platinum py-2 text-lg w-full max-h-72 min-h-24 h-24 resize-vertical"
+                                                ></textarea>
+                                            </motion.div>
+
+                                            <button
+                                                type="submit"
+                                                className="w-full bg-purple text-white font-semibold py-3 px-6 rounded-md hover:text-black/90 hover:bg-lavender transition duration-300 ease-in-out transform hover:scale-105"
+                                            >
+                                                Schedule Appointment
+                                            </button>
+                                        </form>
+
+                                    </motion.div>)}
+                            </motion.div>
+
+
+                        </motion.div>
+                    </motion.div>
+                </motion.div>
+
+            </motion.section>
+        </main >
+    )
 }
 
-                export default Home;
+export default Home;

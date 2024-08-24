@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaEnvelope, FaPhoneAlt } from "react-icons/fa";
-import {motion} from 'framer-motion'
+import { motion } from 'framer-motion'
 import { XIcon, LinkedinIcon, FacebookIcon } from "../components/icons";
-import { FaLocationArrow} from 'react-icons/fa6';
+import { FaLocationArrow } from 'react-icons/fa6';
+import AnimatedLogo from '../components/utility/AnimatedLogo';
 
 
 const FooterLink = ({ href, children }: { href: string, children: React.ReactNode }) => (
@@ -44,18 +45,19 @@ const Footer: React.FC = () => {
     <motion.footer className="w-full bg-gradient-to-l from-black/70 to-black grid-pattern text-white rounded-t-[3rem] shadow-2xl relative overflow-hidden">
       <motion.div className="absolute inset-0 bg-grid-pattern opacity-10"></motion.div>
       <motion.div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
-        <motion.div 
-        className="flex flex-col md:flex-row justify-between"
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: false, amount: 0.3 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
+        <motion.div
+          className="flex flex-col md:flex-row justify-between"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.3 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
         >
           {/* Column 1: About */}
 
           <motion.div className="w-full md:w-1/4 mb-8 md:mb-0 flex flex-col items-start">
-            <h3 className="text-3xl md:text-2xl lg:text-4xl font-semibold ml-2 mb-2">RNA HealthTech</h3>
-            <p className="text-md md:text-md text-white/80 mt-2 mb-2 max-w-xs">Beyond the Pixels</p>
+            {/* <h3 className="text-3xl md:text-2xl lg:text-4xl font-semibold ml-2 mb-2">RNA HealthTech</h3>
+            <p className="text-md md:text-md text-white/80 mt-2 mb-2 max-w-xs">Beyond the Pixels</p> */}
+            <AnimatedLogo color='#fff' />
             <p className="text-sm md:text-lg text-white/80 mt-4 mb-6 max-w-xs">
               Providing exceptional healthcare services with a focus on patient well-being and advancing your medical practices.
             </p>
@@ -90,12 +92,12 @@ const Footer: React.FC = () => {
 
             {/* Column 5: CODE */}
             <motion.div
-             className="w-full md:w-4/5 mt-8 md:mt-0"
-             initial={{ opacity: 0, y: 50 }}
-             whileInView={{ opacity: 1, y: 0 }}
-             viewport={{ once: false, amount: 0.3 }}
-             transition={{ duration: 0.6, ease: "easeOut" }}
-             >
+              className="w-full md:w-4/5 mt-8 md:mt-0"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false, amount: 0.3 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+            >
               <h3 className="text-lg md:text-xl font-semibold mb-2 md:mb-4">Contact</h3>
               <motion.div className="space-y-1 md:space-y-2">
                 {[
