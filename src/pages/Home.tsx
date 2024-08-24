@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { motion } from 'framer-motion';
+import { motion} from 'framer-motion';
 import { FaVirusCovid, FaWhatsapp, FaCircleInfo, FaCirclePlay } from 'react-icons/fa6';
 import Typed from "typed.js"
 import TextCarousel from "../components/utility/TextCarousel";
@@ -7,6 +7,7 @@ import DropdownItem from "../components/utility/DropdownItem";
 import TinderCard from "react-tinder-card";
 import { ValidationError, useForm } from "@formspree/react";
 import AvatarExample, { User } from "../components/utility/AvatarExample";
+import TeamModal from "../components/utility/TeamModal";
 
 
 interface Gif {
@@ -58,6 +59,11 @@ const Home: React.FC = () => {
     // const [scrollY, setScrollY] = useState(0);
     // const ref = useRef<HTMLDivElement>(null);
     const el = useRef(null);
+    const ref = useRef(null);
+    const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+    const [state, handleSubmit] = useForm('xblrdjdp');
+    console.log(state);
+
 
 
 
@@ -180,17 +186,18 @@ const Home: React.FC = () => {
     ]);
 
     const [lastInteraction, setLastInteraction] = useState(Date.now());
+    console.log(lastInteraction);
     const cardRefs = useRef<any[]>([]);
 
-    useEffect(() => {
-        const intervalId = setInterval(() => {
-            if (Date.now() - lastInteraction > 10000 && texts2.length > 0) {
-                const direction = Math.random() < 0.5 ? "left" : "right";
-                cardRefs.current[texts2.length - 1]?.swipe(direction);
-            }
-        }, 5000);
-        return () => clearInterval(intervalId);
-    }, [texts2, lastInteraction]);
+    // useEffect(() => {
+    //     const intervalId = setInterval(() => {
+    //         if (Date.now() - lastInteraction > 10000 && texts2.length > 0) {
+    //             const direction = Math.random() < 0.5 ? "left" : "right";
+    //             cardRefs.current[texts2.length - 1]?.swipe(direction);
+    //         }
+    //     }, 5000);
+    //     return () => clearInterval(intervalId);
+    // }, [texts2, lastInteraction]);
 
     const onSwipe = (direction: string, title: string) => {
         console.log('You swiped: ' + direction + ' on ' + title);
@@ -203,18 +210,23 @@ const Home: React.FC = () => {
     }
 
 
-    const [state, handleSubmit] = useForm('xblrdjdp');
-    console.log(state);
+  
+    
 
 
 
     return (
         <main className="flex-grow px-4 py-8 sm:px-6 md:px-8 lg:px-12">
-            {/* landing section */}
+
+            {/* Landing section */}
+
             <motion.div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-purple to-verypurple rounded-br-[70%] z-0 lg:hidden"></motion.div>
             {/* <motion.div className="absolute top-0 right-0 w-full h-full bg-contain bg-no-repeat bg-right-top opacity-10 md:opacity-20 z-0" style={{ backgroundImage: "url('/images/dr-ajay-aggarwal.png')" }}></motion.div> */}
 
-            <motion.section className="mb-12 flex flex-col min-h-screen text-center items-center relative">
+            <motion.section id="landing"
+                className="mb-12 flex flex-col min-h-screen text-center items-center relative"
+
+            >
 
                 <motion.div className="w-full flex flex-col lg:flex-row items-center justify-between mb-8 lg:mb-16 z-10">
                     <motion.div
@@ -262,7 +274,13 @@ const Home: React.FC = () => {
                     </motion.div>
                 </motion.div>
                 <motion.div className="w-full bg-gray-100/80 backdrop-blur-md mb-12 rounded-t-[40px] p-6 lg:p-8 lg:mt-48 z-10">
-                    <motion.div className="flex flex-col items-center lg:flex-row lg:items-start">
+                    <motion.div
+                        className="flex flex-col items-center lg:flex-row lg:items-start"
+                        initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: false, amount: 0.3 }}
+                        transition={{ duration: 0.6, ease: "easeOut" }}
+                    >
                         <motion.div className="w-full lg:w-1/3 mb-6 lg:mb-0 lg:mr-8 text-center">
                             <motion.div className="text-5xl lg:text-6xl font-bold text-gray-800">10+</motion.div>
                             <motion.div className="text-sm text-gray-600">projects delivered</motion.div>
@@ -282,13 +300,29 @@ const Home: React.FC = () => {
 
             </motion.section>
 
-            {/* mission section  */}
 
 
-            <motion.section id="mission" className="flex flex-col items-center justify-center">
+
+            {/*  About Section */}
+
+
+
+
+            <motion.section
+                id="mission"
+                className="flex flex-col items-center justify-center"
+
+            >
                 <motion.div className="bg-white text-black p-12 flex flex-col md:flex-row">
 
-                    <motion.div className="w-full md:w-1/2 pr-0 lg:pr-12 mb-12 md:mb-0">
+                    <motion.div
+
+                        className="w-full md:w-1/2 pr-0 lg:pr-12 mb-12 md:mb-0"
+                        initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: false, amount: 0.3 }}
+                        transition={{ duration: 0.6, ease: "easeOut" }}
+                    >
                         <h1 className="text-4xl md:text-5xl font-bold mb-6">
                             Empowering the Future of Digital Health
                             <span className="text-gray-400"> with Innovative Solutions</span>
@@ -342,8 +376,17 @@ const Home: React.FC = () => {
             </motion.section>
 
 
-            {/*  service cards section */}
-            <motion.section id="cards" className="px-6 py-20 lg:py-28 relative overflow-hidden z-10">
+            {/*  Service cards section */}
+
+
+            <motion.section
+                id="cards"
+                className="px-6 py-20 lg:py-28 relative overflow-hidden z-10"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false, amount: 0.3 }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+            >
                 <h2 className="text-5xl lg:text-6xl font-semibold text-center font-fraunces-slab">Our Services</h2>
 
                 {/* TextCarousel positioned as a background  */}
@@ -375,18 +418,23 @@ const Home: React.FC = () => {
 
 
             {/* Overview section */}
+
+
             <motion.section
                 id="overview"
                 className="flex flex-col items-center"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
+
             >
                 <h2 className="text-5xl lg:text-6xl font-semibold text-center font-fraunces-slab mb-12">Our Mission</h2>
 
                 <motion.div className="grid grid-cols-1 lg:grid-cols-4 items-start px-4 md:px-6 lg:px-8 lg:mt-32">
-                    <motion.div className="lg:col-span-2 bg-gray-100 w-full lg:w-[35vw] h-[75vh] md:h-[80vh] lg:h-[90vh] rounded-[20px] md:rounded-[60px] lg:rounded-[80px] relative overflow-hidden">
+                    <motion.div
+                        className="lg:col-span-2 bg-gray-100 w-full lg:w-[35vw] h-[75vh] md:h-[80vh] lg:h-[90vh] rounded-[20px] md:rounded-[60px] lg:rounded-[80px] relative overflow-hidden"
+                        initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: false, amount: 0.3 }}
+                        transition={{ duration: 0.6, ease: "easeOut" }}
+                    >
                         <video
                             src="/images/gif.mp4"
                             className="w-full h-full object-cover"
@@ -395,7 +443,14 @@ const Home: React.FC = () => {
                             muted
                             playsInline
                         />
-                        <motion.div className="absolute flex flex-row gap-4 top-20 right-4">
+                        <motion.div
+                            ref={ref}
+                            className="absolute flex flex-row gap-4 top-20 right-4"
+                            initial={{ opacity: 0, y: 50 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: false, amount: 0.3 }}
+                            transition={{ duration: 0.6, ease: "easeOut" }}
+                        >
                             {[FaCircleInfo, FaCirclePlay].map((Icon, index) => (
                                 <motion.div
                                     key={index}
@@ -407,7 +462,13 @@ const Home: React.FC = () => {
                                 </motion.div>
                             ))}
                         </motion.div>
-                        <motion.div className="absolute flex flex-col sm:flex-row justify-end bottom-2 sm:bottom-4 md:bottom-6  lg:right-56 left-4 lg:left-4 text-center p-0 lg:p-2 rounded-[15px] md:rounded-[20px] lg:rounded-[40px] bg-white/30 ring-1 ring-zinc-100/50 backdrop-blur-md shadow-xl">
+                        <motion.div
+                            className="absolute flex flex-col sm:flex-row justify-end bottom-2 sm:bottom-4 md:bottom-6  lg:right-56 left-4 lg:left-4 text-center p-0 lg:p-2 rounded-[15px] md:rounded-[20px] lg:rounded-[40px] bg-white/30 ring-1 ring-zinc-100/50 backdrop-blur-md shadow-xl"
+                            initial={{ opacity: 0, y: 50 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: false, amount: 0.3 }}
+                            transition={{ duration: 0.6, ease: "easeOut" }}
+                        >
 
 
                             <div className="mb-2 sm:mb-0 sm:mr-4">
@@ -415,12 +476,25 @@ const Home: React.FC = () => {
                             </div>
                             <motion.div className="flex flex-col items-center">
                                 <h3 className="text-sm sm:text-base lg:text-lg font-bold mb-1 sm:mb-2 text-white">Meet Our Team of Experts</h3>
-                                <button className="text-xs sm:text-sm text-black font-semibold bg-white rounded-full px-3 lg:px-4 py-2 lg:py-2 mb-2 shadow-md hover:bg-gray-100 transition-colors duration-300">Meet Team</button>
+                                <button
+                                className="text-xs sm:text-sm text-black font-semibold bg-white rounded-full px-3 lg:px-4 py-2 lg:py-2 mb-2 shadow-md hover:bg-gray-100 transition-colors duration-300"
+                                onClick={() => setIsModalOpen(true)}
+                                >
+                                    Meet Team</button>
+                                  
                             </motion.div>
                         </motion.div>
                     </motion.div>
 
-                    <motion.div className="lg:col-span-1 mt-12 lg:mt-0 lg:mr-24 flex flex-col h-full">
+                    <TeamModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+
+                    <motion.div
+                        className="lg:col-span-1 mt-12 lg:mt-0 lg:mr-24 flex flex-col h-full"
+                        initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: false, amount: 0.3 }}
+                        transition={{ duration: 0.6, ease: "easeOut" }}
+                    >
                         <motion.div className="text-center mb-12">
                             <h2 className="text-2xl font-bold mb-6">Driven by a rich history of expertise and a relentless pursuit of excellence</h2>
                             <button className="text-white text-lg font-semibold rounded-[40px] bg-black py-2 px-6 shadow-md">
@@ -436,7 +510,13 @@ const Home: React.FC = () => {
 
                     </motion.div>
 
-                    <motion.div className="lg:col-span-1 bg-gray-100 w-full h-[60vh] sm:h-[50vh] lg:h-[40vh] rounded-[30px] sm:rounded-[40px] lg:rounded-[50px] relative overflow-visible mb-24 mt-24 lg:mb-32 lg:mt-0">
+                    <motion.div
+                        className="lg:col-span-1 bg-gray-100 w-full h-[60vh] sm:h-[50vh] lg:h-[40vh] rounded-[30px] sm:rounded-[40px] lg:rounded-[50px] relative overflow-visible mb-24 mt-24 lg:mb-32 lg:mt-0"
+                        initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: false, amount: 0.3 }}
+                        transition={{ duration: 0.6, ease: "easeOut" }}
+                    >
                         <img
                             src="/images/mol.jpg"
                             alt="Molecule Interaction"
@@ -455,113 +535,258 @@ const Home: React.FC = () => {
                 </motion.div>
             </motion.section>
 
+            {/* Portfolio section */}
 
-            {/* contact section */}
-            <motion.section id="contact" className="flex flex-col items-center text-center py-20 mt-14">
 
-                <h2 className="text-5xl lg:text-6xl font-semibold font-fraunces-slab ">Contact Us</h2>
+            <motion.section
+                id="portfolio"
+                className="flex flex-col items-center mt-12"
 
-                <motion.div className="container mx-auto px-4 mt-20 lg:mt-28 p-6 rounded-[30px] bg-lavender/50">
-                    <motion.div className="max-w-6xl mx-auto">
-                        <motion.div className="flex flex-col lg:flex-row items-center">
-                            {/* Image section */}
-                            <motion.div className="w-full h-5/6 lg:w-1/2 lg:pl-8 mb-8 mt-12 lg:mt-0 lg:mb-0 order-2">
-                                <img
-                                    src="/images/contact.gif"
-                                    alt="Doctor consultation"
-                                    className="w-full h-full object-cover"
-                                />
+            >
+                <h2 className="text-5xl lg:text-6xl font-semibold text-center font-fraunces-slab mb-12">Portfolio</h2>
+                <motion.div className="grid grid-cols-1 gap-8 lg:grid-cols-4 items-start px-4 md:px-6 lg:px-8 lg:mt-32">
+                    <motion.div className="lg:col-span-2 bg-gray-100 w-full lg:w-[35vw] h-[75vh] md:h-[80vh] lg:h-[90vh] rounded-[20px] md:rounded-[60px] lg:rounded-[80px] relative overflow-hidden shadow-md">
+                        <motion.div className="relative"
+                            initial={{ opacity: 0, y: 50 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: false, amount: 0.3 }}
+                            transition={{ duration: 0.6, ease: "easeOut" }}
+                        >
+                            <video
+                                src="/images/projects1.mp4"
+                                className="w-full h-full object-cover"
+                                autoPlay
+                                loop
+                                muted
+                                playsInline
+                            />
+                            <motion.div
+                                className="absolute inset-0 bg-purple/60 backdrop-blur-sm rounded-[30px] sm:rounded-[40px] lg:rounded-[50px] flex flex-col justify-center items-center p-4 cursor-pointer"
+                                initial={{ opacity: 1 }}
+                                whileHover={{ opacity: 0 }}
+                            >
+                                <h3 className="text-xl font-bold text-white mb-2">Prominent Hospital in Delhi </h3>
+                                <p className="text-md text-gray-100 text-center mb-4">We outbrusted a responsive website with modern technologies and top ranking in search index.</p>
+
                             </motion.div>
-                            {/* Form section */}
-                            <motion.div className="w-full lg:w-1/2 lg:pr-8 order-1">
-                                {state.succeeded ? (
-                                    <h3 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 lg:mb-8 text-center lg:text-left mt-4 sm:mt-6 lg:mt-0 px-4 lg:px-0">
-                                        Your Form has been sent successfully!
-                                    </h3>
-                                ) : (
-                                    <motion.div>
+                            </motion.div>
+</motion.div>
 
-                                        <h3 className="text-3xl font-bold mb-8 text-center lg:text-left mt-8 lg:mt-0">Schedule Your Appointment</h3>
+                            <motion.div className="lg:col-span-1 space-y-8 flex flex-col h-full">
+                                <motion.div
+                                    className="relative"
+                                    initial={{ opacity: 0, y: 50 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: false, amount: 0.3 }}
+                                    transition={{ duration: 0.6, ease: "easeOut" }}
+                                >
+                                    <img
+                                        src="/images/projects2.jpg"
+                                        alt="Molecule Interaction"
+                                        className="w-full h-60 object-cover rounded-[30px] sm:rounded-[40px] lg:rounded-[50px] shadow-md"
+                                    />
 
-                                        <form onSubmit={handleSubmit} className="space-y-6">
-                                            <motion.div className="mb-8">
-                                                <label htmlFor="name" className="block text-oxford-blue text-sm font-semibold mb-2">Name </label>
-                                                <input
-                                                    type="text"
-                                                    name="name"
-                                                    id="name"
-                                                    required
-                                                    placeholder="Type Name"
-                                                    className="border-b  bg-peacher  border-platinum py-2 text-lg w-full"
-                                                />
-                                            </motion.div>
+                                    <motion.div
+                                        className="absolute inset-0 bg-purple/60 backdrop-blur-sm rounded-[30px] sm:rounded-[40px] lg:rounded-[50px] flex flex-col justify-center items-center p-4 cursor-pointer"
+                                        initial={{ opacity: 1 }}
+                                        whileHover={{ opacity: 0 }}
+                                    >
+                                        <h3 className="text-xl font-bold text-white mb-2">Prominent Hospital in Delhi </h3>
+                                        <p className="text-md text-gray-100 text-center mb-4">We outbrusted a responsive website with modern technologies and top ranking in search index.</p>
 
-                                            <motion.div className="mb-8">
-                                                <label htmlFor="phone" className="block text-oxford-blue text-sm font-semibold mb-2">Phone</label>
-                                                <input
-                                                    type="tel"
-                                                    name="phone"
-                                                    id="phone"
-                                                    placeholder="Type Phone Number"
-                                                    className="border-b  bg-peacher  border-platinum py-2 text-lg w-full"
-                                                />
-                                            </motion.div>
+                                    </motion.div>
+                                </motion.div>
+                                <motion.div
+                                    className="relative"
+                                    initial={{ opacity: 0, y: 50 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: false, amount: 0.3 }}
+                                    transition={{ duration: 0.6, ease: "easeOut" }}
+                                >
+                                    <img
+                                        src="/images/projects3.jpg"
+                                        alt="Molecule Interaction"
+                                        className="w-full h-60 object-cover rounded-[30px] sm:rounded-[40px] lg:rounded-[50px] shadow-md"
+                                    />
+                                    <motion.div
+                                        className="absolute inset-0 bg-purple/60 backdrop-blur-sm rounded-[30px] sm:rounded-[40px] lg:rounded-[50px] flex flex-col justify-center items-center p-4 cursor-pointer"
+                                        initial={{ opacity: 1 }}
+                                        whileHover={{ opacity: 0 }}
+                                    >
+                                        <h3 className="text-xl font-bold text-white mb-2"> MENTAL HEALTH CLINIC </h3>
+                                        <p className="text-md text-gray-100 text-center mb-4">We outbrusted a responsive website with modern technologies and top ranking in search index.</p>
 
-                                            <motion.div className="mb-8">
-                                                <label htmlFor="email" className="block text-oxford-blue text-sm font-semibold mb-2">Email Address </label>
-                                                <input
-                                                    type="email"
-                                                    name="email"
-                                                    id="email"
-                                                    required
-                                                    placeholder="Type Email Address"
-                                                    className="border-b  bg-peacher  border-platinum py-2 text-lg w-full"
-                                                />
-                                                <ValidationError prefix="Email" field="email" errors={state.errors} />
-                                            </motion.div>
-                                            <motion.div className="mb-8">
-                                                <label htmlFor="date" className="block text-oxford-blue text-sm font-semibold mb-2">Date</label>
-                                                <input
-                                                    type="date"
-                                                    name="date"
-                                                    id="date"
-                                                    required
-                                                    placeholder="Select Date"
-                                                    className="border-b bg-peacher border-platinum py-2 text-lg w-full"
-                                                />
-                                                <ValidationError prefix="Date" field="date" errors={state.errors} />
-                                            </motion.div>
+                                    </motion.div>
+                                </motion.div>
+                            </motion.div>
+                            <motion.div
+                                className="lg:col-span-1 bg-gray-100 w-full h-[60vh] sm:h-[50vh] lg:h-[40vh] rounded-[30px] sm:rounded-[40px] lg:rounded-[50px] relative overflow-visible"
+                                initial={{ opacity: 0, y: 50 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: false, amount: 0.3 }}
+                                transition={{ duration: 0.6, ease: "easeOut" }}
+                            >
+                                <motion.div className="relative">
+                                    <video
+                                        src="/images/projects4.mp4"
+                                        className="w-full h-full object-cover rounded-[40px] shadow-xl"
+                                        autoPlay
+                                        loop
+                                        muted
+                                        playsInline
+                                    />
+                                    <motion.div
+                                        className="absolute inset-0 bg-purple/60 backdrop-blur-sm rounded-[30px] sm:rounded-[40px] lg:rounded-[50px] flex flex-col justify-center items-center p-4 cursor-pointer"
+                                        initial={{ opacity: 1 }}
+                                        whileHover={{ opacity: 0 }}
+                                    >
+                                        <h3 className="text-xl font-bold text-white mb-2">Prominent Hospital in Delhi </h3>
+                                        <p className="text-md text-gray-100 text-center mb-4">We outbrusted a responsive website with modern technologies and top ranking in search index.</p>
 
-                                            <motion.div className="mb-8">
-                                                <label htmlFor="message" className="block text-oxford-blue text-sm font-semibold mb-2">How can I help You?</label>
-                                                <textarea
-                                                    name="message"
-                                                    id="message"
-                                                    placeholder="Type Description"
-                                                    required
-                                                    className="border-b bg-peacher border-platinum py-2 text-lg w-full max-h-72 min-h-24 h-24 resize-vertical"
-                                                ></textarea>
-                                            </motion.div>
-
-                                            <button
-                                                type="submit"
-                                                className="w-full bg-purple text-white font-semibold py-3 px-6 rounded-md hover:text-black/90 hover:bg-lavender transition duration-300 ease-in-out transform hover:scale-105"
-                                            >
-                                                Schedule Appointment
-                                            </button>
-                                        </form>
-
-                                    </motion.div>)}
+                                    </motion.div>
+                                </motion.div>
+                                <motion.div className="mx-auto mt-12 space-y-6 text-center">
+                                    <h3 className="text-2xl font-bold text-gray-800">Discover Our Impact</h3>
+                                    <p className="text-lg text-gray-600">
+                                        Explore our portfolio of groundbreaking digital health solutions that are transforming patient care and medical innovation.
+                                    </p>
+                                    <p className="text-md text-gray-700">
+                                        From SEO-optimized websites to engaging social media campaigns, see how we're helping health tech leaders connect with their audience.
+                                    </p>
+                                    <motion.button
+                                        className="mt-4 px-6 py-3 border border-r border-solid border-purple text-lg font-semibold text-zinc-800 rounded-full hover:bg-purple hover:text-white transition duration-300 shadow-xl"
+                                        whileHover={{ scale: 1.05 }}
+                                        whileTap={{ scale: 0.95 }}
+                                    >
+                                        View All Projects
+                                    </motion.button>
+                                </motion.div>
                             </motion.div>
 
 
                         </motion.div>
-                    </motion.div>
-                </motion.div>
+                    </motion.section>
 
-            </motion.section>
-        </main >
-    )
+                    {/* Contact section */}
+
+
+                    <motion.section id="contact"
+                        className="flex flex-col items-center text-center py-20 mt-[28rem] lg:mt-14"
+
+                    >
+
+                        <h2 className="text-5xl lg:text-6xl font-semibold font-fraunces-slab ">Contact Us</h2>
+
+                        <motion.div className="container mx-auto px-4 mt-20 lg:mt-28 p-6 rounded-[30px] bg-lavender/50">
+                            <motion.div
+
+                                className="max-w-6xl mx-auto">
+                                <motion.div className="flex flex-col lg:flex-row items-center">
+                                    {/* Image section */}
+                                    <motion.div className="w-full h-5/6 lg:w-1/2 lg:pl-8 mb-8 mt-12 lg:mt-0 lg:mb-0 order-2">
+                                        <img
+                                            src="/images/contact.gif"
+                                            alt="Doctor consultation"
+                                            className="w-full h-full object-cover"
+                                        />
+                                    </motion.div>
+                                    {/* Form section */}
+                                    <motion.div
+                                        className="w-full lg:w-1/2 lg:pr-8 order-1"
+                                    >
+                                        {state.succeeded ? (
+                                            <h3 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 lg:mb-8 text-center lg:text-left mt-4 sm:mt-6 lg:mt-0 px-4 lg:px-0">
+                                                Your Form has been sent successfully!
+                                            </h3>
+                                        ) : (
+                                            <motion.div
+                                                initial={{ opacity: 0, y: 50 }}
+                                                whileInView={{ opacity: 1, y: 0 }}
+                                                viewport={{ once: false, amount: 0.3 }}
+                                                transition={{ duration: 0.6, ease: "easeOut" }}
+                                            >
+
+                                                <h3 className="text-3xl font-bold mb-8 text-center lg:text-left mt-8 lg:mt-0">Schedule Your Appointment</h3>
+
+                                                <form onSubmit={handleSubmit} className="space-y-6">
+                                                    <motion.div className="mb-8">
+                                                        <label htmlFor="name" className="block text-oxford-blue text-sm font-semibold mb-2">Name </label>
+                                                        <input
+                                                            type="text"
+                                                            name="name"
+                                                            id="name"
+                                                            required
+                                                            placeholder="Type Name"
+                                                            className="border-b  bg-peacher  border-platinum py-2 text-lg w-full"
+                                                        />
+                                                    </motion.div>
+
+                                                    <motion.div className="mb-8">
+                                                        <label htmlFor="phone" className="block text-oxford-blue text-sm font-semibold mb-2">Phone</label>
+                                                        <input
+                                                            type="tel"
+                                                            name="phone"
+                                                            id="phone"
+                                                            placeholder="Type Phone Number"
+                                                            className="border-b  bg-peacher  border-platinum py-2 text-lg w-full"
+                                                        />
+                                                    </motion.div>
+
+                                                    <motion.div className="mb-8">
+                                                        <label htmlFor="email" className="block text-oxford-blue text-sm font-semibold mb-2">Email Address </label>
+                                                        <input
+                                                            type="email"
+                                                            name="email"
+                                                            id="email"
+                                                            required
+                                                            placeholder="Type Email Address"
+                                                            className="border-b  bg-peacher  border-platinum py-2 text-lg w-full"
+                                                        />
+                                                        <ValidationError prefix="Email" field="email" errors={state.errors} />
+                                                    </motion.div>
+                                                    <motion.div className="mb-8">
+                                                        <label htmlFor="date" className="block text-oxford-blue text-sm font-semibold mb-2">Date</label>
+                                                        <input
+                                                            type="date"
+                                                            name="date"
+                                                            id="date"
+                                                            required
+                                                            placeholder="Select Date"
+                                                            className="border-b bg-peacher border-platinum py-2 text-lg w-full"
+                                                        />
+                                                        <ValidationError prefix="Date" field="date" errors={state.errors} />
+                                                    </motion.div>
+
+                                                    <motion.div className="mb-8">
+                                                        <label htmlFor="message" className="block text-oxford-blue text-sm font-semibold mb-2">How can I help You?</label>
+                                                        <textarea
+                                                            name="message"
+                                                            id="message"
+                                                            placeholder="Type Description"
+                                                            required
+                                                            className="border-b bg-peacher border-platinum py-2 text-lg w-full max-h-72 min-h-24 h-24 resize-vertical"
+                                                        ></textarea>
+                                                    </motion.div>
+
+                                                    <button
+                                                        type="submit"
+                                                        className="w-full bg-purple text-white font-semibold py-3 px-6 rounded-md hover:text-black/90 hover:bg-lavender transition duration-300 ease-in-out transform hover:scale-105"
+                                                    >
+                                                        Schedule Appointment
+                                                    </button>
+                                                </form>
+
+                                            </motion.div>)}
+                                    </motion.div>
+
+
+                                </motion.div>
+                            </motion.div>
+                        </motion.div>
+
+                    </motion.section>
+                </main >
+                )
 }
 
-export default Home;
+                export default Home;

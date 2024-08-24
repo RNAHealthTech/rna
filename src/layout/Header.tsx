@@ -73,13 +73,13 @@ const Header: React.FC = () => {
                             <img src="/logo.png" alt="RNA Health Tech"
                                 className={`transition-all duration-300 ${isScrolled
                                     ? 'h-12 w-18 md:h-12 md:w-28 lg:h-18 lg:w-72'
-                                    : 'h-14 w-38 md:h-16 md:w-32 lg:h-18 lg:w-80'
+                                    : 'h-14 w-30 md:h-16 md:w-32 lg:h-18 lg:w-80'
                                     }`} />
                         </Link>
 
 
                         <button
-                            className='hidden md:flex md:items-center md:ml-28 md:relative md:z-100'
+                            className="hidden sm:hidden md:flex md:items-center md:ml-28 md:relative md:z-100"
                             onClick={toggleMenu}
                             aria-label='menu'
 
@@ -96,7 +96,7 @@ const Header: React.FC = () => {
                                         strokeLinecap="round"
                                         strokeLinejoin="round"
                                         strokeWidth={2}
-                                        d="M6 18L18 6M6 6l12 12"
+                                        d="M12 36L36 12M12 12l24 24"
                                     />
                                 ) : (
                                     <g>
@@ -126,22 +126,55 @@ const Header: React.FC = () => {
                             </svg>
                         </button>
                     </div>
-                    
+
                     <button
-                        className="md:hidden relative z-20"
+                        className="fixed md:hidden relative z-20"
                         onClick={toggleMenu}
                         aria-label="Toggle menu"
                     >
                         <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={isMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} />
+                            {/* <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={isMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} /> */}
+                            {isMenuOpen ? (
+                                <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth={2}
+                                    d="M12 36L36 12M12 12l24 24"
+                                />
+                            ) : (
+                                <g>
+                                    <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        strokeWidth={2}
+                                        d="M4 8h28"
+                                        className="origin-center"
+                                    />
+                                    <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        strokeWidth={2}
+                                        d="M6 18h20"
+                                        className="origin-center"
+                                    />
+                                    <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        strokeWidth={2}
+                                        d="M8 28h12"
+                                        className="origin-center"
+                                    />
+                                </g>
+                            )}
+
                         </svg>
                     </button>
 
 
                     {/* Mobile menu */}
 
-                    {isMenuOpen && (<div className="fixed inset-0 bg-white z-10 flex flex-col transition-none">
-                        <div className="p-4 pt-16">
+                    {isMenuOpen && (<div className="fixed inset-x-0 top-0 bg-gray-100 z-10 flex flex-col w-full md:w-1/2 transition-none min-h-screen overflow-y-auto">
+                        <div className="p-4 pt-16 flex flex-col flex-grow">
                             <button
                                 className="absolute top-4 right-4 text-gray-800 hover:text-foreground focus:outline-none"
                                 onClick={() => setIsMenuOpen(false)}
@@ -159,7 +192,7 @@ const Header: React.FC = () => {
                                 What We Do?
                             </button>
                         </div>
-                        <div className="mt-auto p-4 lg:hidden">
+                        <div className="mt-12 p-4 lg:hidden">
                             <button onClick={handleLinkClick} className="w-full border-2 border-solid border-purple text-purple px-6 py-2 rounded-[40px] hover:bg-purple transition-colors text-lg font-semibold">
                                 <Link to='/contact'>Get In Touch</Link>
                             </button>

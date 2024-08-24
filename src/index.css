@@ -11,19 +11,26 @@
 @layer base {
   :root {
     --purple: 258 52% 56%;
-    --lightpurple:  258 52% 85%;
+    --lightpurple: 258 52% 85%;
     --verylight: 258 52% 95%;
     --lavender: 240 25% 84%;
     --grey: 0 0% 96%;
     --white: 0 0% 100%;
     --black: 0 0% 0%;
   }
+
   * {
     @apply m-0 p-0 box-border;
   }
 
   body {
-    @apply m-0 font-pt-serif-regular font-fraunces-slab font-work-sans-slab antialiased  overflow-x-hidden ;
+    @apply m-0 font-pt-serif-regular font-fraunces-slab font-work-sans-slab antialiased overflow-x-hidden;
+  }
+
+  @layer components {
+    .shadow-text {
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
   }
 }
 
