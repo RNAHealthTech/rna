@@ -613,8 +613,8 @@ const Home: React.FC = () => {
                                 initial={{ opacity: 1 }}
 
                             >
-                                <h3 className="text-xl font-bold text-white mb-2">Reputated Endocrinologist of NCR </h3>
-                                <p className="text-md text-gray-100 text-center mb-4">We crafted a cutting-edge, responsive website that harnesses modern technologies to dominate search rankings and captivate audience.</p>
+                                <h3 className="text-xl font-bold text-white mb-2">Endocrinologist in NCR </h3>
+                                <p className="text-md text-gray-100 text-center mb-4">We crafted a cutting-edge, responsive website that dominate search rankings and captivate audience.</p>
                                 <motion.div className="flex flex-col sm:flex-row justify-center items-center space-y-2 sm:space-y-0 sm:space-x-4 w-full">
                                     <Link to="https://drajayaggarwal.in" target="_blank" rel="noopener noreferrer" className="bg-white text-purple-600 px-4 py-2 rounded-full text-sm font-semibold hover:bg-purple-100 transition-colors duration-300 w-full sm:w-auto text-center">
                                         Visit Website
@@ -677,7 +677,7 @@ const Home: React.FC = () => {
                                 className="absolute inset-0 bg-purple/60 backdrop-blur-sm rounded-[30px] sm:rounded-[40px] lg:rounded-[50px] flex flex-col justify-center items-center p-4 cursor-pointer"
                                 initial={{ opacity: 1 }}
                             >
-                                <h3 className="text-xl font-bold text-white mb-2">Nationally Recognized Neurosurgical Excellence</h3>
+                                <h3 className="text-xl font-bold text-white mb-2">Nationally Recognized Neurosurgon's Site</h3>
                                 <p className="text-md text-gray-100 text-center mb-4">Discover our expertly crafted website, showcasing cutting-edge care and seamless access to top-tier neurosurgical services.</p>
                                 <motion.div className="flex flex-col sm:flex-row justify-center items-center space-y-2 sm:space-y-0 sm:space-x-4 w-full">
                                     <Link to="https://drgangeshgunjanneuro.com" target="_blank" rel="noopener noreferrer" className="bg-white text-purple-600 px-4 py-2 rounded-full text-sm font-semibold hover:bg-purple-100 transition-colors duration-300 w-full sm:w-auto text-center">
