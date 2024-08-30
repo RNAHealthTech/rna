@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion } from 'framer-motion';
-import { FaVirusCovid, FaWhatsapp, FaCircleInfo, FaCirclePlay } from 'react-icons/fa6';
-import Typed from "typed.js"
+import {FaCircleInfo, FaCirclePlay } from 'react-icons/fa6';
 import TextCarousel from "../components/utility/TextCarousel";
 import DropdownItem from "../components/utility/DropdownItem";
 import TinderCard from "react-tinder-card";
@@ -9,6 +8,7 @@ import { ValidationError, useForm } from "@formspree/react";
 import AvatarExample, { User } from "../components/utility/AvatarExample";
 import TeamModal from "../components/utility/TeamModal";
 import { Link } from "react-router-dom";
+import LandingCarousel from "../components/utility/LandingCarousel";
 
 interface Gif {
     image: string,
@@ -72,7 +72,7 @@ const Home: React.FC = () => {
 
     // const [scrollY, setScrollY] = useState(0);
     // const ref = useRef<HTMLDivElement>(null);
-    const el = useRef(null);
+    // const el = useRef(null);
     const ref = useRef(null);
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
     const [state, handleSubmit] = useForm('xblrdjdp');
@@ -102,23 +102,6 @@ const Home: React.FC = () => {
             }
         };
     }, [isMobile]);
-
-
-
-    useEffect(() => {
-        const typed = new Typed(el.current, {
-            strings: ['Want your personal Stunning Website...', 'Read Case Studies...', 'Generate Marketing Stratagies...', 'Improved your visibility with SEO'],
-            typeSpeed: 40,
-            backSpeed: 50,
-            attr: 'placeholder',
-            loop: true
-        });
-
-        return () => {
-            typed.destroy();
-        };
-    }, []);
-
 
 
     const texts: string[] = [
@@ -237,11 +220,10 @@ const Home: React.FC = () => {
     return (
         <main className="flex-grow px-4 py-8 sm:px-6 md:px-8 lg:px-12">
 
-            {/* Landing section */}
 
-            <motion.div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-purple to-purple/80 rounded-br-[50%] z-0 lg:hidden"></motion.div>
-            {/* <motion.div className="absolute top-0 right-0 w-full h-full bg-contain bg-no-repeat bg-right-top opacity-10 md:opacity-20 z-0" style={{ backgroundImage: "url('/images/dr-ajay-aggarwal.png')" }}></motion.div> */}
 
+            <motion.div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-purple to-purple/80 rounded-br-[50%] z-0"></motion.div>
+            {/* {/* Landing section 
             <motion.section id="landing"
                 className="mb-12 flex flex-col min-h-screen text-center items-center relative"
 
@@ -318,7 +300,39 @@ const Home: React.FC = () => {
                     <TextCarousel texts={texts} speed={30} />
                 </motion.div>
 
+            </motion.section>  */}
+
+
+            <motion.section id="landing" className="mb-12  max-w-screen-xl mx-auto overflow-x-hidden">
+                <LandingCarousel />
+
+
             </motion.section>
+
+            <motion.div className="w-full bg-gray-100/80 backdrop-blur-md mb-12 rounded-t-[40px] p-6 lg:p-8 z-10 mt-18">
+                <motion.div
+                    className="flex flex-col items-center lg:flex-row lg:items-start"
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: false, amount: 0.3 }}
+                    transition={{ duration: 0.6, ease: "easeOut" }}
+                >
+                    <motion.div className="w-full lg:w-1/3 mb-6 lg:mb-0 lg:mr-8 text-center">
+                        <motion.div className="text-5xl lg:text-6xl font-bold text-gray-800">10+</motion.div>
+                        <motion.div className="text-sm text-gray-600">projects delivered</motion.div>
+                    </motion.div>
+                    <motion.div className="w-full lg:w-2/3 text-center lg:text-left">
+                        <h2 className="text-xl lg:text-2xl font-bold text-gray-800 mb-4">Revolutionizing HealthTech Marketing</h2>
+                        <p className="text-gray-700 max-w-3xl text-sm lg:text-base">
+                            RNA HealthTech, founded on April 24, 2024, is a pioneering digital marketing and technology company specializing in the health tech sector. We bridge the gap between cutting-edge medical innovations and their target audience, offering bespoke website development, strategic digital marketing, and advanced technological solutions. Our unique value lies in our deep understanding of both the healthcare industry and the digital landscape, enabling us to create impactful, compliant, and user-centric digital experiences that accelerate the growth of health tech businesses.
+                        </p>
+                    </motion.div>
+                </motion.div>
+
+            </motion.div>
+            <motion.div className="container mx-auto px-4 mb-20">
+                <TextCarousel texts={texts} speed={30} />
+            </motion.div>
 
 
 
@@ -559,7 +573,7 @@ const Home: React.FC = () => {
             >
                 <h2 className="text-5xl lg:text-6xl font-semibold text-center font-fraunces-slab mb-12">Portfolio</h2>
                 <motion.div className="grid grid-cols-1 gap-8 lg:grid-cols-4 items-start px-4 md:px-6 lg:px-8 lg:mt-32">
-                  
+
                     <motion.div className="lg:col-span-2 bg-gray-100 w-full lg:w-[35vw] h-[75vh] md:h-[80vh] lg:h-[90vh] rounded-[20px] md:rounded-[60px] lg:rounded-[80px] relative overflow-hidden shadow-md">
                         <motion.div className="relative"
                             initial={{ opacity: 0, y: 50 }}
@@ -641,7 +655,7 @@ const Home: React.FC = () => {
                             <motion.div
                                 className="absolute inset-0 bg-purple/60 backdrop-blur-sm rounded-[30px] sm:rounded-[40px] lg:rounded-[50px] flex flex-col justify-center items-center p-4 cursor-pointer"
                                 initial={{ opacity: 1 }}
-                                
+
                             >
                                 <h3 className="text-xl font-bold text-white mb-2"> MENTAL HEALTH CLINIC </h3>
                                 <p className="text-md text-gray-100 text-center mb-4">Discover our newly launched, user-friendly website designed to connect you with one of the best psychologist of India</p>

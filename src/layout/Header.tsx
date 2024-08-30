@@ -6,19 +6,20 @@ const Header: React.FC = () => {
     const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
     const [isSticky, setIsSticky] = useState<boolean>(false);
     const [isScrolled, setIsScrolled] = useState<boolean>(false);
-    const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+    //const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
 
-    useEffect(() => {
-        const handleResize = () => {
-            setIsMobile(window.innerWidth < 768);
-        };
 
-        window.addEventListener('resize', handleResize);
-        return () => window.removeEventListener('resize', handleResize);
-    }, []);
+    // useEffect(() => {
+    //     const handleResize = () => {
+    //         setIsMobile(window.innerWidth < 768);
+    //     };
 
-   
+    //     window.addEventListener('resize', handleResize);
+    //     return () => window.removeEventListener('resize', handleResize);
+    // }, []);
+
+
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
@@ -60,7 +61,7 @@ const Header: React.FC = () => {
 
     const handleLinkClick = () => {
         setIsMenuOpen(false);
-        
+
     };
 
     return (
@@ -72,12 +73,12 @@ const Header: React.FC = () => {
                 <nav className="flex flex-wrap justify-between items-center">
                     <div className='flex flex-wrap justify-start'>
                         <Link to="/" className="flex items-center mt-4 mb-4">
-                            <AnimatedLogo color={isMobile ? (isScrolled ? '#000' : '#fff') : (isScrolled ? '#000' : '#000')} />
+                            <AnimatedLogo color={isScrolled ? '#000' : '#FFF'} />
                         </Link>
 
                         {/* desktop toggle */}
                         <button
-                            className='hidden md:flex md:items-center md:ml-28 md:relative md:z-100'
+                            className={`hidden md:flex md:items-center md:ml-28 md:relative md:z-100 ${isScrolled ? `text-[#000]` : 'text-[#FFF]'}`}
                             onClick={toggleMenu}
                             aria-label='menu'
                         >
@@ -129,7 +130,7 @@ const Header: React.FC = () => {
                         onClick={toggleMenu}
                         aria-label="Toggle menu"
                     >
-                        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">                            {/* <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={isMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} /> */}
+                        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
                             {isMenuOpen ? (
                                 ''
                             ) : (
@@ -155,6 +156,7 @@ const Header: React.FC = () => {
                                         d="M4 27h28"
                                         className="origin-center"
                                     />
+
                                 </g>
                             )}
 
@@ -176,7 +178,7 @@ const Header: React.FC = () => {
                             </button>
                             <Link to="/" className="block py-2 text-gray-800 hover:text-foreground text-lg font-semibold" onClick={handleLinkClick}>Home</Link>
                             <Link to="/about" className="block py-2 text-gray-800 hover:text-foreground text-lg font-semibold" onClick={handleLinkClick}>Our Work & Projects</Link>
-                           
+
                         </div>
                         <div className="p-4 flex flex-col items-center">
                             <button onClick={handleLinkClick} className="w-1/2 text-purple px-6 py-2 rounded-[40px] bg-white transition-colors text-lg font-semibold">
@@ -188,7 +190,7 @@ const Header: React.FC = () => {
 
 
                     <div className="hidden md:block">
-                        <button className="border-2 border-solid border-black/80 text-black/80 px-6 py-2 rounded-[40px] hover:bg-gray-100 transition-colors text-lg font-semibold">
+                        <button className={`border-2 border-solid ${isScrolled ? 'text-black/80 border-black/80' : 'text-white border-white'} px-6 py-2 rounded-[40px] hover:bg-gray-100 transition-colors text-lg font-semibold`}>
                             <Link to='/contact'>Get in Touch</Link>
                         </button>
                     </div>
