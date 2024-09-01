@@ -1,13 +1,13 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion } from 'framer-motion';
-import {FaCircleInfo, FaCirclePlay } from 'react-icons/fa6';
+import { FaCircleInfo, FaCirclePlay } from 'react-icons/fa6';
 import TextCarousel from "../components/utility/TextCarousel";
 import DropdownItem from "../components/utility/DropdownItem";
 import TinderCard from "react-tinder-card";
 import { ValidationError, useForm } from "@formspree/react";
 import AvatarExample, { User } from "../components/utility/AvatarExample";
 import TeamModal from "../components/utility/TeamModal";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import LandingCarousel from "../components/utility/LandingCarousel";
 
 interface Gif {
@@ -74,6 +74,7 @@ const Home: React.FC = () => {
     // const ref = useRef<HTMLDivElement>(null);
     // const el = useRef(null);
     const ref = useRef(null);
+    const navigate = useNavigate();
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
     const [state, handleSubmit] = useForm('xblrdjdp');
     console.log(state);
@@ -211,102 +212,11 @@ const Home: React.FC = () => {
         setTexts2(prev => prev.filter(card => card.title !== title));
     }
 
-
-
-
-
-
-
     return (
         <main className="flex-grow px-4 py-8 sm:px-6 md:px-8 lg:px-12">
-
-
-
             <motion.div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-purple to-purple/80 rounded-br-[50%] z-0"></motion.div>
-            {/* {/* Landing section 
-            <motion.section id="landing"
-                className="mb-12 flex flex-col min-h-screen text-center items-center relative"
-
-            >
-
-                <motion.div className="w-full flex flex-col lg:flex-row items-center justify-between mb-8 lg:mb-16 z-10">
-                    <motion.div
-                        className={`absolute hidden -right-60 -top-28 w-full lg:w-3/4 h-screen lg:h-screen lg:block`}>
-                        <img
-                            src="/images/rna.gif"
-                            alt="RNA GIF"
-                            className={`w-[60vw] h-screen object-contain lg:object-contain transform rotate-90`}
-                        />
-
-                    </motion.div>
-
-                    <motion.div
-                        className={`w-full lg:w-1/2 pr-0 lg:pr-8 mt-8 lg:mt-24 mb-8 text-white lg:text-zinc-400 lg:mb-0 ${window.innerWidth >= 1024 ? '' : 'mb-64'
-                            }`}
-
-                    >
-                        <p className="bg-accent bg-clip-text py-2 text-2xl font-bold sm:text-xl md:text-3xl xl:text-4xl">
-                            Uplifting Healthcare Practices
-                        </p>
-                        <h1 className="bg-accent bg-clip-text py-2 text-4xl font-pt-serif-regular text-white lg:text-black/80 sm:text-3xl md:text-5xl xl:text-6xl">
-                            RNA HealthTech
-                        </h1>
-                        <span className="text-md font-semibold text-gray-300 md:text-2xl">
-                            Seamlessly Connecting Healthcare Providers and Patients in the Digital Era
-                        </span>
-                        <motion.div className="mt-8 flex flex-col items-center space-y-4">
-                            <motion.div className="w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl">
-                                <motion.div className="relative">
-                                    <motion.div className="absolute inset-y-0 left-0 flex items-center pl-3">
-                                        <FaVirusCovid className="w-5 h-5 text-purple animate-spin" />
-                                    </motion.div>
-                                    <input
-                                        ref={el}
-                                        type="text"
-                                        className="w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-[40px] bg-gray-50 focus:ring-blue-500 focus:border-blue-500 pointer-events-none"
-                                    />
-                                </motion.div>
-                            </motion.div>
-                            <button className="flex items-center px-6 py-3 text-purple bg-white font-bold rounded-full transition duration-300 ease-in-out transform hover:scale-105 shadow-md !cursor-pointer">
-                                <FaWhatsapp className="mr-2" />
-                                Contact Us
-                            </button>
-                        </motion.div>
-                    </motion.div>
-
-                </motion.div>
-                <motion.div className="w-full bg-gray-100/80 backdrop-blur-md mb-12 rounded-t-[40px] p-6 lg:p-8 lg:mt-48 z-10">
-                    <motion.div
-                        className="flex flex-col items-center lg:flex-row lg:items-start"
-                        initial={{ opacity: 0, y: 50 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: false, amount: 0.3 }}
-                        transition={{ duration: 0.6, ease: "easeOut" }}
-                    >
-                        <motion.div className="w-full lg:w-1/3 mb-6 lg:mb-0 lg:mr-8 text-center">
-                            <motion.div className="text-5xl lg:text-6xl font-bold text-gray-800">10+</motion.div>
-                            <motion.div className="text-sm text-gray-600">projects delivered</motion.div>
-                        </motion.div>
-                        <motion.div className="w-full lg:w-2/3 text-center lg:text-left">
-                            <h2 className="text-xl lg:text-2xl font-bold text-gray-800 mb-4">Revolutionizing HealthTech Marketing</h2>
-                            <p className="text-gray-700 max-w-3xl text-sm lg:text-base">
-                                RNA HealthTech, founded on April 24, 2024, is a pioneering digital marketing and technology company specializing in the health tech sector. We bridge the gap between cutting-edge medical innovations and their target audience, offering bespoke website development, strategic digital marketing, and advanced technological solutions. Our unique value lies in our deep understanding of both the healthcare industry and the digital landscape, enabling us to create impactful, compliant, and user-centric digital experiences that accelerate the growth of health tech businesses.
-                            </p>
-                        </motion.div>
-                    </motion.div>
-
-                </motion.div>
-                <motion.div className="container mx-auto px-4">
-                    <TextCarousel texts={texts} speed={30} />
-                </motion.div>
-
-            </motion.section>  */}
-
-
             <motion.section id="landing" className="mb-12  max-w-screen-xl mx-auto overflow-x-hidden">
                 <LandingCarousel />
-
-
             </motion.section>
 
             <motion.div className="w-full bg-gray-100/80 backdrop-blur-md mb-12 rounded-t-[40px] p-6 lg:p-8 z-10 mt-18">
@@ -322,10 +232,13 @@ const Home: React.FC = () => {
                         <motion.div className="text-sm text-gray-600">projects delivered</motion.div>
                     </motion.div>
                     <motion.div className="w-full lg:w-2/3 text-center lg:text-left">
-                        <h2 className="text-xl lg:text-2xl font-bold text-gray-800 mb-4">Revolutionizing HealthTech Marketing</h2>
+                        <h2 className="text-xl lg:text-2xl font-bold text-gray-800 mb-4">About RNA HealthTech</h2>
                         <p className="text-gray-700 max-w-3xl text-sm lg:text-base">
-                            RNA HealthTech, founded on April 24, 2024, is a pioneering digital marketing and technology company specializing in the health tech sector. We bridge the gap between cutting-edge medical innovations and their target audience, offering bespoke website development, strategic digital marketing, and advanced technological solutions. Our unique value lies in our deep understanding of both the healthcare industry and the digital landscape, enabling us to create impactful, compliant, and user-centric digital experiences that accelerate the growth of health tech businesses.
-                        </p>
+                            RNA HealthTech combines the skills of tech wizards with experience of seasoned healthcare professionals. We tailor strategies to manage your online reputation with the nuance and understanding it deserves.
+
+                            In the name of online directories, consulting platforms and healthcare portals, your online reputation is being mismanaged by others.
+
+                            RNA gives back the control to you and helps you outshine competition with the right blend of digital and traditional marketing. We identify the right set of audience, analyse their online behavior, tailor strategies to connect and convert them into your patients.                        </p>
                     </motion.div>
                 </motion.div>
 
@@ -458,7 +371,7 @@ const Home: React.FC = () => {
 
 
             <motion.section
-                id="cards"
+                id="services"
                 className="px-6 py-20 lg:py-28 relative overflow-hidden z-10"
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -498,9 +411,7 @@ const Home: React.FC = () => {
 
             <motion.section
                 id="mission"
-                className="flex flex-col items-center justify-center"
-
-            >
+                className="flex flex-col items-center justify-center">
                 <motion.div className="bg-white text-black p-12 flex flex-col md:flex-row">
 
                     <motion.div
@@ -705,17 +616,18 @@ const Home: React.FC = () => {
                             </motion.div>
                         </motion.div>
                         <motion.div className="mx-auto mt-12 space-y-6 text-center">
-                            <h3 className="text-2xl font-bold text-gray-800">Discover Our Impact</h3>
+                            <h3 className="text-2xl font-bold text-gray-800">Design. Dazzle. Deliver</h3>
                             <p className="text-lg text-gray-600">
-                                Explore our portfolio of groundbreaking digital health solutions that are transforming patient care and medical innovation.
+                                We think different. At RNA HealthTech, dedicated medical marketing professionals work with a three-dimensional approach so that you rise above the crowd.
                             </p>
                             <p className="text-md text-gray-700">
-                                From SEO-optimized websites to engaging social media campaigns, see how we're helping health tech leaders connect with their audience.
+                                Our solutions have helped prolific hospitals, expert surgeons and experienced doctors in winning trust of thousands of patients. The custom strategies not only educate and impress but ensure attractive return-on-investment.
                             </p>
                             <motion.button
                                 className="mt-4 px-6 py-3 border border-r border-solid border-purple text-lg font-semibold text-zinc-800 rounded-full hover:bg-purple hover:text-white transition duration-300 shadow-xl"
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
+                                onClick={() => navigate("/projects")}
                             >
                                 View All Projects
                             </motion.button>

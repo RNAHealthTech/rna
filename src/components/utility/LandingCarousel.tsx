@@ -23,46 +23,46 @@ const LandingCarousel: React.FC = () => {
 
   const slides: Slide[] = useMemo(() => [
     {
-      title: "Uplifting Healthcare Practices",
-      description: "Seamlessly connecting healthcare providers and patients in the digital era.",
+      title: "Empowering Healthcare Providers",
+      description: "We deliver digital recipe to reach patients online.",
       image1: "/images/healthcare-bg.jpg",
       image2: "/images/patient.png",
       typedText: ["Innovative", "Patient-centric", "Digital"],
-      prewrittenText: "We are Innovative, Patient Centric, Digital",
+      prewrittenText: "Let's cook something together!",
 
     },
     {
-      title: "Marketing Strategies",
-      description: "Transforming healthcare with cutting-edge technology and marketing strategies.",
+      title: "Healthcare Marketing Strategies",
+      description: "A solid online presence means stronger word-of-mouth marketing",
       image1: "/images/marketing-bg.jpg",
       image2: "/images/money.gif",
-      typedText: ["Transformative", "Cutting-edge", "Strategic"],
-      prewrittenText: "Adapt Marketing Strategies that are",
+      typedText: ["Search", "Consider", "Decide"],
+      prewrittenText: "Connect with patients where they search",
 
     },
     {
-      title: "Patient-Centric Approach",
-      description: "Enhancing patient experiences through digital innovation and accessibility.",
+      title: "Digital Doctors",
+      description: "RNA combines the experience of seasoned healthcare professionals with tech wizards.",
       image1: "/images/patient-bg.jpg",
       image2: "/images/rna.gif",
-      typedText: ["Accessible", "Innovative", "User-friendly"],
-      prewrittenText: "We are"
+      typedText: ["Expertise", "Innovation", "Convenience"],
+      prewrittenText: "We bring"
     },
     {
-      title: "Content Writing Services",
-      description: "Crafting compelling healthcare content to engage and inform your audience.",
+      title: "Crafting Brands",
+      description: "Healthcare branding is complex. We create compelling brands that outshine competition.",
       image1: "/images/content-writing-bg.jpg",
       image2: "/images/content-writing.gif",
-      typedText: ["Engaging", "Informative", "SEO-optimized"],
-      prewrittenText: "Our Content is"
+      typedText: ["Stories", "Identities", "Brands"],
+      prewrittenText: "We create"
     },
     {
-      title: "Website Design Services",
-      description: "Creating stunning, user-friendly websites for healthcare professionals.",
+      title: "End-To-End Solutions",
+      description: "Patients are seeking health services online. We enusre they find YOU.",
       image1: "/images/web-design-bg.jpg",
       image2: "/images/web-design.webp",
-      typedText: ["Responsive", "Modern", "Intuitive"],
-      prewrittenText: "Our Websites are"
+      typedText: ["Comprehensive", "Intuitive", "Effective"],
+      prewrittenText: "Our solutions are"
     }
   ], []);
 

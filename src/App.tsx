@@ -6,15 +6,23 @@ import './index.css';
 import Layout from './layout/Layout';
 // pages
 import Home from './pages/Home';
+import ProjectsPage from './pages/Projects';
+import ProjectDetailPage from './components/projects/ProjectDetailsPage';
+import { ParallaxProvider } from 'react-scroll-parallax';
 
 
 const App: React.FC = () => {
   return (
-     <Layout>
-      <Routes>
-        <Route path='/' element={<Home />} />
-      </Routes>
-     </Layout>
+    <ParallaxProvider>
+      <Layout>
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/projects' element={<ProjectsPage />} />
+          <Route path='/projects/:id' element={<ProjectDetailPage />} />
+        </Routes>
+      </Layout>
+    </ParallaxProvider>
+
   )
 }
 
