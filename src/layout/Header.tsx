@@ -3,27 +3,27 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import AnimatedLogo from '../components/utility/AnimatedLogo';
 
 interface NavLinkProps {
-  to: string;
-  children: React.ReactNode;
-  onClick: (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void;
+    to: string;
+    children: React.ReactNode;
+    onClick: (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void;
 }
 
 const NavLink: React.FC<NavLinkProps> = ({ to, children, onClick }) => {
-  const location = useLocation();
-  const isActive = location.pathname === to || (location.pathname === '/' && to.startsWith('/#'));
+    const location = useLocation();
+    const isActive = location.pathname === to || (location.pathname === '/' && to.startsWith('/#'));
 
-  return (
-    <a
-      href={to}
-      className={`block py-2 text-white hover:text-foreground text-lg font-semibold
+    return (
+        <a
+            href={to}
+            className={`block py-2 text-white hover:text-foreground text-lg font-semibold
                   underline underline-offset-8 decoration-2
                   ${isActive ? 'decoration-white' : 'decoration-white/50 hover:decoration-white'}
                   transition-all duration-300`}
-      onClick={onClick}
-    >
-      {children}
-    </a>
-  );
+            onClick={onClick}
+        >
+            {children}
+        </a>
+    );
 };
 
 const Header: React.FC = () => {
@@ -59,21 +59,21 @@ const Header: React.FC = () => {
     }, [isMenuOpen]);
 
     const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, target: string) => {
-      e.preventDefault();
-      const element = document.getElementById(target);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
+        e.preventDefault();
+        const element = document.getElementById(target);
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+        }
     }
 
     const handleNavigation = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, targetSection: string) => {
-      e.preventDefault();
-      if (location.pathname === '/') {
-        handleSmoothScroll(e, targetSection);
-      } else {
-        navigate(`/#${targetSection}`);
-      }
-      setIsMenuOpen(false);
+        e.preventDefault();
+        if (location.pathname === '/') {
+            handleSmoothScroll(e, targetSection);
+        } else {
+            navigate(`/#${targetSection}`);
+        }
+        setIsMenuOpen(false);
     }
 
     return (
@@ -93,7 +93,7 @@ const Header: React.FC = () => {
                             onClick={toggleMenu}
                             aria-label='menu'
                         >
-                                  <svg
+                            <svg
                                 className="w-12 h-12"
                                 fill="none"
                                 stroke="currentColor"
@@ -141,9 +141,14 @@ const Header: React.FC = () => {
                         onClick={toggleMenu}
                         aria-label="Toggle menu"
                     >
-                         <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
-                             {isMenuOpen ? (
-                                ''
+                        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
+                            {isMenuOpen ? (
+                                <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth={2}
+                                    d="M6 30L30 6M6 6l24 24"
+                                />
                             ) : (
                                 <g>
                                     <path
@@ -167,41 +172,57 @@ const Header: React.FC = () => {
                                         d="M4 27h28"
                                         className="origin-center"
                                     />
-
                                 </g>
                             )}
-
                         </svg>
                     </button>
 
-                    {/* Mobile menu */}
+                    {/* Menu content (mobile and desktop) */}
                     {isMenuOpen && (
-                        <div className="fixed inset-x-0 top-0 bg-purple z-10 flex flex-col w-full md:w-1/2 transition-none min-h-[90vh] lg:min-h-screen overflow-y-auto">
-                            <div className="p-4 pt-16 flex flex-col flex-grow">
-                                <button
-                                    className="absolute top-4 right-4 text-white hover:text-foreground focus:outline-none"
-                                    onClick={() => setIsMenuOpen(false)}
-                                >
-                                    <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                                    </svg>
-                                </button>
-                                <NavLink to="/" onClick={(e) => { e.preventDefault(); navigate('/'); setIsMenuOpen(false); }}>Home</NavLink>
-                                <NavLink to="/projects" onClick={(e) => { e.preventDefault(); navigate('/projects'); setIsMenuOpen(false); }}>Our Work & Projects</NavLink>
-                                <NavLink to="#" onClick={(e) => handleNavigation(e, 'services')}>Services</NavLink>
-                                <NavLink to="#" onClick={(e) => handleNavigation(e, 'contact')}>Contact</NavLink>
-                            </div>
-                            <div className="p-4 flex flex-col items-center">
-                                <Link to="#" onClick={(e) => handleNavigation(e, 'contact')} className="w-1/2 text-purple px-6 py-2 rounded-[40px] bg-white transition-colors text-lg font-semibold">
-                                    Get In Touch
-                                </Link>
+                        <div className="fixed inset-0 top-60 w-full bg-purple z-50 flex items-center justify-center">
+                            <div className="w-full max-w-md bg-purple rounded-lg shadow-lg overflow-hidden">
+                                <div className="relative p-4 space-y-4">
+                                    <NavLink
+                                        to="/"
+                                        onClick={(e) => { e.preventDefault(); navigate('/'); setIsMenuOpen(false); }}
+                                    >
+                                        Home
+                                    </NavLink>
+                                    <NavLink
+                                        to="/projects"
+                                        onClick={(e) => { e.preventDefault(); navigate('/projects'); setIsMenuOpen(false); }}
+                                    >
+                                        Our Work & Projects
+                                    </NavLink>
+                                    <NavLink
+                                        to="#"
+                                        onClick={(e) => handleNavigation(e, 'services')}
+                                    >
+                                        Services
+                                    </NavLink>
+                                    <NavLink
+                                        to="#"
+                                        onClick={(e) => handleNavigation(e, 'contact')}
+                                    >
+                                        Contact
+                                    </NavLink>
+                                </div>
+                                <div className="p-4 bg-purple-dark">
+                                    <Link
+                                        to="#"
+                                        onClick={(e) => handleNavigation(e, 'contact')}
+                                        className="block w-full text-purple px-6 py-2 rounded-[40px] bg-white text-center transition-colors text-lg font-semibold"
+                                    >
+                                        Get In Touch
+                                    </Link>
+                                </div>
                             </div>
                         </div>
                     )}
 
                     <div className="hidden md:block">
                         <Link to='#' onClick={(e) => handleNavigation(e, 'contact')} className={`border-2 border-solid ${isScrolled ? 'text-white/80 border-white' : 'text-white border-white'} px-6 py-2 rounded-[40px] hover:bg-purple transition-colors text-lg font-semibold`}>
-                            Get in Touch / Book Appointment
+                            Book Appointment
                         </Link>
                     </div>
                 </nav>

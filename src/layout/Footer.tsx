@@ -59,7 +59,7 @@ const Footer: React.FC = () => {
             <p className="text-md md:text-md text-white/80 mt-2 mb-2 max-w-xs">Beyond the Pixels</p> */}
             <AnimatedLogo color='#fff' />
             <p className="text-sm md:text-lg text-white/80 mt-4 mb-6 max-w-xs">
-              Providing exceptional healthcare services with a focus on patient well-being and advancing your medical practices.
+            We tailor strategies to manage your online reputation with the nuance and understanding it deserves.
             </p>
 
 
@@ -90,7 +90,7 @@ const Footer: React.FC = () => {
 
 
 
-            {/* Column 5: CODE */}
+           
             <motion.div
               className="w-full md:w-4/5 mt-8 md:mt-0"
               initial={{ opacity: 0, y: 50 }}

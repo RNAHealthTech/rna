@@ -12,15 +12,18 @@ const DropdownItem: React.FC<DropdownItemProps> = ({ title, content }) => {
 
   return (
     <motion.div className="bg-white rounded-lg p-6">
-      <div className="flex justify-between items-center cursor-pointer" onClick={() => setIsOpen(!isOpen)}>
-       
+      <div 
+        className="flex justify-between items-center cursor-pointer" 
+        onClick={() => setIsOpen(!isOpen)}
+      >
+        <h3 className="text-xl font-bold flex-grow pr-4">{title}</h3>
         <motion.div
           animate={{ rotate: isOpen ? 45 : 0 }}
           transition={{ duration: 0.3 }}
+          className="flex-shrink-0"
         >
           <SlPlus className="text-zinc-600 text-3xl" />
         </motion.div>
-        <h3 className="text-xl font-bold">{title}</h3>
       </div>
       <AnimatePresence>
         {isOpen && (
@@ -38,7 +41,5 @@ const DropdownItem: React.FC<DropdownItemProps> = ({ title, content }) => {
     </motion.div>
   );
 };
-
-
 
 export default DropdownItem;

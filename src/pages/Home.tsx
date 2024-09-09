@@ -5,10 +5,9 @@ import TextCarousel from "../components/utility/TextCarousel";
 import DropdownItem from "../components/utility/DropdownItem";
 import TinderCard from "react-tinder-card";
 import { ValidationError, useForm } from "@formspree/react";
-import AvatarExample, { User } from "../components/utility/AvatarExample";
-import TeamModal from "../components/utility/TeamModal";
 import { Link, useNavigate } from "react-router-dom";
 import LandingCarousel from "../components/utility/LandingCarousel";
+import AnimatedText from "../components/utility/AnimatedText";
 
 interface Gif {
     image: string,
@@ -70,12 +69,9 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ title, image }) => (
 
 const Home: React.FC = () => {
 
-    // const [scrollY, setScrollY] = useState(0);
-    // const ref = useRef<HTMLDivElement>(null);
-    // const el = useRef(null);
+
     const ref = useRef(null);
     const navigate = useNavigate();
-    const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
     const [state, handleSubmit] = useForm('xblrdjdp');
     console.log(state);
 
@@ -112,31 +108,6 @@ const Home: React.FC = () => {
         "Content Writing",
         "RNA Health Tech"
     ]
-
-
-    const users: User[] = [
-
-        {
-            id: 1,
-            name: "Rajat",
-            avatar: "https://pyxis.nymag.com/v1/imgs/bc9/ccb/936534d0b82b77cf0ffbac92010ee38ea3-06-al-pacino.2x.rvertical.w512.jpg"
-        },
-        {
-            id: 2,
-            name: "Vinay",
-            avatar: "https://s3.eu-central-1.amazonaws.com/datajournalismcom/userPhotos/profileDP.jpg"
-        },
-        {
-            id: 3,
-            name: "Adhrit",
-            avatar: "https://static.wikia.nocookie.net/near_pure_evil/images/3/37/AlexTheLarge.jpg"
-        },
-
-    ];
-
-
-
-
 
     const items = [
         {
@@ -219,267 +190,49 @@ const Home: React.FC = () => {
                 <LandingCarousel />
             </motion.section>
 
-            <motion.div className="w-full bg-gray-100/80 backdrop-blur-md mb-12 rounded-t-[40px] p-6 lg:p-8 z-10 mt-18">
-                <motion.div
-                    className="flex flex-col items-center lg:flex-row lg:items-start"
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: false, amount: 0.3 }}
-                    transition={{ duration: 0.6, ease: "easeOut" }}
-                >
-                    <motion.div className="w-full lg:w-1/3 mb-6 lg:mb-0 lg:mr-8 text-center">
-                        <motion.div className="text-5xl lg:text-6xl font-bold text-gray-800">10+</motion.div>
-                        <motion.div className="text-sm text-gray-600">projects delivered</motion.div>
-                    </motion.div>
-                    <motion.div className="w-full lg:w-2/3 text-center lg:text-left">
-                        <h2 className="text-xl lg:text-2xl font-bold text-gray-800 mb-4">About RNA HealthTech</h2>
-                        <p className="text-gray-700 max-w-3xl text-sm lg:text-base">
-                            RNA HealthTech combines the skills of tech wizards with experience of seasoned healthcare professionals. We tailor strategies to manage your online reputation with the nuance and understanding it deserves.
-
-                            In the name of online directories, consulting platforms and healthcare portals, your online reputation is being mismanaged by others.
-
-                            RNA gives back the control to you and helps you outshine competition with the right blend of digital and traditional marketing. We identify the right set of audience, analyse their online behavior, tailor strategies to connect and convert them into your patients.                        </p>
-                    </motion.div>
-                </motion.div>
-
-            </motion.div>
-            <motion.div className="container mx-auto px-4 mb-20">
-                <TextCarousel texts={texts} speed={30} />
-            </motion.div>
-
-
-
-            {/* Overview section */}
-
-
-            <motion.section
-                id="overview"
-                className="flex flex-col items-center"
-
-            >
-                <h2 className="text-5xl lg:text-6xl font-semibold text-center font-fraunces-slab mb-12">Our Mission</h2>
-
-                <motion.div className="grid grid-cols-1 lg:grid-cols-4 items-start px-4 md:px-6 lg:px-8 lg:mt-32">
-                    <motion.div
-                        className="lg:col-span-2 bg-gray-100 w-full lg:w-[35vw] h-[75vh] md:h-[80vh] lg:h-[90vh] rounded-[20px] md:rounded-[60px] lg:rounded-[80px] relative overflow-hidden"
-                        initial={{ opacity: 0, y: 50 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: false, amount: 0.3 }}
-                        transition={{ duration: 0.6, ease: "easeOut" }}
-                    >
-                        <video
-                            src="/images/gif.mp4"
-                            className="w-full h-full object-cover"
-                            autoPlay
-                            loop
-                            muted
-                            playsInline
-                        />
-                        <motion.div
-                            ref={ref}
-                            className="absolute flex flex-row gap-4 top-20 right-4"
-                            initial={{ opacity: 0, y: 50 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: false, amount: 0.3 }}
-                            transition={{ duration: 0.6, ease: "easeOut" }}
-                        >
-                            {[FaCircleInfo, FaCirclePlay].map((Icon, index) => (
-                                <motion.div
-                                    key={index}
-                                    className="bg-white rounded-full p-2 shadow-md hover:shadow-lg transition-shadow duration-300"
-                                    whileHover={{ scale: 1.1 }}
-                                    whileTap={{ scale: 0.95 }}
-                                >
-                                    <Icon className="text-2xl sm:text-3xl md:text-4xl text-zinc-800" />
-                                </motion.div>
-                            ))}
-                        </motion.div>
-                        <motion.div
-                            className="absolute flex flex-col sm:flex-row justify-end bottom-2 sm:bottom-4 md:bottom-6  lg:right-56 left-4 lg:left-4 text-center p-0 lg:p-2 rounded-[15px] md:rounded-[20px] lg:rounded-[40px] bg-white/30 ring-1 ring-zinc-100/50 backdrop-blur-md shadow-xl"
-                            initial={{ opacity: 0, y: 50 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: false, amount: 0.3 }}
-                            transition={{ duration: 0.6, ease: "easeOut" }}
-                        >
-
-
-                            <div className="mb-2 sm:mb-0 sm:mr-4">
-                                <AvatarExample users={users} max={3} />
-                            </div>
-                            <motion.div className="flex flex-col items-center">
-                                <h3 className="text-sm sm:text-base lg:text-lg font-bold mb-1 sm:mb-2 text-white">Meet Our Team of Experts</h3>
-                                <button
-                                    className="text-xs sm:text-sm text-black font-semibold bg-white rounded-full px-3 lg:px-4 py-2 lg:py-2 mb-2 shadow-md hover:bg-gray-100 transition-colors duration-300"
-                                    onClick={() => setIsModalOpen(true)}
-                                >
-                                    Meet Team</button>
-
-                            </motion.div>
-                        </motion.div>
-                    </motion.div>
-
-                    <TeamModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
-
-                    <motion.div
-                        className="lg:col-span-1 mt-12 lg:mt-0 lg:mr-24 flex flex-col h-full"
-                        initial={{ opacity: 0, y: 50 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: false, amount: 0.3 }}
-                        transition={{ duration: 0.6, ease: "easeOut" }}
-                    >
-                        <motion.div className="text-center mb-12">
-                            <h2 className="text-2xl font-bold mb-6">Driven by a rich history of expertise and a relentless pursuit of excellence</h2>
-                            <button className="text-white text-lg font-semibold rounded-[40px] bg-black py-2 px-6 shadow-md">
-                                LEARN MORE
-                            </button>
-
-                        </motion.div>
-                        <motion.div className="mt-auto space-y-6">
-                            {items.map((item, index) => (
-                                <DropdownItem key={index} title={item.title} content={item.content} />
-                            ))}
-                        </motion.div>
-
-                    </motion.div>
-
-                    <motion.div
-                        className="lg:col-span-1 bg-gray-100 w-full h-[60vh] sm:h-[50vh] lg:h-[40vh] rounded-[30px] sm:rounded-[40px] lg:rounded-[50px] relative overflow-visible mb-24 mt-24 lg:mb-32 lg:mt-0"
-                        initial={{ opacity: 0, y: 50 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: false, amount: 0.3 }}
-                        transition={{ duration: 0.6, ease: "easeOut" }}
-                    >
-                        <img
-                            src="/images/mol.jpg"
-                            alt="Molecule Interaction"
-                            className="w-full h-full object-cover rounded-[30px] sm:rounded-[40px] lg:rounded-[50px]"
-                        />
-
-                        {/* second div  */}
-                        <motion.div className="absolute -bottom-20 sm:-bottom-24 lg:-bottom-20 left-0 right-24 mx-auto w-9/12  max-w-md text-center py-4 sm:p-6 rounded-[20px] lg:rounded-[40px] bg-gray-100/30 ring-1 ring-zinc-100 shadow-lg">
-
-                            <h3 className="text-xl lg:text-2xl font-bold mb-2 sm:mb-4 text-black/90">Give Our Team of Experts a Brief</h3>
-                            <button className="text-white text-sm sm:text-base font-semibold bg-purple rounded-[30px] px-4 sm:px-6 py-2 shadow-md hover:bg-purple-700 transition-colors duration-300">
-                                Call Us Now!
-                            </button>
-                        </motion.div>
-                    </motion.div>
-                </motion.div>
-            </motion.section>
-
-            {/*  Service cards section */}
-
-
-            <motion.section
-                id="services"
-                className="px-6 py-20 lg:py-28 relative overflow-hidden z-10"
+            <motion.div
+                className="w-full bg-gradient-to-br from-gray-100/50 to-gray-200/100 backdrop-blur-md mb-12 rounded-t-[40px] p-6 sm:p-8 lg:p-12 z-10 mt-18 shadow-lg"
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: false, amount: 0.3 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
             >
-                <h2 className="text-5xl lg:text-6xl font-semibold text-center font-fraunces-slab">Our Services</h2>
-
-                {/* TextCarousel positioned as a background  */}
-                <motion.div className="text-purple text-2xl absolute top-0 left-0 right-0 bottom-0 flex items-center">
-                    <TextCarousel texts={texts} speed={30} />
-                </motion.div>
-
-                <motion.div className="relative min-h-screen w-full max-w-2xl mx-auto flex items-center justify-center">
-                    {texts2.length > 0 && texts2.map((text, index) => (
-                        <TinderCard
-                            ref={(ref) => cardRefs.current[index] = ref}
-                            key={text.title}
-                            onSwipe={(dir) => onSwipe(dir, text.title)}
-                            onCardLeftScreen={() => onCardLeftScreen(text.title)}
-                            preventSwipe={['up', 'down']}
-                            className="absolute w-[90%] h-[55%] lg:h-[70%]"
-                        >
-                            <ServiceCard
-                                title={text.title}
-                                image={text.image}
-                            />
-                        </TinderCard>
-                    ))}
-                </motion.div>
-
-
-            </motion.section>
-
-            {/* about section */}
-
-
-            <motion.section
-                id="mission"
-                className="flex flex-col items-center justify-center">
-                <motion.div className="bg-white text-black p-12 flex flex-col md:flex-row">
-
+                <div className="max-w-7xl mx-auto">
                     <motion.div
-
-                        className="w-full md:w-1/2 pr-0 lg:pr-12 mb-12 md:mb-0"
-                        initial={{ opacity: 0, y: 50 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: false, amount: 0.3 }}
-                        transition={{ duration: 0.6, ease: "easeOut" }}
+                        className="flex flex-col lg:flex-row lg:items-start lg:space-x-12"
                     >
-                        <h1 className="text-4xl md:text-5xl font-bold mb-6">
-                            Empowering the Future of Digital Health
-                            <span className="text-gray-400"> with Innovative Solutions</span>
-                        </h1>
-                        <p className="text-lg md:text-xl mb-8">
-                            At RNA HealthTech, our mission is to revolutionize the digital health landscape by bridging the gap between cutting-edge medical innovations and their target audience. We are dedicated to creating impactful, compliant, and user-centric digital experiences that accelerate the growth and adoption of transformative health tech solutions.
-                        </p>
-
-                        <motion.div className="grid grid-cols-2 gap-8 mt-16">
-                            <motion.div
-                                onClick={() => handleGifNavigation(0)}
-                                className="cursor-pointer"
-                            >
-
-                                <h2 className="text-4xl md:text-6xl font-bold">1+ week</h2>
-                                <p className="text-lg md:text-xl mt-2">Fast Prototyping</p>
-                            </motion.div>
-                            <motion.div
-                                onClick={() => handleGifNavigation(1)}
-                                className="cursor-pointer"
-                            >
-                                <h2 className="text-4xl md:text-6xl font-bold">20+</h2>
-                                <p className="text-lg md:text-xl mt-2">Technologies Used In Services</p>
-                            </motion.div>
-                            <motion.div onClick={() => handleGifNavigation(2)}
-                                className="cursor-pointer">
-                                <h2 className="text-4xl md:text-6xl font-bold">99%</h2>
-                                <p className="text-lg md:text-xl mt-2">Accuracy Rate in Generating Targets</p>
-                            </motion.div>
-                            <motion.div onClick={() => handleGifNavigation(3)}
-                                className="cursor-pointer">
-                                <h2 className="text-4xl md:text-6xl font-bold">N+</h2>
-                                <p className="text-lg md:text-xl mt-2">Growing Satisfied Customers</p>
-                            </motion.div>
+                        <motion.div className="w-full lg:w-1/3 mb-8 lg:mb-0 mt-2 lg:mt-12 space-y-4 text-center flex items-center justify-center">
+                            <AnimatedText />
                         </motion.div>
-
-                    </motion.div>
-
-                    {/* right side content */}
-
-                    <motion.div className="w-full md:w-1/2 relative px-4 md:px-0">
-                        <motion.div className="relative w-full h-[400px] md:h-[600px]">
-                            <motion.div className="h-full flex items-center justify-center">
-                                {renderCard(gifs[currentGifIndex], currentGifIndex)}
-                            </motion.div>
+                        <motion.div
+                            className="w-full lg:w-2/3 text-center lg:text-left"
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.5, duration: 0.8 }}
+                        >
+                            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-purple-600 mb-6">About RNA HealthTech</h2>
+                            <div className="text-gray-700 max-w-3xl text-sm sm:text-base lg:text-lg space-y-6">
+                                <p className="leading-relaxed">
+                                    RNA HealthTech combines the skills of tech wizards with the experience of seasoned healthcare professionals. We tailor strategies to manage your online reputation with the nuance and understanding it deserves.
+                                </p>
+                                <p className="leading-relaxed">
+                                    In the world of online directories, consulting platforms, and healthcare portals, your online reputation is often mismanaged by others. RNA HealthTech steps in to change that narrative.
+                                </p>
+                                <p className="leading-relaxed">
+                                    We give you back control and help you outshine the competition with the perfect blend of digital and traditional marketing. Our approach is simple yet effective: we identify the right audience, analyze their online behavior, and tailor strategies to connect with them, ultimately converting them into your patients.
+                                </p>
+                            </div>
                         </motion.div>
                     </motion.div>
-
-                </motion.div>
-            </motion.section>
-
+                </div>
+            </motion.div>
 
 
 
 
             <motion.section
                 id="portfolio"
-                className="flex flex-col items-center mt-12"
+                className="flex flex-col items-center mt-20"
 
             >
                 <h2 className="text-5xl lg:text-6xl font-semibold text-center font-fraunces-slab mb-12">Portfolio</h2>
@@ -638,6 +391,220 @@ const Home: React.FC = () => {
                 </motion.div>
             </motion.section>
 
+
+
+
+            <motion.div className="container mx-auto px-4 mt-[80vh] md:mt-40 mb-10 md:mb-28">
+                <TextCarousel texts={texts} speed={30} />
+            </motion.div>
+
+
+
+            {/* Overview section */}
+
+
+            <motion.section
+                id="overview"
+                className="flex flex-col items-center mt-50 md:mt-20"
+
+            >
+                <h2 className="text-5xl lg:text-6xl font-semibold text-center font-fraunces-slab mb-12">Our Mission</h2>
+
+                <motion.div className="grid grid-cols-1 lg:grid-cols-4 items-start px-4 md:px-6 lg:px-8 lg:mt-32">
+                    <motion.div
+                        className="lg:col-span-2 bg-gray-100 w-full lg:w-[35vw] h-[75vh] md:h-[80vh] lg:h-[90vh] rounded-[20px] md:rounded-[60px] lg:rounded-[80px] relative overflow-hidden"
+                        initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: false, amount: 0.3 }}
+                        transition={{ duration: 0.6, ease: "easeOut" }}
+                    >
+                        <video
+                            src="/images/gif.mp4"
+                            className="w-full h-full object-cover"
+                            autoPlay
+                            loop
+                            muted
+                            playsInline
+                        />
+                        <motion.div
+                            ref={ref}
+                            className="absolute flex flex-row gap-4 top-20 right-4"
+                            initial={{ opacity: 0, y: 50 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: false, amount: 0.3 }}
+                            transition={{ duration: 0.6, ease: "easeOut" }}
+                        >
+                            {[FaCircleInfo, FaCirclePlay].map((Icon, index) => (
+                                <motion.div
+                                    key={index}
+                                    className="bg-white rounded-full p-2 shadow-md hover:shadow-lg transition-shadow duration-300"
+                                    whileHover={{ scale: 1.1 }}
+                                    whileTap={{ scale: 0.95 }}
+                                >
+                                    <Icon className="text-2xl sm:text-3xl md:text-4xl text-zinc-800" />
+                                </motion.div>
+                            ))}
+                        </motion.div>
+                        
+                    </motion.div>
+
+                    <motion.div
+                        className="lg:col-span-1 mt-12 lg:mt-0 lg:mr-24 flex flex-col h-full"
+                        initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: false, amount: 0.3 }}
+                        transition={{ duration: 0.6, ease: "easeOut" }}
+                    >
+                        <motion.div className="text-center mb-12">
+                            <h2 className="text-2xl font-bold mb-6">Driven by a rich history of expertise and a relentless pursuit of excellence</h2>
+                            <button className="text-white text-lg font-semibold rounded-[40px] bg-black py-2 px-6 shadow-md">
+                                LEARN MORE
+                            </button>
+
+                        </motion.div>
+                        <motion.div className="mt-auto space-y-6">
+                            {items.map((item, index) => (
+                                <DropdownItem key={index} title={item.title} content={item.content} />
+                            ))}
+                        </motion.div>
+
+                    </motion.div>
+
+                    <motion.div
+                        className="lg:col-span-1 bg-gray-100 w-full h-[60vh] sm:h-[50vh] lg:h-[40vh] rounded-[30px] sm:rounded-[40px] lg:rounded-[50px] relative overflow-visible mb-24 mt-24 lg:mb-32 lg:mt-0"
+                        initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: false, amount: 0.3 }}
+                        transition={{ duration: 0.6, ease: "easeOut" }}
+                    >
+                        <img
+                            src="/images/mol.jpg"
+                            alt="Molecule Interaction"
+                            className="w-full h-full object-cover rounded-[30px] sm:rounded-[40px] lg:rounded-[50px]"
+                        />
+
+                        {/* second div  */}
+                        <motion.div className="absolute -bottom-20 sm:-bottom-24 lg:-bottom-20 left-0 right-24 mx-auto w-9/12  max-w-md text-center py-4 sm:p-6 rounded-[20px] lg:rounded-[40px] bg-gray-100/30 ring-1 ring-zinc-100 shadow-lg">
+
+                            <h3 className="text-xl lg:text-2xl font-bold mb-2 sm:mb-4 text-black/90">Give Our Team of Experts a Brief</h3>
+                            <button className="text-white text-sm sm:text-base font-semibold bg-purple rounded-[30px] px-4 sm:px-6 py-2 shadow-md hover:bg-purple-700 transition-colors duration-300">
+                                Call Us Now!
+                            </button>
+                        </motion.div>
+                    </motion.div>
+                </motion.div>
+            </motion.section>
+
+            {/*  Service cards section */}
+
+
+            <motion.section
+                id="services"
+                className="px-6 py-20 lg:py-28 relative overflow-hidden z-10"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false, amount: 0.3 }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+            >
+                <h2 className="text-5xl lg:text-6xl font-semibold text-center font-fraunces-slab">Our Services</h2>
+
+                {/* TextCarousel positioned as a background  */}
+                <motion.div className="text-purple text-2xl absolute top-0 left-0 right-0 bottom-0 flex items-center">
+                    <TextCarousel texts={texts} speed={30} />
+                </motion.div>
+
+                <motion.div className="relative min-h-screen w-full max-w-2xl mx-auto flex items-center justify-center">
+                    {texts2.length > 0 && texts2.map((text, index) => (
+                        <TinderCard
+                            ref={(ref) => cardRefs.current[index] = ref}
+                            key={text.title}
+                            onSwipe={(dir) => onSwipe(dir, text.title)}
+                            onCardLeftScreen={() => onCardLeftScreen(text.title)}
+                            preventSwipe={['up', 'down']}
+                            className="absolute w-[90%] h-[55%] lg:h-[70%]"
+                        >
+                            <ServiceCard
+                                title={text.title}
+                                image={text.image}
+                            />
+                        </TinderCard>
+                    ))}
+                </motion.div>
+
+
+            </motion.section>
+
+            {/* about section */}
+
+
+            <motion.section
+                id="mission"
+                className="flex flex-col items-center justify-center">
+                <motion.div className="bg-white text-black p-12 flex flex-col md:flex-row">
+
+                    <motion.div
+
+                        className="w-full md:w-1/2 pr-0 lg:pr-12 mb-12 md:mb-0"
+                        initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: false, amount: 0.3 }}
+                        transition={{ duration: 0.6, ease: "easeOut" }}
+                    >
+                        <h1 className="text-4xl md:text-5xl font-bold mb-6">
+                            Empowering the Future of Digital Health
+                            <span className="text-gray-400"> with Innovative Solutions</span>
+                        </h1>
+                        <p className="text-lg md:text-xl mb-8">
+                            At RNA HealthTech, our mission is to revolutionize the digital health landscape by bridging the gap between cutting-edge medical innovations and their target audience. We are dedicated to creating impactful, compliant, and user-centric digital experiences that accelerate the growth and adoption of transformative health tech solutions.
+                        </p>
+
+                        <motion.div className="grid grid-cols-2 gap-8 mt-16">
+                            <motion.div
+                                onClick={() => handleGifNavigation(0)}
+                                className="cursor-pointer"
+                            >
+
+                                <h2 className="text-4xl md:text-6xl font-bold">1+ week</h2>
+                                <p className="text-lg md:text-xl mt-2">Fast Prototyping</p>
+                            </motion.div>
+                            <motion.div
+                                onClick={() => handleGifNavigation(1)}
+                                className="cursor-pointer"
+                            >
+                                <h2 className="text-4xl md:text-6xl font-bold">20+</h2>
+                                <p className="text-lg md:text-xl mt-2">Technologies Used In Services</p>
+                            </motion.div>
+                            <motion.div onClick={() => handleGifNavigation(2)}
+                                className="cursor-pointer">
+                                <h2 className="text-4xl md:text-6xl font-bold">99%</h2>
+                                <p className="text-lg md:text-xl mt-2">Accuracy Rate in Generating Targets</p>
+                            </motion.div>
+                            <motion.div onClick={() => handleGifNavigation(3)}
+                                className="cursor-pointer">
+                                <h2 className="text-4xl md:text-6xl font-bold">N+</h2>
+                                <p className="text-lg md:text-xl mt-2">Growing Satisfied Customers</p>
+                            </motion.div>
+                        </motion.div>
+
+                    </motion.div>
+
+                    {/* right side content */}
+
+                    <motion.div className="w-full md:w-1/2 relative px-4 md:px-0">
+                        <motion.div className="relative w-full h-[400px] md:h-[600px]">
+                            <motion.div className="h-full flex items-center justify-center">
+                                {renderCard(gifs[currentGifIndex], currentGifIndex)}
+                            </motion.div>
+                        </motion.div>
+                    </motion.div>
+
+                </motion.div>
+            </motion.section>
+
+
+
+
+
             {/* Contact section */}
 
 
@@ -688,7 +655,7 @@ const Home: React.FC = () => {
                                                     id="name"
                                                     required
                                                     placeholder="Type Name"
-                                                    className="border-b  bg-peacher  border-platinum py-2 text-lg w-full"
+                                                    className="border-b bg-peacher  border-platinum py-2 text-lg w-full p-4 rounded-lg"
                                                 />
                                             </motion.div>
 
@@ -699,7 +666,7 @@ const Home: React.FC = () => {
                                                     name="phone"
                                                     id="phone"
                                                     placeholder="Type Phone Number"
-                                                    className="border-b  bg-peacher  border-platinum py-2 text-lg w-full"
+                                                    className="border-b  bg-peacher  border-platinum py-2 text-lg w-full p-4 rounded-lg"
                                                 />
                                             </motion.div>
 
@@ -711,7 +678,7 @@ const Home: React.FC = () => {
                                                     id="email"
                                                     required
                                                     placeholder="Type Email Address"
-                                                    className="border-b  bg-peacher  border-platinum py-2 text-lg w-full"
+                                                    className="border-b bg-peacher border-platinum py-2 text-lg w-full p-4 rounded-lg"
                                                 />
                                                 <ValidationError prefix="Email" field="email" errors={state.errors} />
                                             </motion.div>
@@ -723,7 +690,7 @@ const Home: React.FC = () => {
                                                     id="date"
                                                     required
                                                     placeholder="Select Date"
-                                                    className="border-b bg-peacher border-platinum py-2 text-lg w-full"
+                                                    className="border-b bg-peacher border-platinum py-2 text-lg w-full p-4 rounded-lg"
                                                 />
                                                 <ValidationError prefix="Date" field="date" errors={state.errors} />
                                             </motion.div>
@@ -735,7 +702,7 @@ const Home: React.FC = () => {
                                                     id="message"
                                                     placeholder="Type Description"
                                                     required
-                                                    className="border-b bg-peacher border-platinum py-2 text-lg w-full max-h-72 min-h-24 h-24 resize-vertical"
+                                                    className="border-b bg-peacher border-platinum py-2 text-lg w-full max-h-72 min-h-24 h-24 resize-vertical p-4 rounded-lg"
                                                 ></textarea>
                                             </motion.div>
 
