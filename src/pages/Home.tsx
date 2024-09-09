@@ -371,9 +371,12 @@ const Home: React.FC = () => {
                         <motion.div className="mx-auto mt-12 space-y-6 text-center">
                             <h3 className="text-2xl font-bold text-gray-800">Design. Dazzle. Deliver</h3>
                             <p className="text-lg text-gray-600">
-                                We think different. At RNA HealthTech, dedicated medical marketing professionals work with a three-dimensional approach so that you rise above the crowd.
+                                We think different.
                             </p>
-                            <p className="text-md text-gray-700">
+                            <p className="text-lg text-gray-600">
+                                At RNA HealthTech, dedicated medical marketing professionals work with a three-dimensional approach so that you rise above the crowd.
+                            </p>
+                            <p className="text-lg text-gray-700">
                                 Our solutions have helped prolific hospitals, expert surgeons and experienced doctors in winning trust of thousands of patients. The custom strategies not only educate and impress but ensure attractive return-on-investment.
                             </p>
                             <motion.button
@@ -445,7 +448,7 @@ const Home: React.FC = () => {
                                 </motion.div>
                             ))}
                         </motion.div>
-                        
+
                     </motion.div>
 
                     <motion.div
@@ -609,7 +612,7 @@ const Home: React.FC = () => {
 
 
             <motion.section id="contact"
-                className="flex flex-col items-center text-center py-20 mt-[28rem] lg:mt-14"
+                className="flex flex-col items-center text-center py-20  lg:mt-14"
 
             >
 
@@ -625,7 +628,7 @@ const Home: React.FC = () => {
                                 <img
                                     src="/images/contact.gif"
                                     alt="Doctor consultation"
-                                    className="w-full h-full object-cover"
+                                    className="w-full h-full object-cover rounded-xl"
                                 />
                             </motion.div>
                             {/* Form section */}
@@ -644,7 +647,7 @@ const Home: React.FC = () => {
                                         transition={{ duration: 0.6, ease: "easeOut" }}
                                     >
 
-                                        <h3 className="text-3xl font-bold mb-8 text-center lg:text-left mt-8 lg:mt-0">Schedule Your Appointment</h3>
+                                        <h3 className="text-3xl font-bold mb-8 text-center lg:text-left mt-8 lg:mt-0">Consult for Digital Therapy</h3>
 
                                         <form onSubmit={handleSubmit} className="space-y-6">
                                             <motion.div className="mb-8">
