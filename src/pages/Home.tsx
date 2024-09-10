@@ -8,6 +8,8 @@ import { ValidationError, useForm } from "@formspree/react";
 import { Link, useNavigate } from "react-router-dom";
 import LandingCarousel from "../components/utility/LandingCarousel";
 import AnimatedText from "../components/utility/AnimatedText";
+import ResponsiveImageCarousel from "../components/utility/ImageCarousel";
+
 
 interface Gif {
     image: string,
@@ -168,6 +170,15 @@ const Home: React.FC = () => {
             image: "/images/social.jpg"
         }
     ]);
+
+    const imageCarousel = [
+        {src:"/content/ajay-homepage.png", alt:"Dr. Ajay Aggarwal", title:"Dr. Ajay Aggarwal"}, 
+        {src:"/content/setu.png", alt:"Dr. Setu Gupta", title:"Dr. Setu Gupta"}, 
+        {src:"/content/karuna-home.png", alt:"Kaurna Hospital", title:"Karuna Hospital"}, 
+        {src:"/content/kanika-jain.png", alt:"Dr. Kainka Jain", title:"Dr. Kanika Jain"}, 
+        {src:"/content/bushra-zahoor.png", alt:"Dr. Bushra Zahoor", title:"Dr. Bushra Zahoor"},
+        {src:"/content/gunjan-homepage.png", alt:"Dr. Gangesh Gunjan", title:"Dr. Gangesh Gunjan"}
+    ]
 
     const [lastInteraction, setLastInteraction] = useState(Date.now());
     console.log(lastInteraction);
@@ -398,7 +409,8 @@ const Home: React.FC = () => {
 
 
             <motion.div className="container mx-auto px-4 mt-[80vh] md:mt-40 mb-10 md:mb-28">
-                <TextCarousel texts={texts} speed={30} />
+                {/* <TextCarousel texts={texts} speed={30} /> */}
+                <ResponsiveImageCarousel items={imageCarousel} />
             </motion.div>
 
 

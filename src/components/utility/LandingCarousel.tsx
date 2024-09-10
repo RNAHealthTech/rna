@@ -27,7 +27,7 @@ const LandingCarousel: React.FC = () => {
 
   const contactIcons = [
     { icon: FaWhatsapp, link: 'https://wa.me/1234567890', label: 'WhatsApp', color: '#25D366' },
-    { icon: FaEnvelope, link: 'mailto:contact@example.com', label: 'Email', color: '#EA4335' },
+    { icon: FaEnvelope, link: 'mailto:rnahealthtech@gmail.com', label: 'Email', color: '#EA4335' },
     { icon: FaPhone, link: 'tel:+1234567890', label: 'Phone', color: '#4285F4' },
   ];
 

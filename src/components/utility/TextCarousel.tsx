@@ -10,7 +10,7 @@ const TextCarousel: React.FC<TextCarouselProps> = ({ texts, speed = 30 }) => {
   return (
     <div className="overflow-hidden whitespace-nowrap">
       <div
-        className="inline-block animate-marquee"
+        className="inline-block animate-marquee2"
         style={{ animationDuration: `${speed}s` }}
       >
         {texts.map((text, index) => (
