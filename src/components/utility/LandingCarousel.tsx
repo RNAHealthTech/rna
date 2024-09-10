@@ -35,7 +35,7 @@ const LandingCarousel: React.FC = () => {
   const slides: Slide[] = useMemo(() => [
     {
       title: "Empowering Healthcare Providers",
-      description: "We deliver digital recipe to reach patients online.",
+      description: "We deliver digital recipes to reach patients online.",
       image1: "/images/healthcare-bg.jpg",
       image2: "/images/patient.png",
       typedText: ["Innovative", "Patient-centric", "Digital"],
