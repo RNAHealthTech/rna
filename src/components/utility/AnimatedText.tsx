@@ -40,7 +40,7 @@ const AnimatedText:React.FC = () => {
       animate="visible"
       variants={container}
     >
-      <motion.div className="text-4xl sm:text-5xl lg:text-6xl font-bold text-purple-600 flex flex-col items-center">
+      <motion.div className="text-4xl sm:text-5xl lg:text-6xl font-bold text-purple-600 flex flex-col items-center font-handjet-slab">
         {words.map((word, index) => (
           <motion.span
             key={index}

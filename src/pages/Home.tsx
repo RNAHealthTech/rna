@@ -221,7 +221,7 @@ const Home: React.FC = () => {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.5, duration: 0.8 }}
                         >
-                            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-purple-600 mb-6">About RNA HealthTech</h2>
+                            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-fraunces-slab text-purple-600 mb-6">About RNA HealthTech</h2>
                             <div className="text-gray-700 max-w-3xl text-sm sm:text-base lg:text-lg space-y-6">
                                 <p className="leading-relaxed">
                                     RNA HealthTech combines the skills of tech wizards with the experience of seasoned healthcare professionals. We tailor strategies to manage your online reputation with the nuance and understanding it deserves.
@@ -275,7 +275,7 @@ const Home: React.FC = () => {
                                     <Link to="https://karunahospital.in" target="_blank" rel="noopener noreferrer" className="bg-white text-purple-600 px-4 py-2 rounded-full text-sm font-semibold hover:bg-purple-100 transition-colors duration-300 w-full sm:w-auto text-center">
                                         Visit Website
                                     </Link>
-                                    <Link to="" className="bg-transparent border border-white text-white px-4 py-2 rounded-full text-sm font-semibold transition-colors duration-300 w-full sm:w-auto text-center">
+                                    <Link to="/projects/1" className="bg-transparent border border-white text-white px-4 py-2 rounded-full text-sm font-semibold transition-colors duration-300 w-full sm:w-auto text-center">
                                         View Project Details
                                     </Link>
                                 </motion.div>
@@ -308,7 +308,7 @@ const Home: React.FC = () => {
                                     <Link to="https://drajayaggarwal.in" target="_blank" rel="noopener noreferrer" className="bg-white text-purple-600 px-4 py-2 rounded-full text-sm font-semibold hover:bg-purple-100 transition-colors duration-300 w-full sm:w-auto text-center">
                                         Visit Website
                                     </Link>
-                                    <Link to="" className="bg-transparent border border-white text-white px-4 py-2 rounded-full text-sm font-semibold transition-colors duration-300 w-full sm:w-auto text-center">
+                                    <Link to="/projects/2" className="bg-transparent border border-white text-white px-4 py-2 rounded-full text-sm font-semibold transition-colors duration-300 w-full sm:w-auto text-center">
                                         View Project Details
                                     </Link>
                                 </motion.div>
@@ -338,7 +338,7 @@ const Home: React.FC = () => {
                                     <Link to="https://delhimentalhealth.com" target="_blank" rel="noopener noreferrer" className="bg-white text-purple-600 px-4 py-2 rounded-full text-sm font-semibold hover:bg-purple-100 transition-colors duration-300 w-full sm:w-auto text-center">
                                         Visit Website
                                     </Link>
-                                    <Link to="" className="bg-transparent border border-white text-white px-4 py-2 rounded-full text-sm font-semibold transition-colors duration-300 w-full sm:w-auto text-center">
+                                    <Link to="/projects/5" className="bg-transparent border border-white text-white px-4 py-2 rounded-full text-sm font-semibold transition-colors duration-300 w-full sm:w-auto text-center">
                                         View Project Details
                                     </Link>
                                 </motion.div>
@@ -372,7 +372,7 @@ const Home: React.FC = () => {
                                     <Link to="https://drgangeshgunjanneuro.com" target="_blank" rel="noopener noreferrer" className="bg-white text-purple-600 px-4 py-2 rounded-full text-sm font-semibold hover:bg-purple-100 transition-colors duration-300 w-full sm:w-auto text-center">
                                         Visit Website
                                     </Link>
-                                    <Link to="" className="bg-transparent border border-white text-white px-4 py-2 rounded-full text-sm font-semibold transition-colors duration-300 w-full sm:w-auto text-center">
+                                    <Link to="/projects/3" className="bg-transparent border border-white text-white px-4 py-2 rounded-full text-sm font-semibold transition-colors duration-300 w-full sm:w-auto text-center">
                                         View Project Details
                                     </Link>
                                 </motion.div>

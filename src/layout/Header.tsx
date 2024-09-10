@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import AnimatedLogo from '../components/utility/AnimatedLogo';
 
+
 interface NavLinkProps {
     to: string;
     children: React.ReactNode;
@@ -15,9 +16,9 @@ const NavLink: React.FC<NavLinkProps> = ({ to, children, onClick }) => {
     return (
         <a
             href={to}
-            className={`block py-2 text-white hover:text-foreground text-lg font-semibold
-                  underline underline-offset-8 decoration-2
-                  ${isActive ? 'decoration-white' : 'decoration-white/50 hover:decoration-white'}
+            className={`block py-2 hover:text-foreground text-lg font-semibold
+            ${isActive ? 'underline underline-offset-8 decoration-2' 
+            : 'hover:underline hover:underline-offset-8 hover:decoration-2' }
                   transition-all duration-300`}
             onClick={onClick}
         >
@@ -36,6 +37,8 @@ const Header: React.FC = () => {
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
     };
+
+    console.log(isSticky)
 
     useEffect(() => {
         const handleResize = () => {
@@ -78,18 +81,22 @@ const Header: React.FC = () => {
 
     return (
         <header
-            className={`font-pt-serif-regular sticky top-0 left-0 right-0 z-[9999] transition-all duration-300 backdrop-blur-xl ${isSticky ? 'bg-transparent' : 'bg-transparent'}`}
+            className={`font-pt-serif-regular sticky top-0 left-0 right-0 z-[9999] transition-all duration-300 w-full ${
+                isScrolled ? 'bg-white' : 'bg-transparent'
+            }`}
         >
-            <div className="container mx-auto px-4">
-                <nav className="flex flex-wrap justify-between items-center">
-                    <div className='flex flex-wrap justify-start'>
+            <div className="container mx-auto px-4 w-full">
+                <nav className="flex justify-between items-center w-full">
+                    <div className='flex items-center'>
                         <Link to="/" className="flex items-center mt-4 mb-4">
                             <AnimatedLogo color={isScrolled ? '#000' : '#FFF'} />
                         </Link>
+                    </div>
 
-                        {/* desktop toggle */}
+                    {/* desktop menu button and appointment button */}
+                    <div className="hidden md:flex items-center">
                         <button
-                            className={`hidden md:flex md:items-center md:ml-28 md:relative md:z-100 ${isScrolled ? `text-[#000]` : 'text-[#FFF]'}`}
+                            className={`flex items-center mr-4 ${isScrolled ? 'text-black' : 'text-white'}`}
                             onClick={toggleMenu}
                             aria-label='menu'
                         >
@@ -134,10 +141,22 @@ const Header: React.FC = () => {
                                 )}
                             </svg>
                         </button>
+                        <Link 
+                            to='#' 
+                            onClick={(e) => handleNavigation(e, 'contact')} 
+                            className={`border-2 border-solid ${
+                                isScrolled 
+                                    ? 'text-black border-black hover:bg-black hover:text-white' 
+                                    : 'text-white border-white hover:bg-white hover:text-purple'
+                            } px-6 py-2 rounded-[40px] transition-colors text-lg font-semibold`}
+                        >
+                            Book Appointment
+                        </Link>
                     </div>
-                    {/* mobile toggle */}
+
+                    {/* mobile menu button */}
                     <button
-                        className={`md:hidden fixed ${isScrolled ? 'text-black' : 'text-white'} top-4 right-4 z-20`}
+                        className={`md:hidden ${isScrolled ? 'text-black' : 'text-white'}`}
                         onClick={toggleMenu}
                         aria-label="Toggle menu"
                     >
@@ -176,57 +195,51 @@ const Header: React.FC = () => {
                             )}
                         </svg>
                     </button>
-
-                    {/* Menu content (mobile and desktop) */}
-                    {isMenuOpen && (
-                        <div className="fixed inset-0 top-60 w-full bg-purple z-50 flex items-center justify-center">
-                            <div className="w-full max-w-md bg-purple rounded-lg shadow-lg overflow-hidden">
-                                <div className="relative p-4 space-y-4">
-                                    <NavLink
-                                        to="/"
-                                        onClick={(e) => { e.preventDefault(); navigate('/'); setIsMenuOpen(false); }}
-                                    >
-                                        Home
-                                    </NavLink>
-                                    <NavLink
-                                        to="/projects"
-                                        onClick={(e) => { e.preventDefault(); navigate('/projects'); setIsMenuOpen(false); }}
-                                    >
-                                        Our Work & Projects
-                                    </NavLink>
-                                    <NavLink
-                                        to="#"
-                                        onClick={(e) => handleNavigation(e, 'services')}
-                                    >
-                                        Services
-                                    </NavLink>
-                                    <NavLink
-                                        to="#"
-                                        onClick={(e) => handleNavigation(e, 'contact')}
-                                    >
-                                        Contact
-                                    </NavLink>
-                                </div>
-                                <div className="p-4 bg-purple-dark">
-                                    <Link
-                                        to="#"
-                                        onClick={(e) => handleNavigation(e, 'contact')}
-                                        className="block w-full text-purple px-6 py-2 rounded-[40px] bg-white text-center transition-colors text-lg font-semibold"
-                                    >
-                                        Get In Touch
-                                    </Link>
-                                </div>
-                            </div>
-                        </div>
-                    )}
-
-                    <div className="hidden md:block">
-                        <Link to='#' onClick={(e) => handleNavigation(e, 'contact')} className={`border-2 border-solid ${isScrolled ? 'text-white/80 border-white' : 'text-white border-white'} px-6 py-2 rounded-[40px] hover:bg-purple transition-colors text-lg font-semibold`}>
-                            Book Appointment
-                        </Link>
-                    </div>
                 </nav>
             </div>
+
+            {/* Dropdown Menu */}
+            {isMenuOpen && (
+                <div className={`absolute top-full left-0 w-full shadow-lg ${isScrolled ? 'bg-white text-black' : 'bg-purple text-white' }`}>
+                    <div className="container mx-auto px-4 py-4">
+                        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+                            <NavLink
+                                to="/"
+                                onClick={(e) => { e.preventDefault(); navigate('/'); setIsMenuOpen(false); }}
+                            >
+                                Home
+                            </NavLink>
+                            <NavLink
+                                to="/projects"
+                                onClick={(e) => { e.preventDefault(); navigate('/projects'); setIsMenuOpen(false); }}
+                            >
+                                Our Work & Projects
+                            </NavLink>
+                            <NavLink
+                                to="/services"
+                                onClick={()=>{console.log('services'); setIsMenuOpen(false);}}
+                            >
+                                Services
+                            </NavLink>
+                            <NavLink
+                                to="/contact"
+                                onClick={()=>{console.log('contact'); setIsMenuOpen(false);}}
+                            >
+                                Contact
+                            </NavLink>
+                        </div>
+                        <div className="mt-4 md:hidden">
+                            <Link
+                                to="#"
+                                onClick={(e) => {handleNavigation(e, 'contact'); setIsMenuOpen(false);}}
+                                className="block w-full text-purple px-6 py-2 rounded-[40px] bg-white text-center transition-colors text-lg font-semibold"
+                            >
+                                Book Appointment
+                            </Link>
+                        </div>
+                    </div>
+                </div>
+            )}
         </header>
     );
 };
