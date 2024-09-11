@@ -57,15 +57,18 @@ const useIsMobile = () => {
 }
 
 
-const ServiceCard: React.FC<ServiceCardProps> = ({ title, image }) => (
-    <div className="bg-gray-200 ring-1 ring-gray-200 rounded-lg lg:rounded-[40px] shadow-lg p-6 lg:p-4 w-full h-full flex flex-col">
+const ServiceCard: React.FC<ServiceCardProps> = ({ title, image }) => {
+    const navigate = useNavigate();
+
+    return (<div className="bg-gray-200 ring-1 ring-gray-200 rounded-lg lg:rounded-[40px] shadow-lg p-6 lg:p-4 w-full h-full flex flex-col">
         <img src={image} alt={title} className="w-full h-4/6 lg:h-5/6 object-cover rounded-[30px] mb-4" />
         <div className="flex flex-row justify-between items-center mt-12 lg:mt-4">
             <h3 className="text-lg lg:text-2xl font-semibold text-center">{title}</h3>
-            <button className="text-black text-sm lg:text-xl font-semibold border-2 px-4 py-2 border-solid border-black/80 rounded-[40px]">Services</button>
+            <button onClick={() => navigate('/services')} className="text-black text-sm lg:text-xl font-semibold border-2 px-4 py-2 border-solid border-black/80 rounded-[40px]">Services</button>
         </div>
     </div>
-);
+    )
+};
 // Add a slight tilt effect to the ServiceCard component by applying a rotation transform based on the index of the card
 
 
@@ -171,6 +174,8 @@ const Home: React.FC = () => {
         }
     ]);
 
+  
+
     const imageCarousel = [
         { src: "/content/ajay-homepage.png", alt: "Dr. Ajay Aggarwal", title: "Dr. Ajay Aggarwal" },
         { src: "/content/setu-home.png", alt: "Dr. Setu Gupta", title: "Dr. Setu Gupta" },
@@ -180,6 +185,8 @@ const Home: React.FC = () => {
         { src: "/content/gangesh-home.png", alt: "Dr. Gangesh Gunjan", title: "Dr. Gangesh Gunjan" }
     ]
 
+
+    const initialCards = useRef(texts2);
     const [lastInteraction, setLastInteraction] = useState(Date.now());
     console.log(lastInteraction);
     const cardRefs = useRef<any[]>([]);
@@ -193,6 +200,15 @@ const Home: React.FC = () => {
         console.log(title + ' left the screen');
         setTexts2(prev => prev.filter(card => card.title !== title));
     }
+
+    useEffect(() => {
+        if (texts2.length === 0) {
+            setTimeout(() => {
+                setTexts2(initialCards.current);
+
+            }, 1000); 
+        }
+    },[texts2]);
 
     return (
         <main className="flex-grow px-4 py-8 sm:px-6 md:px-8 lg:px-12">
@@ -409,10 +425,10 @@ const Home: React.FC = () => {
 
 
             <motion.div className="container mx-auto px-4 mt-[50vh] md:mt-40 mb-10 md:mb-28">
-                
-                    <ResponsiveImageCarousel items={imageCarousel} />
-                    <DesktopImageCarousel items={imageCarousel} autoChangeInterval={3000} />
-            
+
+                <ResponsiveImageCarousel items={imageCarousel} />
+                <DesktopImageCarousel items={imageCarousel} autoChangeInterval={3000} />
+
 
                 <motion.div className="mt-24 mb-24">
                     <div className="text-center">
@@ -551,7 +567,7 @@ const Home: React.FC = () => {
                 <motion.div className="relative min-h-screen w-full max-w-2xl mx-auto flex items-center justify-center">
                     {texts2.length > 0 && texts2.map((text, index) => (
                         <TinderCard
-                            ref={(ref) => cardRefs.current[index] = ref}
+                            ref={(ref) => (cardRefs.current[index] = ref)}
                             key={text.title}
                             onSwipe={(dir) => onSwipe(dir, text.title)}
                             onCardLeftScreen={() => onCardLeftScreen(text.title)}
