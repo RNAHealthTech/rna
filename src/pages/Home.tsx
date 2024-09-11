@@ -152,26 +152,31 @@ const Home: React.FC = () => {
     );
 
     const [texts2, setTexts2] = useState<ServiceCardProps[]>([
+        
+       
+        
         {
-            title: "Web Design",
-            image: "/images/website.jpg",
+            title: "Social Media",
+            image: "/images/social.jpg"
+        },
+        {
+            title: "Content Writing",
+            image: "/images/results.jpg",
+        },
+       
+        {
+            title: "Marketing",
+            image: "/images/marketing.jpg",
         },
         {
             title: "SEO",
             image: "/images/seo.jpg",
         },
         {
-            title: "Content Writing",
-            image: "/images/results.jpg",
+            title: "Web Design",
+            image: "/images/website.jpg",
         },
-        {
-            title: "Marketing",
-            image: "/images/marketing.jpg",
-        },
-        {
-            title: "Social Media",
-            image: "/images/social.jpg"
-        }
+       
     ]);
 
   
