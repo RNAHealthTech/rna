@@ -408,27 +408,29 @@ const Home: React.FC = () => {
 
 
 
-            <motion.div className="container mx-auto px-4 mt-[80vh] md:mt-40 mb-10 md:mb-28">
-            <div className="text-center">
-                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 text-gray-800">
-                    Our Clients Are Some of the Most Prominent Doctors of the Nation
-                </h2>
-                <p className="text-lg md:text-xl lg:text-2xl text-gray-600 mb-8">
-                    You could be the next. Join our network of esteemed medical professionals.
-                </p>
-                <Link to='/contact' className="bg-purple hover:bg-lavender text-white font-bold py-2 px-4 md:py-3 md:px-6 rounded-lg transition duration-300 ease-in-out transform hover:scale-105">
-                    Join Our Network
-                </Link>
-            </div>
+            <motion.div className="container mx-auto px-4 mt-[50vh] md:mt-40 mb-10 md:mb-28">
+                
+                    <ResponsiveImageCarousel items={imageCarousel} />
+                    <DesktopImageCarousel items={imageCarousel} autoChangeInterval={3000} />
+            
 
-               
-                {/* <TextCarousel texts={texts} speed={30} /> */}
-                <ResponsiveImageCarousel items={imageCarousel} />
-                <DesktopImageCarousel items={imageCarousel} autoChangeInterval={3000} />
-
-
+                <motion.div className="mt-24 mb-24">
+                    <div className="text-center">
+                        <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 text-gray-800">
+                            Our Clients Are Some of the Most Prominent Doctors of the Nation
+                        </h2>
+                        <p className="text-lg md:text-xl lg:text-2xl text-gray-600 mb-8">
+                            You could be the next. Join our network of esteemed medical professionals.
+                        </p>
+                        <Link to='/contact' className="bg-purple hover:bg-lavender text-white font-bold py-2 px-4 md:py-3 md:px-6 rounded-lg transition duration-300 ease-in-out transform hover:scale-105">
+                            Join Our Network
+                        </Link>
+                    </div>
+                </motion.div>
             </motion.div>
-           
+
+
+
 
 
             {/* Overview section */}
@@ -439,6 +441,8 @@ const Home: React.FC = () => {
                 className="flex flex-col items-center mt-50 md:mt-20"
 
             >
+
+
                 <h2 className="text-5xl lg:text-6xl font-semibold text-center font-fraunces-slab mb-12">Our Mission</h2>
 
                 <motion.div className="grid grid-cols-1 lg:grid-cols-4 items-start px-4 md:px-6 lg:px-8 lg:mt-32">
