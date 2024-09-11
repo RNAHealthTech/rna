@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Routes } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 
 import './index.css';
 // layout
@@ -12,8 +12,17 @@ import Services from './pages/Services';
 import { ParallaxProvider } from 'react-scroll-parallax';
 import Contact from './pages/Contact';
 
+const useScrollToTop = () => {
+  const { pathname } = useLocation();
+  
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+};
 
 const App: React.FC = () => {
+  useScrollToTop();
+  
   return (
     <ParallaxProvider>
       <Layout>

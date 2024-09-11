@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { motion } from 'framer-motion';
 
 interface Service {
@@ -65,6 +65,7 @@ const services: Service[] = [
 ];
 
 const Services: React.FC = () => {
+ 
     return (
         <div className="bg-verylight min-h-screen">
             <div className="absolute h-48 inset-0 bg-purple z-0 bg-opacity-0" />
@@ -93,7 +94,7 @@ const Services: React.FC = () => {
                         animate={{ y: 0, opacity: 1 }}
                         transition={{ duration: 0.5 }}
                     >
-                        Revolutionize Your Healthcare Marketing
+                        Revolutionize Your Healthcare Services
                     </motion.h1>
                     <motion.p
                         className="text-xl sm:text-2xl font-work-sans-slab max-w-3xl mx-auto"

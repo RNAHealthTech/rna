@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useForm } from '@formspree/react'
 
@@ -152,19 +152,19 @@ const ContactPage: React.FC = () => {
             >
                 <div className="max-w-7xl mx-auto text-center">
                     <h2 className="text-3xl sm:text-4xl font-fraunces-slab font-bold mb-8 text-purple">Visit Our Office</h2>
-                    <div className="aspect-w-16 aspect-h-9 mb-8">
+                    <div className="flex justify-center mb-8">
                         <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.9663095919566!2d-74.00601708459418!3d40.74144797932881!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259bf5c1654f3%3A0xc80f9cfce5383d5d!2sNew%20York%2C%20NY%2010001!5e0!3m2!1sen!2sus!4v1631234567890!5m2!1sen!2sus"
-                            width="600"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28021.314610183075!2d77.19809103376329!3d28.60984529331111!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd374152412b%3A0x698d3a6416e511aa!2sAwfis%20Connaught%20Place!5e0!3m2!1sen!2sin!4v1726033078579!5m2!1sen!2sin"
+                            width="100%"
                             height="450"
-                            style={{ border: 0 }}
+                            style={{ border: 0, maxWidth: "1000px" }}
                             allowFullScreen
                             loading="lazy"
-                            title='Google Map'
-                            className="w-full h-full rounded-lg shadow-lg"
-                        ></iframe>
+                            title="Our Office"
+                            referrerPolicy="no-referrer-when-downgrade"
+                        />
                     </div>
-                    <p className="text-lg font-work-sans-slab">
+                    <p className="text-lg font-work-sans-slab max-w-3xl mx-auto">
                         We're conveniently located in the heart of the Medical District. Stop by for a coffee and let's discuss how we can help your practice thrive in the digital world.
                     </p>
                 </div>

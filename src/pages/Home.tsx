@@ -8,7 +8,7 @@ import { ValidationError, useForm } from "@formspree/react";
 import { Link, useNavigate } from "react-router-dom";
 import LandingCarousel from "../components/utility/LandingCarousel";
 import AnimatedText from "../components/utility/AnimatedText";
-import ResponsiveImageCarousel from "../components/utility/ImageCarousel";
+import { DesktopImageCarousel, ResponsiveImageCarousel } from "../components/utility/ImageCarousel";
 
 
 interface Gif {
@@ -172,12 +172,12 @@ const Home: React.FC = () => {
     ]);
 
     const imageCarousel = [
-        {src:"/content/ajay-homepage.png", alt:"Dr. Ajay Aggarwal", title:"Dr. Ajay Aggarwal"}, 
-        {src:"/content/setu.png", alt:"Dr. Setu Gupta", title:"Dr. Setu Gupta"}, 
-        {src:"/content/karuna-home.png", alt:"Kaurna Hospital", title:"Karuna Hospital"}, 
-        {src:"/content/kanika-jain.png", alt:"Dr. Kainka Jain", title:"Dr. Kanika Jain"}, 
-        {src:"/content/bushra-zahoor.png", alt:"Dr. Bushra Zahoor", title:"Dr. Bushra Zahoor"},
-        {src:"/content/gunjan-homepage.png", alt:"Dr. Gangesh Gunjan", title:"Dr. Gangesh Gunjan"}
+        { src: "/content/ajay-homepage.png", alt: "Dr. Ajay Aggarwal", title: "Dr. Ajay Aggarwal" },
+        { src: "/content/setu-home.png", alt: "Dr. Setu Gupta", title: "Dr. Setu Gupta" },
+        { src: "/content/karuna-home.png", alt: "Kaurna Hospital", title: "Karuna Hospital" },
+        { src: "/content/kanika-home.png", alt: "Dr. Kainka Jain", title: "Dr. Kanika Jain" },
+        { src: "/content/bushra-zahoor.png", alt: "Dr. Bushra Zahoor", title: "Dr. Bushra Zahoor" },
+        { src: "/content/gangesh-home.png", alt: "Dr. Gangesh Gunjan", title: "Dr. Gangesh Gunjan" }
     ]
 
     const [lastInteraction, setLastInteraction] = useState(Date.now());
@@ -409,10 +409,26 @@ const Home: React.FC = () => {
 
 
             <motion.div className="container mx-auto px-4 mt-[80vh] md:mt-40 mb-10 md:mb-28">
+            <div className="text-center">
+                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 text-gray-800">
+                    Our Clients Are Some of the Most Prominent Doctors of the Nation
+                </h2>
+                <p className="text-lg md:text-xl lg:text-2xl text-gray-600 mb-8">
+                    You could be the next. Join our network of esteemed medical professionals.
+                </p>
+                <Link to='/contact' className="bg-purple hover:bg-lavender text-white font-bold py-2 px-4 md:py-3 md:px-6 rounded-lg transition duration-300 ease-in-out transform hover:scale-105">
+                    Join Our Network
+                </Link>
+            </div>
+
+               
                 {/* <TextCarousel texts={texts} speed={30} /> */}
                 <ResponsiveImageCarousel items={imageCarousel} />
-            </motion.div>
+                <DesktopImageCarousel items={imageCarousel} autoChangeInterval={3000} />
 
+
+            </motion.div>
+           
 
 
             {/* Overview section */}
