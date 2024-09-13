@@ -88,7 +88,7 @@ const AboutUs: React.FC = () => {
                     <p className="font-pt-serif-regular text-lg mb-4">
                         At RNA HealthTech, we're always looking for passionate individuals who share our vision of revolutionizing healthcare marketing. Whether you're a digital marketing guru, a healthcare industry expert, or a tech enthusiast, we'd love to hear from you.
                     </p>
-                    <a href="/careers" className="inline-flex items-center text-xl mb-8 font-work-sans-slab text-purple hover:text-lightpurple transition-colors">
+                    <a href="/services" className="inline-flex items-center text-xl mb-8 font-work-sans-slab text-purple hover:text-lightpurple transition-colors">
                         Explore Our Services <ArrowRight className="ml-2" />
                     </a>
                     <br />
