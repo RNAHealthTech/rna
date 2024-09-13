@@ -513,7 +513,7 @@ const Home: React.FC = () => {
                     >
                         <motion.div className="text-center mb-12">
                             <h2 className="text-2xl font-bold mb-6">Driven by a rich history of expertise and a relentless pursuit of excellence</h2>
-                            <button className="text-white text-lg font-semibold rounded-[40px] bg-black py-2 px-6 shadow-md">
+                            <button onClick={()=>navigate('/about-us')} className="text-white text-lg font-semibold rounded-[40px] bg-black py-2 px-6 shadow-md">
                                 LEARN MORE
                             </button>
 
@@ -543,7 +543,7 @@ const Home: React.FC = () => {
                         <motion.div className="absolute -bottom-20 sm:-bottom-24 lg:-bottom-20 left-0 right-24 mx-auto w-9/12  max-w-md text-center py-4 sm:p-6 rounded-[20px] lg:rounded-[40px] bg-gray-100/30 ring-1 ring-zinc-100 shadow-lg">
 
                             <h3 className="text-xl lg:text-2xl font-bold mb-2 sm:mb-4 text-black/90">Give Our Team of Experts a Brief</h3>
-                            <button className="text-white text-sm sm:text-base font-semibold bg-purple rounded-[30px] px-4 sm:px-6 py-2 shadow-md hover:bg-purple-700 transition-colors duration-300">
+                            <button onClick={() => window.location.href = 'tel:number'} className="text-white text-sm sm:text-base font-semibold bg-purple rounded-[30px] px-4 sm:px-6 py-2 shadow-md hover:bg-purple-700 transition-colors duration-300">
                                 Call Us Now!
                             </button>
                         </motion.div>

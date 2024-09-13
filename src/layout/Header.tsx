@@ -210,6 +210,12 @@ const Header: React.FC = () => {
                                 Home
                             </NavLink>
                             <NavLink
+                                to="/about-us"
+                                onClick={(e) => { e.preventDefault(); navigate('/about-us'); setIsMenuOpen(false); }}
+                            >
+                                About Us 
+                            </NavLink>
+                            <NavLink
                                 to="/projects"
                                 onClick={(e) => { e.preventDefault(); navigate('/projects'); setIsMenuOpen(false); }}
                             >
@@ -232,7 +238,7 @@ const Header: React.FC = () => {
                             <Link
                                 to="#"
                                 onClick={(e) => {handleNavigation(e, 'contact'); setIsMenuOpen(false);}}
-                                className="block w-full text-purple px-6 py-2 rounded-[40px] bg-white text-center transition-colors text-lg font-semibold"
+                                className="block w-full text-white px-6 py-2 rounded-[40px] bg-purple text-center transition-colors text-lg font-semibold"
                             >
                                 Book Appointment
                             </Link>

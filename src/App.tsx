@@ -11,6 +11,7 @@ import ProjectDetailPage from './components/projects/ProjectDetailsPage';
 import Services from './pages/Services';
 import { ParallaxProvider } from 'react-scroll-parallax';
 import Contact from './pages/Contact';
+import AboutUs from './pages/AboutUs';
 
 const useScrollToTop = () => {
   const { pathname } = useLocation();
@@ -29,6 +30,7 @@ const App: React.FC = () => {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/projects' element={<ProjectsPage />} />
+          <Route path='/about-us' element={<AboutUs />} />
           <Route path='/projects/:id' element={<ProjectDetailPage />} />
           <Route  path='/services' element={<Services />} />
           <Route path='/contact' element={<Contact />} />
