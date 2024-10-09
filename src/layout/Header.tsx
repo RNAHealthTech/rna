@@ -81,7 +81,7 @@ const Header: React.FC = () => {
 
     return (
         <header
-            className={`font-pt-serif-regular sticky top-0 left-0 right-0 z-[9999] transition-all duration-300 w-full ${
+            className={`font-pt-serif-regular fixed absolute top-0 left-0 right-0 z-[9999] transition-all duration-300 w-full ${
                 isScrolled ? 'bg-white' : 'bg-transparent'
             }`}
         >
@@ -238,7 +238,7 @@ const Header: React.FC = () => {
                             <Link
                                 to="#"
                                 onClick={(e) => {handleNavigation(e, 'contact'); setIsMenuOpen(false);}}
-                                className="block w-full text-white px-6 py-2 rounded-[40px] bg-purple text-center transition-colors text-lg font-semibold"
+                                className="block w-full text-purple px-6 py-2 rounded-[40px] bg-white text-center transition-colors text-lg font-semibold"
                             >
                                 Book Appointment
                             </Link>
