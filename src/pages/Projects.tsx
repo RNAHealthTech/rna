@@ -7,7 +7,7 @@ const websites = [
   {
     id: '1',
     imageUrl: '/content/karuna-home.png',
-    mobileImageUrl: '/content/karuna-home-mobile.png',
+    mobileImageUrl: '/content/karuna-mobile.png',
     liveUrl: 'https://karunahospital.in',
     detailsUrl: '/projects/1',
   },
@@ -44,14 +44,14 @@ const websites = [
     imageUrl: '/content/anivita-homepage.png',
     mobileImageUrl: '/content/anivita-mobile.png',
     liveUrl: 'https://www.dranivitaaggarwal.com/',
-    detailsUrl: '/projects/7'
+    detailsUrl: '/projects/6'
   },
   {
     id: '7',    
     imageUrl: '/content/bushra-homepage.png',
     mobileImageUrl: '/content/bushra-mobile.png',
     liveUrl: 'https://southdelhipsychiatrist.com/',
-    detailsUrl: '/projects/6'
+    detailsUrl: '/projects/7'
   },
  
 ];

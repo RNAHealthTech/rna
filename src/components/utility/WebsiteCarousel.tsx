@@ -27,7 +27,7 @@ const WebsiteCarousel: React.FC<WebsiteCarouselProps> = ({ websites }) => {
   }, [websites.length]);
 
   return (
-    <div className="relative w-full min-h-screen sm:h-[calc(100vh-6rem)] overflow-hidden -mt-16 sm:-mt-24 rounded-b-[20px]">
+    <div className="relative w-full min-h-screen sm:h-[calc(100vh-6rem)] overflow-hidden -mt-10 sm:-mt-20 rounded-b-[20px]">
       <AnimatePresence initial={false}>
         <motion.div
           key={currentIndex}
