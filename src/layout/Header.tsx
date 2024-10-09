@@ -81,7 +81,7 @@ const Header: React.FC = () => {
 
     return (
         <header
-            className={`font-pt-serif-regular fixed absolute top-0 left-0 right-0 z-[9999] transition-all duration-300 w-full ${
+            className={`font-pt-serif-regular fixed top-0 left-0 right-0 z-[9999] transition-all duration-300 w-full ${
                 isScrolled ? 'bg-white' : 'bg-transparent'
             }`}
         >
@@ -147,7 +147,7 @@ const Header: React.FC = () => {
                             className={`border-2 border-solid ${
                                 isScrolled 
                                     ? 'text-black border-black hover:bg-black hover:text-white' 
-                                    : 'text-white border-white hover:bg-white hover:text-purple'
+                                    : 'text-purple bg-white'
                             } px-6 py-2 rounded-[40px] transition-colors text-lg font-semibold`}
                         >
                             Book Appointment

@@ -32,10 +32,7 @@ const WebsiteCarousel: React.FC<WebsiteCarouselProps> = ({ websites }) => {
         <motion.div
           key={currentIndex}
           className="absolute inset-0"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.99 }}
+         
         >
           <div
             className="w-full h-full bg-cover bg-center brightness-75"
@@ -60,7 +57,7 @@ const WebsiteCarousel: React.FC<WebsiteCarouselProps> = ({ websites }) => {
         </a>
         <a
           href={websites[currentIndex].detailsUrl}
-          className="w-full sm:w-auto px-6 py-3 bg-purple-600 text-white font-semibold rounded-full hover:bg-purple-700 transition-colors duration-300 text-center"
+          className="w-full sm:w-auto px-6 py-3 bg-purple text-white font-semibold rounded-full hover:bg-purple-700 transition-colors duration-300 text-center"
         >
           Full Insights
         </a>

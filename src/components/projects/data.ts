@@ -108,5 +108,53 @@ export const projects: Project[] = [
             '80% increase in website traffic within the first quarter after launch',
             '65% growth in new patient consultations attributed to the website'
         ]
+    },
+    {
+        id: '6',
+        title: "Dr. Anivita Aggarwal's Professional Website",
+        description: 'Developed a comprehensive website for Dr. Anivita Aggarwal, an Infectious Diseases specialist, to enhance her online presence and patient outreach.',
+        imageUrl: '/content/anivita-homepage.png',
+        mobileImageUrl: '/content/anivita-mobile.png',
+        date: '10 Sep 2024',
+        views: 0,
+        subtitle: 'Specialized Digital Platform for Infectious Diseases Expertise',
+        websiteUrl: 'https://dranivitaaggarwal.com',
+        overview: 'RNA HealthTech successfully created and launched a state-of-the-art website for Dr. Anivita Aggarwal, significantly improving her digital presence and patient engagement in the field of Infectious Diseases.',
+        keyFeatures: [
+            'Responsive design optimized for all devices',
+            'Detailed information on specialized treatments and services',
+            'Integration with hospital appointment system',
+            'Comprehensive showcase of research and publications'
+        ],
+        technologies: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Vercel'],
+        results: [
+            '75% increase in online appointment requests',
+            '60% improvement in search engine rankings for relevant medical keywords',
+            '40% growth in patient inquiries about specialized treatments'
+        ]
+    },
+    {
+        id: '7',
+        title: "South Delhi Psychiatrist: Dr. Bushra Zahoor",
+        description: 'Crafted a modern, user-friendly website for Dr. Bushra Zahoor, enhancing her online presence as a leading psychiatrist in South Delhi.',
+        imageUrl: '/content/bushra-homepage.png',
+        mobileImageUrl: '/content/bushra-mobile.png',
+        date: '25 Sep 2024',
+        views: 0,
+        subtitle: 'Comprehensive Digital Platform for Mental Health Services',
+        websiteUrl: 'https://southdelhipsychiatrist.com',
+        overview: 'RNA HealthTech successfully designed and launched a new website for Dr. Bushra Zahoor, significantly improving her digital footprint and patient outreach in the field of psychiatry.',
+        keyFeatures: [
+            'Intuitive design for easy navigation of mental health services',
+            'Detailed information on various psychiatric conditions and treatments',
+            'Integration with online booking system',
+            'Resources section for mental health awareness and education'
+        ],
+        technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Netlify'],
+        results: [
+            '80% increase in new patient inquiries through the website',
+            '65% improvement in online visibility for targeted mental health keywords',
+            '50% reduction in appointment scheduling phone calls due to online booking system'
+        ]
     }
 ];

@@ -41,17 +41,17 @@ const websites = [
   },
   {
     id: '6',
-    imageUrl: '/content/bushra-homepage.png',
-    mobileImageUrl: '/content/bushra-mobile.png',
-    liveUrl: 'https://southdelhipsychiatrist.com/',
-    detailsUrl: '/projects/6'
-  },
-  {
-    id: '7',
     imageUrl: '/content/anivita-homepage.png',
     mobileImageUrl: '/content/anivita-mobile.png',
     liveUrl: 'https://www.dranivitaaggarwal.com/',
     detailsUrl: '/projects/7'
+  },
+  {
+    id: '7',    
+    imageUrl: '/content/bushra-homepage.png',
+    mobileImageUrl: '/content/bushra-mobile.png',
+    liveUrl: 'https://southdelhipsychiatrist.com/',
+    detailsUrl: '/projects/6'
   },
  
 ];
