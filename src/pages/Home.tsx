@@ -186,8 +186,8 @@ const Home: React.FC = () => {
         { src: "/content/setu-home.png", alt: "Dr. Setu Gupta", title: "Dr. Setu Gupta" },
         { src: "/content/karuna-home.png", alt: "Kaurna Hospital", title: "Karuna Hospital" },
         { src: "/content/kanika-home.png", alt: "Dr. Kainka Jain", title: "Dr. Kanika Jain" },
-        { src: "/content/bushra-zahoor.png", alt: "Dr. Bushra Zahoor", title: "Dr. Bushra Zahoor" },
-        { src: "/content/gangesh-home.png", alt: "Dr. Gangesh Gunjan", title: "Dr. Gangesh Gunjan" }
+        { src: "/content/bushra-homepage.png", alt: "Dr. Bushra Zahoor", title: "Dr. Bushra Zahoor" },
+        { src: "/content/gunjan-home.png", alt: "Dr. Gangesh Gunjan", title: "Dr. Gangesh Gunjan" }
     ]
 
 
