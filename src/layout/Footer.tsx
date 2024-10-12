@@ -101,8 +101,8 @@ const Footer: React.FC = () => {
               <h3 className="text-lg md:text-xl font-semibold mb-2 md:mb-4">Contact</h3>
               <motion.div className="space-y-1 md:space-y-2">
                 {[
-                  { icon: <FaPhoneAlt className="h-4 w-6 " href="tel:9911666193" />, content: "9911666193" }, //eslint-disable-line
-                  { icon: <FaPhoneAlt className="h-4 w-6 " href="tel:9911666194" />, content: "9911666194" },
+                  { icon: <FaPhoneAlt className="h-4 w-6 " href="tel:9311666193" />, content: "9311666193" }, //eslint-disable-line
+                  { icon: <FaPhoneAlt className="h-4 w-6 " href="tel:9311666194" />, content: "9311666194" },
                   { icon: <FaEnvelope className="h-4 w-6" href="mailto:rnahealthtech@gmail.com" />, content: "rnahealthtech@gmail.com" },
                   { icon: <FaLocationArrow className="h-4 w-6 " />, content: "Place L29 L34,First Floor, Connaught Place, New Delhi,India-110001" },
                 ].map((item, index) => (
