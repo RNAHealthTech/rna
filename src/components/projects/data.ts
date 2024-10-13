@@ -156,5 +156,29 @@ export const projects: Project[] = [
             '65% improvement in online visibility for targeted mental health keywords',
             '50% reduction in appointment scheduling phone calls due to online booking system'
         ]
+    },
+    {
+        id: '8',
+        title: "Dr. Kanika Jain's Professional Website",
+        description: 'Developed a comprehensive website for Dr. Kanika Jain, an Obstetrician, Gynecologist, Infertility Specialist & Laparoscopic Surgeon, to enhance her online presence and patient outreach.',
+        imageUrl: '/content/kanika-homepage.png',
+        mobileImageUrl: '/content/kanika-mobile.png',
+        date: '5 Oct 2024',
+        views: 0,
+        subtitle: 'Specialized Digital Platform for Gynecology and Obstetrics Expertise',
+        websiteUrl: 'https://delhigynaesurgeon.com',
+        overview: 'RNA HealthTech successfully created and launched a state-of-the-art website for Dr. Kanika Jain, significantly improving her digital presence and patient engagement in the fields of Gynecology, Obstetrics, and Laparoscopic Surgery.',
+        keyFeatures: [
+            'Responsive design optimized for all devices',
+            'Detailed information on specialized treatments and services',
+            'Integration with online appointment booking system',
+            'Comprehensive showcase of professional achievements and expertise'
+        ],
+        technologies: ['React', 'Next.js', 'Tailwind CSS', 'Vercel'],
+        results: [
+            '70% increase in online appointment requests',
+            '55% improvement in search engine rankings for relevant medical keywords',
+            '40% growth in patient inquiries about specialized treatments'
+        ]
     }
 ];

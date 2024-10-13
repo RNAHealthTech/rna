@@ -53,6 +53,13 @@ const websites = [
     liveUrl: 'https://southdelhipsychiatrist.com/',
     detailsUrl: '/projects/7'
   },
+  {
+    id: '8', 
+    imageUrl: '/content/kanika-home.png', 
+    mobileImageUrl: '/content/kanika-mobile.png', 
+    liveUrl: 'https://delhigynaesurgeon.com/', 
+    detailsUrl: '/projects/8'
+  }
  
 ];
 
