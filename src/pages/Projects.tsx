@@ -2,8 +2,15 @@ import React, { useEffect } from 'react';
 import WebsiteCarousel from '../components/utility/WebsiteCarousel';
 import ProjectsShowcase from '../components/projects/ProjectsShowcase';
 
+interface Website {
+  id: string;
+  imageUrl: string;
+  mobileImageUrl: string;
+  liveUrl: string;
+  detailsUrl?: string; 
+}
 
-const websites = [
+const websites: Website[] = [
   {
     id: '1',
     imageUrl: '/content/karuna-home.png',
@@ -59,6 +66,13 @@ const websites = [
     mobileImageUrl: '/content/kanika-mobile.png', 
     liveUrl: 'https://delhigynaesurgeon.com/', 
     detailsUrl: '/projects/8'
+  }, 
+  {
+    id: '9', 
+    imageUrl: '/content/swati-kanodia.png', 
+    mobileImageUrl: '/content/swati-kanodia-mobile.png',
+    liveUrl: 'https://kidsendocare.com',
+     
   }
  
 ];

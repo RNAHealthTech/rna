@@ -7,7 +7,7 @@ interface Website {
   imageUrl: string;
   mobileImageUrl: string;
   liveUrl: string;
-  detailsUrl: string;
+  detailsUrl?: string;
 }
 
 interface WebsiteCarouselProps {
@@ -21,7 +21,7 @@ const WebsiteCarousel: React.FC<WebsiteCarouselProps> = ({ websites }) => {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % websites.length);
-    }, 5000);
+    }, 10000);
 
     return () => clearInterval(timer);
   }, [websites.length]);
