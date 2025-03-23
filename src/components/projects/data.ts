@@ -226,7 +226,7 @@ export const projects: Project[] = [
         description: 'Developed a professional website for Dr. Arjun Maria, a DM specialized Pediatric Hepatologist at Sir Ganga Ram Hospital, showcasing his expertise in children\'s liver and digestive disorders.',
         imageUrl: '/content/arjun-homepage.png',
         mobileImageUrl: '/content/arjun-mobile.png',
-        date: '22 Mar 2025',
+        date: '10 Jan 2025',
         subtitle: 'Comprehensive Digital Profile for Award-Winning Pediatric Liver Specialist',
         websiteUrl: 'https://drarjunpedgastro.com/',
         overview: 'RNA HealthTech created a modern, informative website for Dr. Arjun Maria, highlighting his 14 years of specialized experience in pediatric liver diseases, transplant management, and digestive disorders with training from prestigious Delhi institutions.',
@@ -244,40 +244,14 @@ export const projects: Project[] = [
             '50% growth in appointment requests for complex pediatric digestive cases'
         ]
      }, 
-     {
-        id: '12',
-        title: "Greh Pravesh Therapy",
-        description: 'Developed a comprehensive mental health website for Greh Pravesh Therapy, offering counseling services for individuals, couples, families, and professionals dealing with stress, anxiety, and relationship issues.',
-        imageUrl: '/content/grehpravesh-homepage.png',
-        mobileImageUrl: '/content/grehpravesh-mobile.png',
-        date: '22 Mar 2025',
-        subtitle: 'Holistic Digital Platform for Mental Health Services',
-        websiteUrl: 'https://grehpraveshtherapy.com/',
-        overview: 'RNA HealthTech designed and launched a user-friendly website for Greh Pravesh Therapy, creating an accessible digital presence for their mental health and counseling services. The platform effectively showcases their therapeutic approach while making mental health support more approachable to potential clients.',
-        keyFeatures: [
-            'Intuitive landing section highlighting core mental health services',
-            'Comprehensive service showcase for different therapy options',
-            'Dedicated section for common mental health issues and solutions',
-            'Client testimonials section to build trust and credibility',
-            'Media gallery showcasing therapeutic environment',
-            'Location section with clear contact information',
-            'Advanced SEO implementation with Schema.org medical business markup'
-        ],
-        technologies: ['React', 'Tailwind CSS', 'React Helmet', 'Schema.org JSON-LD'],
-        results: [
-            '80% increase in therapy session bookings from organic search',
-            '65% improvement in engagement with first-time mental health seekers',
-            '55% growth in couples and family therapy inquiries',
-            '70% higher conversion rate from website visitors to consultations'
-        ]
-    }, 
+    
     {
-        id: '13',
+        id: '12',
         title: "Dr. Hirak Pahari",
         description: 'Developed a professional website for Dr. Hirak Pahari, an accomplished consultant specializing in Multi-Organ Transplant and Hepatobiliary Surgery with extensive international training and expertise in liver, kidney, and intestinal transplantation.',
         imageUrl: '/content/hirak-homepage.png',
         mobileImageUrl: '/content/hirak-mobile.png',
-        date: '22 Mar 2025',
+        date: '15 Jan 2025',
         subtitle: 'Comprehensive Digital Platform for a Specialized Transplant Surgeon',
         websiteUrl: 'https://drhirakpahari.com/',
         overview: 'Created a sophisticated, patient-friendly website for Dr. Hirak Pahari to showcase his extensive qualifications, specialized surgical expertise, and professional achievements. The platform effectively communicates his international training and specialized services in transplantation and hepatobiliary surgery while making it easy for potential patients to understand his expertise and make contact.',
@@ -306,4 +280,61 @@ export const projects: Project[] = [
             '/content/drpahari-achievements.png'
         ]
     },
+    {
+        id: '13',
+        title: "Greh Pravesh Therapy",
+        description: 'Developed a comprehensive mental health website for Greh Pravesh Therapy, offering counseling services for individuals, couples, families, and professionals dealing with stress, anxiety, and relationship issues.',
+        imageUrl: '/content/grehpravesh-homepage.png',
+        mobileImageUrl: '/content/grehpravesh-mobile.png',
+        date: '22 Jan 2025',
+        subtitle: 'Holistic Digital Platform for Mental Health Services',
+        websiteUrl: 'https://grehpraveshtherapy.com/',
+        overview: 'RNA HealthTech designed and launched a user-friendly website for Greh Pravesh Therapy, creating an accessible digital presence for their mental health and counseling services. The platform effectively showcases their therapeutic approach while making mental health support more approachable to potential clients.',
+        keyFeatures: [
+            'Intuitive landing section highlighting core mental health services',
+            'Comprehensive service showcase for different therapy options',
+            'Dedicated section for common mental health issues and solutions',
+            'Client testimonials section to build trust and credibility',
+            'Media gallery showcasing therapeutic environment',
+            'Location section with clear contact information',
+            'Advanced SEO implementation with Schema.org medical business markup'
+        ],
+        technologies: ['React', 'Tailwind CSS', 'React Helmet', 'Schema.org JSON-LD'],
+        results: [
+            '80% increase in therapy session bookings from organic search',
+            '65% improvement in engagement with first-time mental health seekers',
+            '55% growth in couples and family therapy inquiries',
+            '70% higher conversion rate from website visitors to consultations'
+        ]
+    }, 
+    {
+        id: '14',
+        title: "GrowthGutExperts",
+        description: 'Developed a specialized healthcare platform featuring dual subdomain routing for a husband-wife doctor team - a Pediatric Endocrinologist and a Gastroenterologist & Hepatologist - providing seamless access to specialized care for both children and adults.',
+        imageUrl: '/content/growthgutexperts-homepage.png',
+        mobileImageUrl: '/content/growthgutexperts-mobile.png',
+        date: '27 Feb 2025',
+        subtitle: 'Integrated Multi-Specialist Healthcare Platform',
+        websiteUrl: 'https://growthgutexperts.com/',
+        overview: 'RNA HealthTech designed and implemented a sophisticated subdomain-based routing system for GrowthGutExperts, creating personalized digital presences for two medical specialists who are married to each other. The platform intelligently directs users to the appropriate specialist based on subdomain selection while maintaining a cohesive brand identity across the website.',
+        keyFeatures: [
+            'Intelligent subdomain routing system detecting user domain and displaying appropriate doctor profile',
+            'Comprehensive doctor profiles highlighting specializations and expertise',
+            'Detailed educational background and professional experience sections',
+            'Research publications and professional achievements showcase',
+            'Online appointment scheduling with personalized time slots',
+            'Multi-language support (English, Hindi, Bengali)',
+            'Responsive design optimized for all devices',
+            'Integrated contact system connecting patients with the right specialist'
+        ],
+        technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Subdomain Routing', 'Dynamic Content Loading'],
+        results: [
+            '65% increase in online appointment bookings across both specialties',
+            '70% higher engagement with pediatric endocrinology services',
+            '55% growth in gastroenterology and hepatology consultations',
+            '80% improvement in cross-referrals between the two specialists',
+            '60% reduction in administrative overhead through unified platform management'
+        ]
+    },
+
 ];
