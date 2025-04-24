@@ -105,7 +105,7 @@ export const ResponsiveImageCarousel: React.FC<ResponsiveImageCarouselProps> = (
       >
         {[...items, ...items].map((item, index) => (
           <div key={index} className="flex-shrink-0 flex flex-col items-center mx-4 bg-rose-50/10">
-            <div className="h-48 w-48 md:w-[300px] md:h-[200px] flex items-center justify-center">
+            <div className="h-72 w-56 md:w-[300px] md:h-[200px] flex items-center justify-center">
               <img
                 src={item.src}
                 alt={item.alt}

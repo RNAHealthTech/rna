@@ -152,9 +152,9 @@ const Home: React.FC = () => {
     );
 
     const [texts2, setTexts2] = useState<ServiceCardProps[]>([
-        
-       
-        
+
+
+
         {
             title: "Social Media",
             image: "/images/social.jpg"
@@ -163,7 +163,7 @@ const Home: React.FC = () => {
             title: "Content Writing",
             image: "/images/results.jpg",
         },
-       
+
         {
             title: "Marketing",
             image: "/images/marketing.jpg",
@@ -176,10 +176,10 @@ const Home: React.FC = () => {
             title: "Web Design",
             image: "/images/website.jpg",
         },
-       
+
     ]);
 
-  
+
 
     const imageCarousel = [
         { src: "/content/ajay-homepage.png", alt: "Dr. Ajay Aggarwal", title: "Dr. Ajay Aggarwal" },
@@ -211,9 +211,9 @@ const Home: React.FC = () => {
             setTimeout(() => {
                 setTexts2(initialCards.current);
 
-            }, 1000); 
+            }, 1000);
         }
-    },[texts2]);
+    }, [texts2]);
 
     return (
         <main className="flex-grow px-4 py-8 sm:px-6 md:px-8 lg:px-12">
@@ -259,160 +259,26 @@ const Home: React.FC = () => {
                 </div>
             </motion.div>
 
-
-
-
             <motion.section
                 id="portfolio"
                 className="flex flex-col items-center mt-20"
-
             >
                 <h2 className="text-5xl lg:text-6xl font-semibold text-center font-fraunces-slab mb-12">Portfolio</h2>
-                <motion.div className="grid grid-cols-1 gap-8 lg:grid-cols-4 items-start px-4 md:px-6 lg:px-8 lg:mt-32">
-
-                    <motion.div className="lg:col-span-2 bg-gray-100 w-full lg:w-[35vw] h-[75vh] md:h-[80vh] lg:h-[90vh] rounded-[20px] md:rounded-[60px] lg:rounded-[80px] relative overflow-hidden shadow-md">
-                        <motion.div className="relative"
-                            initial={{ opacity: 0, y: 50 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: false, amount: 0.3 }}
-                            transition={{ duration: 0.6, ease: "easeOut" }}
-                        >
-                            <video
-                                src="/images/projects1.mp4"
-                                className="w-full h-full object-cover"
-                                autoPlay
-                                loop
-                                muted
-                                playsInline
-                            />
-                            <motion.div
-                                className="absolute inset-0 bg-purple/60 backdrop-blur-sm rounded-[30px] sm:rounded-[40px] lg:rounded-[50px] flex flex-col justify-center items-center p-4 cursor-pointer"
-                                initial={{ opacity: 1 }}
-                            >
-                                <h3 className="text-xl font-bold text-white mb-2">Prominent Hospital in Delhi </h3>
-                                <p className="text-md text-gray-100 text-center mb-4">We outbrusted a responsive website with modern technologies and top ranking in search index.</p>
-
-                                <motion.div className="flex flex-col sm:flex-row justify-center items-center space-y-2 sm:space-y-0 sm:space-x-4 w-full">
-                                    <Link to="https://karunahospital.in" target="_blank" rel="noopener noreferrer" className="bg-white text-purple-600 px-4 py-2 rounded-full text-sm font-semibold hover:bg-purple-100 transition-colors duration-300 w-full sm:w-auto text-center">
-                                        Visit Website
-                                    </Link>
-                                    <Link to="/projects/1" className="bg-transparent border border-white text-white px-4 py-2 rounded-full text-sm font-semibold transition-colors duration-300 w-full sm:w-auto text-center">
-                                        View Project Details
-                                    </Link>
-                                </motion.div>
-                            </motion.div>
-                        </motion.div>
-                    </motion.div>
-
-                    <motion.div className="lg:col-span-1 space-y-8 flex flex-col h-full">
-                        <motion.div
-                            className="relative"
-                            initial={{ opacity: 0, y: 50 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: false, amount: 0.3 }}
-                            transition={{ duration: 0.6, ease: "easeOut" }}
-                        >
-                            <img
-                                src="/images/projects2.jpg"
-                                alt="Molecule Interaction"
-                                className="w-full h-60 object-cover rounded-[30px] sm:rounded-[40px] lg:rounded-[50px] shadow-md"
-                            />
-
-                            <motion.div
-                                className="absolute inset-0 bg-purple/60 backdrop-blur-sm rounded-[30px] sm:rounded-[40px] lg:rounded-[50px] flex flex-col justify-center items-center p-4 cursor-pointer"
-                                initial={{ opacity: 1 }}
-
-                            >
-                                <h3 className="text-xl font-bold text-white mb-2">Endocrinologist in NCR </h3>
-                                <p className="text-md text-gray-100 text-center mb-4">We crafted a cutting-edge, responsive website that dominate search rankings and captivate audience.</p>
-                                <motion.div className="flex flex-col sm:flex-row justify-center items-center space-y-2 sm:space-y-0 sm:space-x-4 w-full">
-                                    <Link to="https://drajayaggarwal.in" target="_blank" rel="noopener noreferrer" className="bg-white text-purple-600 px-4 py-2 rounded-full text-sm font-semibold hover:bg-purple-100 transition-colors duration-300 w-full sm:w-auto text-center">
-                                        Visit Website
-                                    </Link>
-                                    <Link to="/projects/2" className="bg-transparent border border-white text-white px-4 py-2 rounded-full text-sm font-semibold transition-colors duration-300 w-full sm:w-auto text-center">
-                                        View Project Details
-                                    </Link>
-                                </motion.div>
-
-                            </motion.div>
-                        </motion.div>
-                        <motion.div
-                            className="relative"
-                            initial={{ opacity: 0, y: 50 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: false, amount: 0.3 }}
-                            transition={{ duration: 0.6, ease: "easeOut" }}
-                        >
-                            <img
-                                src="/images/projects3.jpg"
-                                alt="Molecule Interaction"
-                                className="w-full h-60 object-cover rounded-[30px] sm:rounded-[40px] lg:rounded-[50px] shadow-md"
-                            />
-                            <motion.div
-                                className="absolute inset-0 bg-purple/60 backdrop-blur-sm rounded-[30px] sm:rounded-[40px] lg:rounded-[50px] flex flex-col justify-center items-center p-4 cursor-pointer"
-                                initial={{ opacity: 1 }}
-
-                            >
-                                <h3 className="text-xl font-bold text-white mb-2"> MENTAL HEALTH CLINIC </h3>
-                                <p className="text-md text-gray-100 text-center mb-4">Discover our newly launched, user-friendly website designed to connect you with one of the best psychologist of India</p>
-                                <motion.div className="flex flex-col sm:flex-row justify-center items-center space-y-2 sm:space-y-0 sm:space-x-4 w-full">
-                                    <Link to="https://delhimentalhealth.com" target="_blank" rel="noopener noreferrer" className="bg-white text-purple-600 px-4 py-2 rounded-full text-sm font-semibold hover:bg-purple-100 transition-colors duration-300 w-full sm:w-auto text-center">
-                                        Visit Website
-                                    </Link>
-                                    <Link to="/projects/5" className="bg-transparent border border-white text-white px-4 py-2 rounded-full text-sm font-semibold transition-colors duration-300 w-full sm:w-auto text-center">
-                                        View Project Details
-                                    </Link>
-                                </motion.div>
-
-                            </motion.div>
-                        </motion.div>
-                    </motion.div>
-                    <motion.div
-                        className="lg:col-span-1 bg-gray-100 w-full h-[60vh] sm:h-[50vh] lg:h-[40vh] rounded-[30px] sm:rounded-[40px] lg:rounded-[50px] relative overflow-visible"
-                        initial={{ opacity: 0, y: 50 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: false, amount: 0.3 }}
-                        transition={{ duration: 0.6, ease: "easeOut" }}
-                    >
-                        <motion.div className="relative">
-                            <video
-                                src="/images/projects4.mp4"
-                                className="w-full h-full object-cover rounded-[40px] shadow-xl"
-                                autoPlay
-                                loop
-                                muted
-                                playsInline
-                            />
-                            <motion.div
-                                className="absolute inset-0 bg-purple/60 backdrop-blur-sm rounded-[30px] sm:rounded-[40px] lg:rounded-[50px] flex flex-col justify-center items-center p-4 cursor-pointer"
-                                initial={{ opacity: 1 }}
-                            >
-                                <h3 className="text-xl font-bold text-white mb-2">Nationally Recognized Neurosurgon's Site</h3>
-                                <p className="text-md text-gray-100 text-center mb-4">Discover our expertly crafted website, showcasing cutting-edge care and seamless access to top-tier neurosurgical services.</p>
-                                <motion.div className="flex flex-col sm:flex-row justify-center items-center space-y-2 sm:space-y-0 sm:space-x-4 w-full">
-                                    <Link to="https://drgangeshgunjanneuro.com" target="_blank" rel="noopener noreferrer" className="bg-white text-purple-600 px-4 py-2 rounded-full text-sm font-semibold hover:bg-purple-100 transition-colors duration-300 w-full sm:w-auto text-center">
-                                        Visit Website
-                                    </Link>
-                                    <Link to="/projects/3" className="bg-transparent border border-white text-white px-4 py-2 rounded-full text-sm font-semibold transition-colors duration-300 w-full sm:w-auto text-center">
-                                        View Project Details
-                                    </Link>
-                                </motion.div>
-
-                            </motion.div>
-                        </motion.div>
-                        <motion.div className="mx-auto mt-12 space-y-6 text-center">
-                            <h3 className="text-2xl font-bold text-gray-800">Design. Dazzle. Deliver</h3>
-                            <p className="text-lg text-gray-600">
+                <motion.div className="flex justify-center w-full px-4 md:px-6 lg:px-8 lg:mt-32">
+                    <motion.div className="w-full max-w-4xl bg-gray-100 rounded-[20px] md:rounded-[60px] lg:rounded-[80px] relative overflow-hidden shadow-md">
+                        <motion.div className="py-12 space-y-8 text-center px-6 lg:px-12">
+                            <h3 className="text-3xl lg:text-4xl font-bold text-gray-800">Design. Dazzle. Deliver</h3>
+                            <p className="text-lg lg:text-xl text-gray-600 leading-relaxed">
                                 We think different.
                             </p>
-                            <p className="text-lg text-gray-600">
+                            <p className="text-lg lg:text-xl text-gray-600 leading-relaxed">
                                 At RNA HealthTech, dedicated medical marketing professionals work with a three-dimensional approach so that you rise above the crowd.
                             </p>
-                            <p className="text-lg text-gray-700">
-                                Our solutions have helped prolific hospitals, expert surgeons and experienced doctors in winning trust of thousands of patients. The custom strategies not only educate and impress but ensure attractive return-on-investment.
+                            <p className="text-lg lg:text-xl text-gray-700 leading-relaxed">
+                                Our solutions have helped prolific hospitals, expert surgeons and experienced doctors in winning the trust of thousands of patients. The custom strategies not only educate and impress but ensure an attractive return on investment.
                             </p>
                             <motion.button
-                                className="mt-4 px-6 py-3 border border-r border-solid border-purple text-lg font-semibold text-zinc-800 rounded-full hover:bg-purple hover:text-white transition duration-300 shadow-xl"
+                                className="mt-6 px-8 py-4 border border-r border-solid border-purple text-lg lg:text-xl font-semibold text-zinc-800 rounded-full hover:bg-purple hover:text-white transition duration-300 shadow-xl"
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
                                 onClick={() => navigate("/projects")}
@@ -421,20 +287,20 @@ const Home: React.FC = () => {
                             </motion.button>
                         </motion.div>
                     </motion.div>
-
-
                 </motion.div>
             </motion.section>
 
 
 
 
-            <motion.div className="container mx-auto px-4 mt-[50vh] md:mt-40 mb-10 md:mb-28">
+            <motion.div className="container mx-auto px-4 mt-[10vh] md:mt-40 mb-10 md:mb-28">
 
-                <ResponsiveImageCarousel items={imageCarousel} />
-                <DesktopImageCarousel items={imageCarousel} autoChangeInterval={3000} />
-
-
+                <div className="md:hidden">
+                    <ResponsiveImageCarousel items={imageCarousel} />
+                </div>
+                <div className="hidden md:block">
+                    <DesktopImageCarousel items={imageCarousel} autoChangeInterval={3000} />
+                </div>
                 <motion.div className="mt-24 mb-24">
                     <div className="text-center">
                         <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 text-gray-800">
@@ -459,50 +325,11 @@ const Home: React.FC = () => {
 
             <motion.section
                 id="overview"
-                className="flex flex-col items-center mt-50 md:mt-20"
-
-            >
-
-
+                className="flex flex-col items-center mt-50 md:mt-20">
                 <h2 className="text-5xl lg:text-6xl font-semibold text-center font-fraunces-slab mb-12">Our Mission</h2>
 
-                <motion.div className="grid grid-cols-1 lg:grid-cols-4 items-start px-4 md:px-6 lg:px-8 lg:mt-32">
-                    <motion.div
-                        className="lg:col-span-2 bg-gray-100 w-full lg:w-[35vw] h-[75vh] md:h-[80vh] lg:h-[90vh] rounded-[20px] md:rounded-[60px] lg:rounded-[80px] relative overflow-hidden"
-                        initial={{ opacity: 0, y: 50 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: false, amount: 0.3 }}
-                        transition={{ duration: 0.6, ease: "easeOut" }}
-                    >
-                        <video
-                            src="/images/gif.mp4"
-                            className="w-full h-full object-cover"
-                            autoPlay
-                            loop
-                            muted
-                            playsInline
-                        />
-                        <motion.div
-                            ref={ref}
-                            className="absolute flex flex-row gap-4 top-20 right-4"
-                            initial={{ opacity: 0, y: 50 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: false, amount: 0.3 }}
-                            transition={{ duration: 0.6, ease: "easeOut" }}
-                        >
-                            {[FaCircleInfo, FaCirclePlay].map((Icon, index) => (
-                                <motion.div
-                                    key={index}
-                                    className="bg-white rounded-full p-2 shadow-md hover:shadow-lg transition-shadow duration-300"
-                                    whileHover={{ scale: 1.1 }}
-                                    whileTap={{ scale: 0.95 }}
-                                >
-                                    <Icon className="text-2xl sm:text-3xl md:text-4xl text-zinc-800" />
-                                </motion.div>
-                            ))}
-                        </motion.div>
+                <motion.div className="grid grid-cols-1 lg:grid-cols-1 items-start px-4 md:px-6 lg:px-8 lg:mt-32">
 
-                    </motion.div>
 
                     <motion.div
                         className="lg:col-span-1 mt-12 lg:mt-0 lg:mr-24 flex flex-col h-full"
@@ -513,7 +340,7 @@ const Home: React.FC = () => {
                     >
                         <motion.div className="text-center mb-12">
                             <h2 className="text-2xl font-bold mb-6">Driven by a rich history of expertise and a relentless pursuit of excellence</h2>
-                            <button onClick={()=>navigate('/about-us')} className="text-white text-lg font-semibold rounded-[40px] bg-black py-2 px-6 shadow-md">
+                            <button onClick={() => navigate('/about-us')} className="text-white text-lg font-semibold rounded-[40px] bg-black py-2 px-6 shadow-md">
                                 LEARN MORE
                             </button>
 
@@ -526,28 +353,7 @@ const Home: React.FC = () => {
 
                     </motion.div>
 
-                    <motion.div
-                        className="lg:col-span-1 bg-gray-100 w-full h-[60vh] sm:h-[50vh] lg:h-[40vh] rounded-[30px] sm:rounded-[40px] lg:rounded-[50px] relative overflow-visible mb-24 mt-24 lg:mb-32 lg:mt-0"
-                        initial={{ opacity: 0, y: 50 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: false, amount: 0.3 }}
-                        transition={{ duration: 0.6, ease: "easeOut" }}
-                    >
-                        <img
-                            src="/images/mol.jpg"
-                            alt="Molecule Interaction"
-                            className="w-full h-full object-cover rounded-[30px] sm:rounded-[40px] lg:rounded-[50px]"
-                        />
 
-                        {/* second div  */}
-                        <motion.div className="absolute -bottom-20 sm:-bottom-24 lg:-bottom-20 left-0 right-24 mx-auto w-9/12  max-w-md text-center py-4 sm:p-6 rounded-[20px] lg:rounded-[40px] bg-gray-100/30 ring-1 ring-zinc-100 shadow-lg">
-
-                            <h3 className="text-xl lg:text-2xl font-bold mb-2 sm:mb-4 text-black/90">Give Our Team of Experts a Brief</h3>
-                            <button onClick={() => window.location.href = 'tel:number'} className="text-white text-sm sm:text-base font-semibold bg-purple rounded-[30px] px-4 sm:px-6 py-2 shadow-md hover:bg-purple-700 transition-colors duration-300">
-                                Call Us Now!
-                            </button>
-                        </motion.div>
-                    </motion.div>
                 </motion.div>
             </motion.section>
 
