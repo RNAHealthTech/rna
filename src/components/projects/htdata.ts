@@ -147,7 +147,7 @@ export const healthTechServices: HealthTechService[] = [
     title: 'Telemedicine & Virtual Care Platform',
     description: 'Secure video consultation platform enabling remote healthcare delivery with integrated EMR, prescription management, and patient monitoring capabilities.',
     keyFeatures: [
-      'HIPAA-compliant video consultations',
+      'Legally-compliant video consultations',
       'Remote patient monitoring integration',
       'Digital prescription and medication management',
       'Virtual waiting rooms and queue management',

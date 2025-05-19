@@ -242,7 +242,9 @@ const HTServices: React.FC = () => {
                         </p>
 
                         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-                            <button className="bg-white text-purple px-8 py-4 rounded-lg font-semibold hover:bg-grey transition-colors duration-300 shadow-lg">
+                            <button
+                            onClick={openModal}
+                            className="bg-white text-purple px-8 py-4 rounded-lg font-semibold hover:bg-grey transition-colors duration-300 shadow-lg">
                                 Book Free Call
                             </button>
 

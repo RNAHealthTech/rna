@@ -230,7 +230,7 @@ const Header: React.FC = () => {
                                 to="/healthtech-services-best-healthtech-company-in-delhi-ncr"
                                 onClick={() => { console.log('services'); setIsMenuOpen(false); }}
                             >
-                              HealthTech Services
+                              Health Tech Services
                             </NavLink>
                             <NavLink
                                 to="/contact"

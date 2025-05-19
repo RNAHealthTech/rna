@@ -226,18 +226,13 @@ const HServiceTemplate: React.FC<HServiceTemplateProps> = ({ serviceId }) => {
               {[
                 {
                   icon: Shield,
-                  title: 'HIPAA Compliant',
+                  title: 'Legally Compliant',
                   description: 'Bank-grade security ensuring complete data protection and privacy compliance'
                 },
                 {
                   icon: Clock,
                   title: '24/7 Support',
                   description: 'Round-the-clock technical assistance for uninterrupted healthcare operations'
-                },
-                {
-                  icon: Award,
-                  title: 'Proven Track Record',
-                  description: '500+ successful implementations across Delhi NCR healthcare facilities'
                 },
                 {
                   icon: Lightbulb,
