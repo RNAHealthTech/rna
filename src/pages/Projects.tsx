@@ -87,8 +87,8 @@ const ProjectsPage: React.FC = () => {
   return (
     <>
      <Helmet>
-                <title>RNA HealthTech | Digital Marketing for Doctors & Hospitals | Healthcare SEO | Medical SEO | SEO for Doctors Services India</title>
-                <meta name="description" content="Best health marketing & seo for hospitals, doctors, and clinics in India, US, UK, UAE, Australia. Call now 9311666193" />
+                <title>See Our Projects | Work Across Websites, SEO, Google Profiles</title>
+                <meta name="description" content="Checkout our work for most prominent hospitals, doctors & clinics across the country. Take your practice online with our customized & automated solutions." />
                 <meta name="keywords" content="digital marketing for doctors, healthcare seo, hospital digital marketing, rna healthcare, digital agency for healthcare, SEO for doctors, health tech companies" />
 
                 <link rel="canonical" href="https://rnahealthtech.com" />

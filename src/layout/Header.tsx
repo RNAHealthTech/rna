@@ -223,7 +223,7 @@ const Header: React.FC = () => {
                                 to="/services"
                                 onClick={() => { console.log('services'); setIsMenuOpen(false); }}
                             >
-                                Services
+                                Digital Services
                             </NavLink>
 
                             <NavLink
