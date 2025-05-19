@@ -311,12 +311,11 @@ const HServiceTemplate: React.FC<HServiceTemplateProps> = ({ serviceId }) => {
             <h2 className="text-3xl sm:text-4xl font-bold font-pt-serif mb-6">
               Ready to Transform Your Healthcare Practice?
             </h2>
-            <p className="text-lg text-white/90 mb-8 max-w-3xl mx-auto">
-              Join 500+ healthcare providers in Delhi NCR who trust RNA HealthTech for their digital transformation
-            </p>
-            
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-              <button className="bg-white text-purple px-8 py-4 rounded-lg font-semibold hover:bg-grey transition-colors duration-300 shadow-lg">
+              <button
+            className="bg-white text-purple px-8 py-4 rounded-lg font-semibold hover:bg-grey transition-colors duration-300 shadow-lg"
+            onClick={openModal}  
+              >
                 Get Free Consultation
               </button>
               {/* <button className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white/10 transition-colors duration-300">

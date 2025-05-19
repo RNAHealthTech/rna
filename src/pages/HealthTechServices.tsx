@@ -17,7 +17,7 @@ import {
     CheckCircle,
     Zap
 } from 'lucide-react';
-
+import { Helmet } from 'react-helmet';
 
 import AppointmentModal from '../components/utility/AppointmentModal';
 
@@ -43,24 +43,160 @@ const HTServices: React.FC = () => {
 
 
     return (
-        <div className="min-h-screen bg-white font-work-sans-slab">
-            {/* Hero Section */}
-            <section className="bg-gradient-to-br from-purple via-purple/90 to-purple/80 text-white py-16 lg:py-24">
-                <div className="container mx-auto px-4 sm:px-6 lg:px-8 mt-20">
-                    <div className="max-w-4xl mx-auto text-center">
-                        <div className="inline-flex items-center bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
-                            <MapPin className="h-4 w-4 mr-2" />
-                            <span className="text-sm font-medium">Best HealthTech Company in Delhi NCR</span>
-                        </div>
+        <>
+            <Helmet>
+                <title>Health Tech Services by RNA HealthTech | Digital Marketing for Doctors & Hospitals | Healthcare SEO | Medical SEO | SEO for Doctors Services India</title>
+                <meta name="description" content="Best health marketing & seo for hospitals, doctors, and clinics in India, US, UK, UAE, Australia. Call now 9311666193" />
+                <meta name="keywords" content="digital marketing for doctors, healthcare seo, hospital digital marketing, rna healthcare, digital agency for healthcare, SEO for doctors, health tech companies" />
 
-                        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold font-pt-serif mb-6 leading-tight">
-                            RNA HealthTech Services
-                        </h1>
-                        <p className="text-lg sm:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed mb-8">
-                            As the best healthtech company in Delhi NCR, RNA HealthTech delivers comprehensive digital solutions that transform healthcare delivery, enhance patient care, and optimize practice operations across the healthcare ecosystem.
-                        </p>
+                <link rel="canonical" href="https://rnahealthtech.com" />
 
-                        {/* <div className="flex flex-wrap justify-center gap-6 mb-8">
+                {/* Open Graph Tags */}
+                <meta property="og:title" content="RNA HealthTech | Digital Marketing for Doctors & Hospitals" />
+                <meta property="og:description" content="Transform your healthcare practice with expert digital marketing. SEO for doctors, hospital marketing & health tech services." />
+                <meta property="og:url" content="https://rnahealthtech.com" />
+                <meta property="og:type" content="website" />
+                <meta property="og:image" content="https://rnahealthtech.com/og-home.jpg" />
+
+                {/* Organization Schema */}
+                <script type="application/ld+json">{`
+              {
+                "@context": "https://schema.org",
+                "@type": "Organization",
+                "name": "RNA HealthTech",
+                "url": "https://rnahealthtech.com",
+                "logo": "https://rnahealthtech.com/logo.png",
+                "description": "",
+                "address": {
+                  "@type": "PostalAddress",
+                  "streetAddress": "Place L29 L34, First Floor, Connaught Place",
+                  "addressLocality": "New Delhi",
+                  "addressRegion": "New Delhi",
+                  "postalCode": "110001",
+                  "addressCountry": "India"
+                },
+                "contactPoint": [
+                  {
+                    "@type": "ContactPoint",
+                    "telephone": "+91-9311666193",
+                    "contactType": "customer service",
+                    "availableLanguage": ["English", "Hindi"]
+                  },
+                  {
+                    "@type": "ContactPoint",
+                    "telephone": "+91-9311666194",
+                    "contactType": "sales",
+                    "availableLanguage": ["English", "Hindi"]
+                  }
+                ],
+                "email": "contact@rnahealthtech.com",
+                "founder": {
+                  "@type": "Person",
+                  "name": "RNA HealthTech Team"
+                },
+                "foundingDate": "2020",
+                "areaServed": [
+                  {
+                    "@type": "Country",
+                    "name": "India"
+                  },
+                  {
+                    "@type": "Country",
+                    "name": "United States"
+                  },
+                  {
+                    "@type": "Country",
+                    "name": "Canada"
+                  }
+                ],
+                "serviceArea": [
+                  "Mumbai", "Delhi", "Bangalore", "Chennai", "Hyderabad", "Pune", "Kolkata", "Ahmedabad", "Surat", "Jaipur",
+                  "New York", "Los Angeles", "Chicago", "Houston", "Toronto", "Vancouver", "Montreal"
+                ],
+                "knowsAbout": [
+                  "Digital Marketing for Doctors",
+                  "Healthcare SEO",
+                  "Hospital Digital Marketing",
+                  "Health Tech Marketing",
+                  "Medical Practice Marketing",
+                  "Healthcare Content Marketing"
+                ]
+              }
+            `}</script>
+
+                {/* Website Schema */}
+                <script type="application/ld+json">{`
+              {
+                "@context": "https://schema.org",
+                "@type": "WebSite",
+                "name": "RNA HealthTech",
+                "alternateName": "RNA Healthcare",
+                "url": "https://rnahealthtech.com",
+                "description": "Premier healthcare digital marketing agency providing SEO services for doctors, hospitals and health tech companies",
+                "potentialAction": {
+                  "@type": "SearchAction",
+                  "target": "https://rnahealthtech.com/search?q={search_term_string}",
+                  "query-input": "required name=search_term_string"
+                },
+                "about": {
+                  "@type": "Thing",
+                  "name": "Healthcare Digital Marketing"
+                }
+              }
+            `}</script>
+
+                {/* Local Business Schema */}
+                <script type="application/ld+json">{`
+              {
+                "@context": "https://schema.org",
+                "@type": "LocalBusiness",
+                "name": "RNA HealthTech",
+                "image": "https://rnahealthtech.com/office.jpg",
+                "telephone": "+91-9311666193",
+                "email": "contact@rnahealthtech.com",
+                "address": {
+                  "@type": "PostalAddress",
+                  "streetAddress": "Place L29 L34, First Floor, Connaught Place",
+                  "addressLocality": "New Delhi",
+                  "addressRegion": "New Delhi",
+                  "postalCode": "110001",
+                  "addressCountry": "India"
+                },
+                "geo": {
+                  "@type": "GeoCoordinates",
+                  "latitude": "28.6328",
+                  "longitude": "77.2197"
+                },
+                "openingHoursSpecification": [
+                  {
+                    "@type": "OpeningHoursSpecification",
+                    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                    "opens": "09:00",
+                    "closes": "18:00"
+                  }
+                ],
+                "priceRange": "$$"
+              }
+            `}</script>
+            </Helmet>
+            <div className="min-h-screen bg-white font-work-sans-slab">
+                {/* Hero Section */}
+                <section className="bg-gradient-to-br from-purple via-purple/90 to-purple/80 text-white py-16 lg:py-24">
+                    <div className="container mx-auto px-4 sm:px-6 lg:px-8 mt-20">
+                        <div className="max-w-4xl mx-auto text-center">
+                            <div className="inline-flex items-center bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
+                                <MapPin className="h-4 w-4 mr-2" />
+                                <span className="text-sm font-medium">Best HealthTech Company in Delhi NCR</span>
+                            </div>
+
+                            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold font-pt-serif mb-6 leading-tight">
+                                RNA HealthTech Services
+                            </h1>
+                            <p className="text-lg sm:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed mb-8">
+                                As the best healthtech company in Delhi NCR, RNA HealthTech delivers comprehensive digital solutions that transform healthcare delivery, enhance patient care, and optimize practice operations across the healthcare ecosystem.
+                            </p>
+
+                            {/* <div className="flex flex-wrap justify-center gap-6 mb-8">
               <div className="bg-white/20 backdrop-blur-sm px-6 py-3 rounded-full">
                 <span className="text-2xl font-bold">500+</span>
                 <span className="block text-sm">Healthcare Clients</span>
@@ -75,115 +211,115 @@ const HTServices: React.FC = () => {
               </div>
             </div> */}
 
-                        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                            <button
-                                onClick={() => {
-                                    const section = document.getElementById('services');
-                                    if (section) {
-                                        section.scrollIntoView({ behavior: 'smooth' })
-                                    }
-                                }}
-                                className="bg-white text-purple px-8 py-4 rounded-lg font-semibold hover:bg-grey transition-colors duration-300 shadow-lg">
-                                Explore All Services
-                            </button>
-                            <button
-                                onClick={openModal}
-                                className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white/10 transition-colors duration-300">
-                                Schedule Demo
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <AppointmentModal isOpen={isModalOpen} onClose={closeModal} />
-
-
-
-            {/* Services by Category */}
-            {Object.entries(serviceCategories).map(([category, serviceIds], categoryIndex) => (
-                <section key={category} id='services' className={`py-16 lg:py-20 ${categoryIndex % 2 === 0 ? 'bg-white' : 'bg-lavender/20'}`}>
-                    <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                        <div className="max-w-6xl mx-auto">
-                            <div className="text-center mb-12">
-                                <h2 className="text-3xl sm:text-4xl font-bold font-pt-serif text-black mb-4">
-                                    {category}
-                                </h2>
-                                <p className="text-lg text-black/70 max-w-3xl mx-auto">
-                                    {category === 'Practice Management'
-                                        ? 'Streamline operations with intelligent automation and workflow optimization solutions'
-                                        : category === 'Clinical Solutions'
-                                            ? 'Advanced clinical tools that enhance patient care and provider efficiency'
-                                            : 'Data-driven insights and growth strategies for modern healthcare practices'}
-                                </p>
-                            </div>
-
-                            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-                                {getServicesByCategory(category).map((service) => {
-                                    const IconComponent = iconMap[service.icon as keyof typeof iconMap] || Star;
-                                    return (
-                                        <div key={service.id} className="group bg-white hover:bg-verylight border border-lavender rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300">
-                                            <div className="p-6">
-                                                {/* Service Header */}
-                                                <div className="flex items-center mb-4">
-                                                    <div className="bg-purple/10 group-hover:bg-purple/20 p-3 rounded-lg mr-4 transition-colors duration-300">
-                                                        <IconComponent className="h-8 w-8 text-purple" />
-                                                    </div>
-                                                    <div className="flex-1">
-                                                        <h3 className="text-xl font-bold font-pt-serif text-black group-hover:text-purple transition-colors duration-300 line-clamp-2">
-                                                            {service.title}
-                                                        </h3>
-                                                    </div>
-                                                </div>
-
-                                                {/* Service Description */}
-                                                <p className="text-black/70 text-sm leading-relaxed mb-6 line-clamp-3">
-                                                    {service.description}
-                                                </p>
-
-                                                {/* Key Features Preview */}
-                                                <div className="mb-6">
-                                                    <h4 className="font-semibold text-black mb-3 flex items-center text-sm">
-                                                        <Zap className="h-4 w-4 mr-2 text-purple" />
-                                                        Key Features
-                                                    </h4>
-                                                    <ul className="space-y-2">
-                                                        {service.keyFeatures.slice(0, 3).map((feature, index) => (
-                                                            <li key={index} className="flex items-start text-xs">
-                                                                <CheckCircle className="h-4 w-4 text-purple mr-2 mt-0.5 flex-shrink-0" />
-                                                                <span className="text-black/60 line-clamp-1">
-                                                                    {feature.length > 60 ? feature.substring(0, 60) + '...' : feature}
-                                                                </span>
-                                                            </li>
-                                                        ))}
-                                                    </ul>
-                                                    {service.keyFeatures.length > 3 && (
-                                                        <p className="text-xs text-purple mt-2">
-                                                            +{service.keyFeatures.length - 3} more features
-                                                        </p>
-                                                    )}
-                                                </div>
-
-                                                {/* CTA Button */}
-                                                <Link
-                                                    to={`/healthtech-services-best-healthtech-company-in-delhi-ncr/${service.slug}`}
-                                                    className="group/btn w-full bg-purple hover:bg-purple/90 text-white py-3 px-4 rounded-lg transition-colors duration-300 font-semibold text-center block"
-                                                >
-                                                    <span className="flex items-center justify-center">
-                                                        Learn More
-                                                        <ArrowRight className="h-4 w-4 ml-2 group-hover/btn:translate-x-1 transition-transform duration-300" />
-                                                    </span>
-                                                </Link>
-                                            </div>
-                                        </div>
-                                    );
-                                })}
+                            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                                <button
+                                    onClick={() => {
+                                        const section = document.getElementById('services');
+                                        if (section) {
+                                            section.scrollIntoView({ behavior: 'smooth' })
+                                        }
+                                    }}
+                                    className="bg-white text-purple px-8 py-4 rounded-lg font-semibold hover:bg-grey transition-colors duration-300 shadow-lg">
+                                    Explore All Services
+                                </button>
+                                <button
+                                    onClick={openModal}
+                                    className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white/10 transition-colors duration-300">
+                                    Schedule Demo
+                                </button>
                             </div>
                         </div>
                     </div>
                 </section>
-            ))}
+                <AppointmentModal isOpen={isModalOpen} onClose={closeModal} />
 
-            {/* Trust Indicators  
+
+
+                {/* Services by Category */}
+                {Object.entries(serviceCategories).map(([category, serviceIds], categoryIndex) => (
+                    <section key={category} id='services' className={`py-16 lg:py-20 ${categoryIndex % 2 === 0 ? 'bg-white' : 'bg-lavender/20'}`}>
+                        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                            <div className="max-w-6xl mx-auto">
+                                <div className="text-center mb-12">
+                                    <h2 className="text-3xl sm:text-4xl font-bold font-pt-serif text-black mb-4">
+                                        {category}
+                                    </h2>
+                                    <p className="text-lg text-black/70 max-w-3xl mx-auto">
+                                        {category === 'Practice Management'
+                                            ? 'Streamline operations with intelligent automation and workflow optimization solutions'
+                                            : category === 'Clinical Solutions'
+                                                ? 'Advanced clinical tools that enhance patient care and provider efficiency'
+                                                : 'Data-driven insights and growth strategies for modern healthcare practices'}
+                                    </p>
+                                </div>
+
+                                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+                                    {getServicesByCategory(category).map((service) => {
+                                        const IconComponent = iconMap[service.icon as keyof typeof iconMap] || Star;
+                                        return (
+                                            <div key={service.id} className="group bg-white hover:bg-verylight border border-lavender rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300">
+                                                <div className="p-6">
+                                                    {/* Service Header */}
+                                                    <div className="flex items-center mb-4">
+                                                        <div className="bg-purple/10 group-hover:bg-purple/20 p-3 rounded-lg mr-4 transition-colors duration-300">
+                                                            <IconComponent className="h-8 w-8 text-purple" />
+                                                        </div>
+                                                        <div className="flex-1">
+                                                            <h3 className="text-xl font-bold font-pt-serif text-black group-hover:text-purple transition-colors duration-300 line-clamp-2">
+                                                                {service.title}
+                                                            </h3>
+                                                        </div>
+                                                    </div>
+
+                                                    {/* Service Description */}
+                                                    <p className="text-black/70 text-sm leading-relaxed mb-6 line-clamp-3">
+                                                        {service.description}
+                                                    </p>
+
+                                                    {/* Key Features Preview */}
+                                                    <div className="mb-6">
+                                                        <h4 className="font-semibold text-black mb-3 flex items-center text-sm">
+                                                            <Zap className="h-4 w-4 mr-2 text-purple" />
+                                                            Key Features
+                                                        </h4>
+                                                        <ul className="space-y-2">
+                                                            {service.keyFeatures.slice(0, 3).map((feature, index) => (
+                                                                <li key={index} className="flex items-start text-xs">
+                                                                    <CheckCircle className="h-4 w-4 text-purple mr-2 mt-0.5 flex-shrink-0" />
+                                                                    <span className="text-black/60 line-clamp-1">
+                                                                        {feature.length > 60 ? feature.substring(0, 60) + '...' : feature}
+                                                                    </span>
+                                                                </li>
+                                                            ))}
+                                                        </ul>
+                                                        {service.keyFeatures.length > 3 && (
+                                                            <p className="text-xs text-purple mt-2">
+                                                                +{service.keyFeatures.length - 3} more features
+                                                            </p>
+                                                        )}
+                                                    </div>
+
+                                                    {/* CTA Button */}
+                                                    <Link
+                                                        to={`/healthtech-services-best-healthtech-company-in-delhi-ncr/${service.slug}`}
+                                                        className="group/btn w-full bg-purple hover:bg-purple/90 text-white py-3 px-4 rounded-lg transition-colors duration-300 font-semibold text-center block"
+                                                    >
+                                                        <span className="flex items-center justify-center">
+                                                            Learn More
+                                                            <ArrowRight className="h-4 w-4 ml-2 group-hover/btn:translate-x-1 transition-transform duration-300" />
+                                                        </span>
+                                                    </Link>
+                                                </div>
+                                            </div>
+                                        );
+                                    })}
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                ))}
+
+                {/* Trust Indicators  
       <section className="py-16 lg:py-20 bg-gradient-to-r from-purple/5 to-lightpurple/20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-6xl mx-auto">
@@ -231,32 +367,33 @@ const HTServices: React.FC = () => {
       </section>
 
       {/* CTA Section */}
-            <section className="py-16 lg:py-20 bg-gradient-to-r from-purple to-purple/90">
-                <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="max-w-4xl mx-auto text-center text-white">
-                        <h2 className="text-3xl sm:text-4xl font-bold font-pt-serif mb-6">
-                            Ready to Transform Your Healthcare Practice?
-                        </h2>
-                        <p className="text-lg text-white/90 mb-8 max-w-3xl mx-auto">
-                            Join the leading healthcare revolution in Delhi NCR. Get personalized consultation for your specific needs.
-                        </p>
+                <section className="py-16 lg:py-20 bg-gradient-to-r from-purple to-purple/90">
+                    <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                        <div className="max-w-4xl mx-auto text-center text-white">
+                            <h2 className="text-3xl sm:text-4xl font-bold font-pt-serif mb-6">
+                                Ready to Transform Your Healthcare Practice?
+                            </h2>
+                            <p className="text-lg text-white/90 mb-8 max-w-3xl mx-auto">
+                                Join the leading healthcare revolution in Delhi NCR. Get personalized consultation for your specific needs.
+                            </p>
 
-                        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-                            <button
-                            onClick={openModal}
-                            className="bg-white text-purple px-8 py-4 rounded-lg font-semibold hover:bg-grey transition-colors duration-300 shadow-lg">
-                                Book Free Call
-                            </button>
+                            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+                                <button
+                                    onClick={openModal}
+                                    className="bg-white text-purple px-8 py-4 rounded-lg font-semibold hover:bg-grey transition-colors duration-300 shadow-lg">
+                                    Book Free Call
+                                </button>
 
-                        </div>
+                            </div>
 
-                        <div className="text-sm text-white/80">
-                            <p>Contact RNA HealthTech today and discover how we can revolutionize your healthcare operations</p>
+                            <div className="text-sm text-white/80">
+                                <p>Contact RNA HealthTech today and discover how we can revolutionize your healthcare operations</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </section>
-        </div>
+                </section>
+            </div>
+        </>
     );
 };
 

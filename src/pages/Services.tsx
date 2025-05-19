@@ -1,5 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Helmet } from 'react-helmet';
+
 
 interface Service {
     name: string;
@@ -65,188 +67,326 @@ const services: Service[] = [
 ];
 
 const Services: React.FC = () => {
- 
-    return (
-        <div className="bg-verylight min-h-screen">
-            <div className="absolute h-48 inset-0 bg-purple z-0 bg-opacity-0" />
 
-            <motion.header
-                className="bg-gradient-to-r from-purple to-lightpurple text-white py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 1 }}
-            >
-                <motion.div
-                    className="absolute inset-0 z-0"
-                    style={{
-                        backgroundImage: "url('/api/placeholder/1200/800')",
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center',
-                    }}
-                    initial={{ scale: 1.1 }}
-                    animate={{ scale: 1 }}
-                    transition={{ duration: 10, repeat: Infinity, repeatType: 'reverse' }}
-                />
-                <div className="max-w-7xl mx-auto text-center relative z-10">
-                    <motion.h1
-                        className="text-4xl sm:text-5xl lg:text-6xl font-fraunces-slab font-bold mb-4 shadow-text"
-                        initial={{ y: -50, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
+    return (
+        <>
+            <Helmet>
+                <title>Services RNA HealthTech | Digital Marketing for Doctors & Hospitals | Healthcare SEO | Medical SEO | SEO for Doctors Services India</title>
+                <meta name="description" content="Best health marketing & seo for hospitals, doctors, and clinics in India, US, UK, UAE, Australia. Call now 9311666193" />
+                <meta name="keywords" content="digital marketing for doctors, healthcare seo, hospital digital marketing, rna healthcare, digital agency for healthcare, SEO for doctors, health tech companies" />
+
+                <link rel="canonical" href="https://rnahealthtech.com" />
+
+                {/* Open Graph Tags */}
+                <meta property="og:title" content="RNA HealthTech | Digital Marketing for Doctors & Hospitals" />
+                <meta property="og:description" content="Transform your healthcare practice with expert digital marketing. SEO for doctors, hospital marketing & health tech services." />
+                <meta property="og:url" content="https://rnahealthtech.com" />
+                <meta property="og:type" content="website" />
+                <meta property="og:image" content="https://rnahealthtech.com/og-home.jpg" />
+
+                {/* Organization Schema */}
+                <script type="application/ld+json">{`
+              {
+                "@context": "https://schema.org",
+                "@type": "Organization",
+                "name": "RNA HealthTech",
+                "url": "https://rnahealthtech.com",
+                "logo": "https://rnahealthtech.com/logo.png",
+                "description": "",
+                "address": {
+                  "@type": "PostalAddress",
+                  "streetAddress": "Place L29 L34, First Floor, Connaught Place",
+                  "addressLocality": "New Delhi",
+                  "addressRegion": "New Delhi",
+                  "postalCode": "110001",
+                  "addressCountry": "India"
+                },
+                "contactPoint": [
+                  {
+                    "@type": "ContactPoint",
+                    "telephone": "+91-9311666193",
+                    "contactType": "customer service",
+                    "availableLanguage": ["English", "Hindi"]
+                  },
+                  {
+                    "@type": "ContactPoint",
+                    "telephone": "+91-9311666194",
+                    "contactType": "sales",
+                    "availableLanguage": ["English", "Hindi"]
+                  }
+                ],
+                "email": "contact@rnahealthtech.com",
+                "founder": {
+                  "@type": "Person",
+                  "name": "RNA HealthTech Team"
+                },
+                "foundingDate": "2020",
+                "areaServed": [
+                  {
+                    "@type": "Country",
+                    "name": "India"
+                  },
+                  {
+                    "@type": "Country",
+                    "name": "United States"
+                  },
+                  {
+                    "@type": "Country",
+                    "name": "Canada"
+                  }
+                ],
+                "serviceArea": [
+                  "Mumbai", "Delhi", "Bangalore", "Chennai", "Hyderabad", "Pune", "Kolkata", "Ahmedabad", "Surat", "Jaipur",
+                  "New York", "Los Angeles", "Chicago", "Houston", "Toronto", "Vancouver", "Montreal"
+                ],
+                "knowsAbout": [
+                  "Digital Marketing for Doctors",
+                  "Healthcare SEO",
+                  "Hospital Digital Marketing",
+                  "Health Tech Marketing",
+                  "Medical Practice Marketing",
+                  "Healthcare Content Marketing"
+                ]
+              }
+            `}</script>
+
+                {/* Website Schema */}
+                <script type="application/ld+json">{`
+              {
+                "@context": "https://schema.org",
+                "@type": "WebSite",
+                "name": "RNA HealthTech",
+                "alternateName": "RNA Healthcare",
+                "url": "https://rnahealthtech.com",
+                "description": "Premier healthcare digital marketing agency providing SEO services for doctors, hospitals and health tech companies",
+                "potentialAction": {
+                  "@type": "SearchAction",
+                  "target": "https://rnahealthtech.com/search?q={search_term_string}",
+                  "query-input": "required name=search_term_string"
+                },
+                "about": {
+                  "@type": "Thing",
+                  "name": "Healthcare Digital Marketing"
+                }
+              }
+            `}</script>
+
+                {/* Local Business Schema */}
+                <script type="application/ld+json">{`
+              {
+                "@context": "https://schema.org",
+                "@type": "LocalBusiness",
+                "name": "RNA HealthTech",
+                "image": "https://rnahealthtech.com/office.jpg",
+                "telephone": "+91-9311666193",
+                "email": "contact@rnahealthtech.com",
+                "address": {
+                  "@type": "PostalAddress",
+                  "streetAddress": "Place L29 L34, First Floor, Connaught Place",
+                  "addressLocality": "New Delhi",
+                  "addressRegion": "New Delhi",
+                  "postalCode": "110001",
+                  "addressCountry": "India"
+                },
+                "geo": {
+                  "@type": "GeoCoordinates",
+                  "latitude": "28.6328",
+                  "longitude": "77.2197"
+                },
+                "openingHoursSpecification": [
+                  {
+                    "@type": "OpeningHoursSpecification",
+                    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                    "opens": "09:00",
+                    "closes": "18:00"
+                  }
+                ],
+                "priceRange": "$$"
+              }
+            `}</script>
+            </Helmet>
+
+            <div className="bg-verylight min-h-screen">
+                <div className="absolute h-48 inset-0 bg-purple z-0 bg-opacity-0" />
+
+                <motion.header
+                    className="bg-gradient-to-r from-purple to-lightpurple text-white py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 1 }}
+                >
+                    <motion.div
+                        className="absolute inset-0 z-0"
+                        style={{
+                            backgroundImage: "url('/api/placeholder/1200/800')",
+                            backgroundSize: 'cover',
+                            backgroundPosition: 'center',
+                        }}
+                        initial={{ scale: 1.1 }}
+                        animate={{ scale: 1 }}
+                        transition={{ duration: 10, repeat: Infinity, repeatType: 'reverse' }}
+                    />
+                    <div className="max-w-7xl mx-auto text-center relative z-10">
+                        <motion.h1
+                            className="text-4xl sm:text-5xl lg:text-6xl font-fraunces-slab font-bold mb-4 shadow-text"
+                            initial={{ y: -50, opacity: 0 }}
+                            animate={{ y: 0, opacity: 1 }}
+                            transition={{ duration: 0.5 }}
+                        >
+                            Revolutionize Your Healthcare Services
+                        </motion.h1>
+                        <motion.p
+                            className="text-xl sm:text-2xl font-work-sans-slab max-w-3xl mx-auto"
+                            initial={{ y: 50, opacity: 0 }}
+                            animate={{ y: 0, opacity: 1 }}
+                            transition={{ duration: 0.5, delay: 0.2 }}
+                        >
+                            Innovate. Transform. Elevate Your Practice with RNA HealthTech
+                        </motion.p>
+                    </div>
+                </motion.header>
+
+                <main className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
+                    <motion.h2
+                        className="text-3xl sm:text-4xl font-fraunces-slab font-bold mb-12 text-center text-purple"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
                         transition={{ duration: 0.5 }}
                     >
-                        Revolutionize Your Healthcare Services
-                    </motion.h1>
+                        Why Choose RNA HealthTech?
+                    </motion.h2>
                     <motion.p
-                        className="text-xl sm:text-2xl font-work-sans-slab max-w-3xl mx-auto"
-                        initial={{ y: 50, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
+                        className="text-xl font-work-sans-slab mb-12 text-center max-w-4xl mx-auto"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: 0.2 }}
                     >
-                        Innovate. Transform. Elevate Your Practice with RNA HealthTech
+                        In the complex world of healthcare, your online presence is your first impression. At RNA HealthTech, we combine deep healthcare industry knowledge with cutting-edge digital marketing expertise to elevate your practice above the competition.
                     </motion.p>
-                </div>
-            </motion.header>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        {services.map((service, index) => (
+                            <motion.div
+                                key={service.name}
+                                className="bg-white rounded-lg shadow-lg overflow-hidden"
+                                initial={{ opacity: 0, y: 50 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.5, delay: index * 0.1 }}
+                                whileHover={{ scale: 1.05 }}
+                            >
+                                <div className="p-6">
+                                    <div className="flex items-center justify-center w-16 h-16 bg-purple rounded-full mb-4 text-white">
+                                        {service.icon}
+                                    </div>
+                                    <h3 className="text-2xl font-fraunces-slab font-bold mb-2">{service.name}</h3>
+                                    <p className="text-gray-600 font-work-sans-slab">{service.description}</p>
+                                </div>
+                            </motion.div>
+                        ))}
+                    </div>
+                </main>
 
-            <main className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
-                <motion.h2
-                    className="text-3xl sm:text-4xl font-fraunces-slab font-bold mb-12 text-center text-purple"
+                <section className="bg-lavender py-16 px-4 sm:px-6 lg:px-8">
+                    <div className="max-w-7xl mx-auto text-center">
+                        <motion.h2
+                            className="text-3xl sm:text-4xl font-fraunces-slab font-bold mb-8 text-purple"
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ duration: 0.5 }}
+                        >
+                            The RNA HealthTech Advantage
+                        </motion.h2>
+                        <motion.p
+                            className="text-xl font-work-sans-slab mb-12 max-w-3xl mx-auto"
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.5, delay: 0.2 }}
+                        >
+                            We don't just offer services; we deliver results. Our team of healthcare marketing experts understands the unique challenges and opportunities in your field. Here's why leading healthcare providers choose us:
+                        </motion.p>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                            {[
+                                { value: '1+ week', label: 'Rapid Strategy Implementation' },
+                                { value: '20+', label: 'Cutting-Edge Technologies' },
+                                { value: '99%', label: 'Patient Targeting Accuracy' },
+                                { value: '100+', label: 'Satisfied Healthcare Clients' },
+                            ].map((stat, index) => (
+                                <motion.div
+                                    key={stat.label}
+                                    className="bg-white rounded-lg shadow-lg p-6"
+                                    initial={{ opacity: 0, scale: 0.9 }}
+                                    animate={{ opacity: 1, scale: 1 }}
+                                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                                    whileHover={{ scale: 1.05 }}
+                                >
+                                    <div className="text-3xl font-fraunces-slab font-bold text-purple mb-2">{stat.value}</div>
+                                    <div className="text-gray-600 font-work-sans-slab">{stat.label}</div>
+                                </motion.div>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+
+                <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+                    <div className="max-w-7xl mx-auto">
+                        <motion.h2
+                            className="text-3xl sm:text-4xl font-fraunces-slab font-bold mb-8 text-center text-purple"
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ duration: 0.5 }}
+                        >
+                            Your Success Is Our Mission
+                        </motion.h2>
+                        <motion.div
+                            className="flex flex-col md:flex-row items-center justify-between"
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.5, delay: 0.2 }}
+                        >
+                            <div className="md:w-1/2 mb-8 md:mb-0">
+                                <img src="/images/doctor-services.jpg" alt="Healthcare professionals" className="h-[90%] rounded-[30px] shadow-lg" loading='lazy' />
+                            </div>
+                            <div className="md:w-1/2 md:pl-8">
+                                <p className="text-lg font-work-sans-slab mb-6">
+                                    At RNA HealthTech, we understand that your success is measured in lives improved and patients helped. Our tailored digital marketing strategies are designed to:
+                                </p>
+                                <ul className="list-disc pl-6 text-lg font-work-sans-slab mb-6">
+                                    <li>Increase your online visibility to potential patients</li>
+                                    <li>Build trust and credibility in your medical expertise</li>
+                                    <li>Streamline patient acquisition and retention</li>
+                                    <li>Optimize your practice's operational efficiency</li>
+                                    <li>Stay ahead of healthcare marketing trends and regulations</li>
+                                </ul>
+                                <p className="text-lg font-work-sans-slab">
+                                    Choose RNA HealthTech and let us handle your digital presence while you focus on what matters most – providing exceptional care to your patients.
+                                </p>
+                            </div>
+                        </motion.div>
+                    </div>
+                </section>
+
+                <motion.section
+                    className="bg-purple text-white py-16 px-4 sm:px-6 lg:px-8"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.5 }}
                 >
-                    Why Choose RNA HealthTech?
-                </motion.h2>
-                <motion.p
-                    className="text-xl font-work-sans-slab mb-12 text-center max-w-4xl mx-auto"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.2 }}
-                >
-                    In the complex world of healthcare, your online presence is your first impression. At RNA HealthTech, we combine deep healthcare industry knowledge with cutting-edge digital marketing expertise to elevate your practice above the competition.
-                </motion.p>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {services.map((service, index) => (
-                        <motion.div
-                            key={service.name}
-                            className="bg-white rounded-lg shadow-lg overflow-hidden"
-                            initial={{ opacity: 0, y: 50 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5, delay: index * 0.1 }}
+                    <div className="max-w-7xl mx-auto text-center">
+                        <h2 className="text-3xl sm:text-4xl font-fraunces-slab font-bold mb-8">Ready to Transform Your Healthcare Marketing?</h2>
+                        <p className="text-xl font-work-sans-slab mb-12 max-w-3xl mx-auto">
+                            Let's collaborate to create a digital strategy that sets your practice apart. Contact us today for a free consultation and take the first step towards revolutionizing your healthcare marketing.
+                        </p>
+                        <motion.a
+                            href="/contact"
+                            className="inline-block bg-white text-purple px-8 py-3 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors shadow-lg"
                             whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
                         >
-                            <div className="p-6">
-                                <div className="flex items-center justify-center w-16 h-16 bg-purple rounded-full mb-4 text-white">
-                                    {service.icon}
-                                </div>
-                                <h3 className="text-2xl font-fraunces-slab font-bold mb-2">{service.name}</h3>
-                                <p className="text-gray-600 font-work-sans-slab">{service.description}</p>
-                            </div>
-                        </motion.div>
-                    ))}
-                </div>
-            </main>
-
-            <section className="bg-lavender py-16 px-4 sm:px-6 lg:px-8">
-                <div className="max-w-7xl mx-auto text-center">
-                    <motion.h2
-                        className="text-3xl sm:text-4xl font-fraunces-slab font-bold mb-8 text-purple"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ duration: 0.5 }}
-                    >
-                        The RNA HealthTech Advantage
-                    </motion.h2>
-                    <motion.p
-                        className="text-xl font-work-sans-slab mb-12 max-w-3xl mx-auto"
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: 0.2 }}
-                    >
-                        We don't just offer services; we deliver results. Our team of healthcare marketing experts understands the unique challenges and opportunities in your field. Here's why leading healthcare providers choose us:
-                    </motion.p>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                        {[
-                            { value: '1+ week', label: 'Rapid Strategy Implementation' },
-                            { value: '20+', label: 'Cutting-Edge Technologies' },
-                            { value: '99%', label: 'Patient Targeting Accuracy' },
-                            { value: '100+', label: 'Satisfied Healthcare Clients' },
-                        ].map((stat, index) => (
-                            <motion.div
-                                key={stat.label}
-                                className="bg-white rounded-lg shadow-lg p-6"
-                                initial={{ opacity: 0, scale: 0.9 }}
-                                animate={{ opacity: 1, scale: 1 }}
-                                transition={{ duration: 0.5, delay: index * 0.1 }}
-                                whileHover={{ scale: 1.05 }}
-                            >
-                                <div className="text-3xl font-fraunces-slab font-bold text-purple mb-2">{stat.value}</div>
-                                <div className="text-gray-600 font-work-sans-slab">{stat.label}</div>
-                            </motion.div>
-                        ))}
+                            Get Started Now
+                        </motion.a>
                     </div>
-                </div>
-            </section>
-
-            <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
-                <div className="max-w-7xl mx-auto">
-                    <motion.h2
-                        className="text-3xl sm:text-4xl font-fraunces-slab font-bold mb-8 text-center text-purple"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ duration: 0.5 }}
-                    >
-                        Your Success Is Our Mission
-                    </motion.h2>
-                    <motion.div
-                        className="flex flex-col md:flex-row items-center justify-between"
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: 0.2 }}
-                    >
-                        <div className="md:w-1/2 mb-8 md:mb-0">
-                            <img src="/images/doctor-services.jpg" alt="Healthcare professionals" className="h-[90%] rounded-[30px] shadow-lg" />
-                        </div>
-                        <div className="md:w-1/2 md:pl-8">
-                            <p className="text-lg font-work-sans-slab mb-6">
-                                At RNA HealthTech, we understand that your success is measured in lives improved and patients helped. Our tailored digital marketing strategies are designed to:
-                            </p>
-                            <ul className="list-disc pl-6 text-lg font-work-sans-slab mb-6">
-                                <li>Increase your online visibility to potential patients</li>
-                                <li>Build trust and credibility in your medical expertise</li>
-                                <li>Streamline patient acquisition and retention</li>
-                                <li>Optimize your practice's operational efficiency</li>
-                                <li>Stay ahead of healthcare marketing trends and regulations</li>
-                            </ul>
-                            <p className="text-lg font-work-sans-slab">
-                                Choose RNA HealthTech and let us handle your digital presence while you focus on what matters most – providing exceptional care to your patients.
-                            </p>
-                        </div>
-                    </motion.div>
-                </div>
-            </section>
-
-            <motion.section
-                className="bg-purple text-white py-16 px-4 sm:px-6 lg:px-8"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.5 }}
-            >
-                <div className="max-w-7xl mx-auto text-center">
-                    <h2 className="text-3xl sm:text-4xl font-fraunces-slab font-bold mb-8">Ready to Transform Your Healthcare Marketing?</h2>
-                    <p className="text-xl font-work-sans-slab mb-12 max-w-3xl mx-auto">
-                        Let's collaborate to create a digital strategy that sets your practice apart. Contact us today for a free consultation and take the first step towards revolutionizing your healthcare marketing.
-                    </p>
-                    <motion.a
-                        href="/contact"
-                        className="inline-block bg-white text-purple px-8 py-3 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors shadow-lg"
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                    >
-                        Get Started Now
-                    </motion.a>
-                </div>
-            </motion.section>
-        </div>
+                </motion.section>
+            </div>
+        </>
     );
 };
 

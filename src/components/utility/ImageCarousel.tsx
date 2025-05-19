@@ -58,6 +58,7 @@ export const DesktopImageCarousel: React.FC<DesktopImageCarouselProps> = ({
           <img
             src={items[currentIndex].src}
             alt={items[currentIndex].alt}
+            loading='lazy'
             className="max-w-full max-h-full object-contain rounded-lg transition-opacity duration-500"
           />
         </div>
@@ -109,6 +110,7 @@ export const ResponsiveImageCarousel: React.FC<ResponsiveImageCarouselProps> = (
               <img
                 src={item.src}
                 alt={item.alt}
+                loading='lazy'
                 className="max-w-full max-h-full object-contain rounded-lg"
               />
             </div>
