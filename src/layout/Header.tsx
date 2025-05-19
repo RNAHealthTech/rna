@@ -17,8 +17,8 @@ const NavLink: React.FC<NavLinkProps> = ({ to, children, onClick }) => {
         <a
             href={to}
             className={`block py-2 hover:text-foreground text-lg font-semibold
-            ${isActive ? 'underline underline-offset-8 decoration-2' 
-            : 'hover:underline hover:underline-offset-8 hover:decoration-2' }
+            ${isActive ? 'underline underline-offset-8 decoration-2'
+                    : 'hover:underline hover:underline-offset-8 hover:decoration-2'}
                   transition-all duration-300`}
             onClick={onClick}
         >
@@ -81,9 +81,8 @@ const Header: React.FC = () => {
 
     return (
         <header
-            className={`font-pt-serif-regular fixed top-0 left-0 right-0 z-[9999] transition-all duration-300 w-full ${
-                isScrolled ? 'bg-white' : 'bg-transparent'
-            }`}
+            className={`font-pt-serif-regular fixed top-0 left-0 right-0 z-[9999] transition-all duration-300 w-full ${isScrolled ? 'bg-white' : 'bg-transparent'
+                }`}
         >
             <div className="container mx-auto px-4 w-full">
                 <nav className="flex justify-between items-center w-full">
@@ -141,14 +140,13 @@ const Header: React.FC = () => {
                                 )}
                             </svg>
                         </button>
-                        <Link 
-                            to='#' 
-                            onClick={(e) => handleNavigation(e, 'contact')} 
-                            className={`border-2 border-solid ${
-                                isScrolled 
-                                    ? 'text-black border-black hover:bg-black hover:text-white' 
+                        <Link
+                            to='#'
+                            onClick={(e) => handleNavigation(e, 'contact')}
+                            className={`border-2 border-solid ${isScrolled
+                                    ? 'text-black border-black hover:bg-black hover:text-white'
                                     : 'text-purple bg-white'
-                            } px-6 py-2 rounded-[40px] transition-colors text-lg font-semibold`}
+                                } px-6 py-2 rounded-[40px] transition-colors text-lg font-semibold`}
                         >
                             Book Appointment
                         </Link>
@@ -200,7 +198,7 @@ const Header: React.FC = () => {
 
             {/* Dropdown Menu */}
             {isMenuOpen && (
-                <div className={`absolute top-full left-0 w-full shadow-lg ${isScrolled ? 'bg-white text-black' : 'bg-purple text-white' }`}>
+                <div className={`absolute top-full left-0 w-full shadow-lg ${isScrolled ? 'bg-white text-black' : 'bg-purple text-white'}`}>
                     <div className="container mx-auto px-4 py-4">
                         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
                             <NavLink
@@ -213,7 +211,7 @@ const Header: React.FC = () => {
                                 to="/about-us"
                                 onClick={(e) => { e.preventDefault(); navigate('/about-us'); setIsMenuOpen(false); }}
                             >
-                                About Us 
+                                About Us
                             </NavLink>
                             <NavLink
                                 to="/projects"
@@ -223,13 +221,20 @@ const Header: React.FC = () => {
                             </NavLink>
                             <NavLink
                                 to="/services"
-                                onClick={()=>{console.log('services'); setIsMenuOpen(false);}}
+                                onClick={() => { console.log('services'); setIsMenuOpen(false); }}
                             >
                                 Services
                             </NavLink>
+
+                            <NavLink
+                                to="/healthtech-services-best-healthtech-company-in-delhi-ncr"
+                                onClick={() => { console.log('services'); setIsMenuOpen(false); }}
+                            >
+                              HealthTech Services
+                            </NavLink>
                             <NavLink
                                 to="/contact"
-                                onClick={()=>{console.log('contact'); setIsMenuOpen(false);}}
+                                onClick={() => { console.log('contact'); setIsMenuOpen(false); }}
                             >
                                 Contact
                             </NavLink>
@@ -237,7 +242,7 @@ const Header: React.FC = () => {
                         <div className="mt-4 md:hidden">
                             <Link
                                 to="#"
-                                onClick={(e) => {handleNavigation(e, 'contact'); setIsMenuOpen(false);}}
+                                onClick={(e) => { handleNavigation(e, 'contact'); setIsMenuOpen(false); }}
                                 className="block w-full text-purple px-6 py-2 rounded-[40px] bg-white text-center transition-colors text-lg font-semibold"
                             >
                                 Book Appointment
