@@ -21,10 +21,10 @@ const AboutUs: React.FC = () => {
     return (
         <>
          <Helmet>
-                <title>About RNA HealthTech | Digital Marketing for Doctors & Hospitals | Healthcare SEO | Medical SEO | SEO for Doctors Services India</title>
-                <meta name="description" content="Best health marketing & seo for hospitals, doctors, and clinics in India, US, UK, UAE, Australia. Call now 9311666193" />
+                <title>Best Health Marketing In India | RNA HealthTech</title>
+                <meta name="description" content="RNA HealthTech offers the best health marketing services in India. The company provided end-to-end solutions in health sector with proven growth strategies. Call now 9311666193!" />
                 <meta name="keywords" content="digital marketing for doctors, healthcare seo, hospital digital marketing, rna healthcare, digital agency for healthcare, SEO for doctors, health tech companies" />
-
+                
                 <link rel="canonical" href="https://rnahealthtech.com" />
 
                 {/* Open Graph Tags */}
