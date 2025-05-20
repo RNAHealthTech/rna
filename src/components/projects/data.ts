@@ -40,24 +40,24 @@ export const projects: Project[] = [
             'Improved Google search rankings for key healthcare terms in the local area',
         ]
     },
-    {
-        id: '2',
-        title: "Dr. Ajay Agarwal's Personal Brand",
-        description: 'Developed a modern, responsive website for Dr. Ajay Agarwal using React and Tailwind CSS, significantly improving his online presence and patient outreach.',
-        imageUrl: '/content/ajay-homepage.png',
-        mobileImageUrl: '/content/ajay-mobile.png', 
-        date: '22 Jul 2024',
-        gridArea: 'span 1 / span 2',
-        subtitle: 'Enhancing Digital Footprint for Healthcare Professionals',
-        websiteUrl: 'https://drajayaggarwal.in',
-        overview: 'RNA HealthTech successfully created and launched a cutting-edge website for Dr. Ajay Agarwal, enhancing his digital footprint and patient engagement.',
-        technologies: ['React', 'Tailwind CSS', 'Netlify', 'Google Analytics'],
-        results: [
-            '60% improvement in Google page ranking for relevant keywords',
-            '80% increase in positive online re ',
-            '45% growth in new patient inquiries through the website'
-        ]
-    },
+    // {
+    //     id: '2',
+    //     title: "Dr. Ajay Agarwal's Personal Brand",
+    //     description: 'Developed a modern, responsive website for Dr. Ajay Agarwal using React and Tailwind CSS, significantly improving his online presence and patient outreach.',
+    //     imageUrl: '/content/ajay-homepage.png',
+    //     mobileImageUrl: '/content/ajay-mobile.png', 
+    //     date: '22 Jul 2024',
+    //     gridArea: 'span 1 / span 2',
+    //     subtitle: 'Enhancing Digital Footprint for Healthcare Professionals',
+    //     websiteUrl: 'https://drajayaggarwal.in',
+    //     overview: 'RNA HealthTech successfully created and launched a cutting-edge website for Dr. Ajay Agarwal, enhancing his digital footprint and patient engagement.',
+    //     technologies: ['React', 'Tailwind CSS', 'Netlify', 'Google Analytics'],
+    //     results: [
+    //         '60% improvement in Google page ranking for relevant keywords',
+    //         '80% increase in positive online re ',
+    //         '45% growth in new patient inquiries through the website'
+    //     ]
+    // },
     {
         id: '3',
         title: "Dr. Gangesh Gunjan",

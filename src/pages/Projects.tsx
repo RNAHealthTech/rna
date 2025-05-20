@@ -20,13 +20,13 @@ const websites: Website[] = [
     liveUrl: 'https://karunahospital.in',
     detailsUrl: '/projects/1',
   },
-  {
-    id: '2',
-    imageUrl: '/content/ajay-homepage.png',
-    mobileImageUrl: '/content/ajay-mobile.png',
-    liveUrl: 'https://drajayaggarwal.in/',
-    detailsUrl: '/projects/2'
-  },
+  // {
+  //   id: '2',
+  //   imageUrl: '/content/ajay-homepage.png',
+  //   mobileImageUrl: '/content/ajay-mobile.png',
+  //   liveUrl: 'https://drajayaggarwal.in/',
+  //   detailsUrl: '/projects/2'
+  // },
   {
     id: '3',
     imageUrl: '/content/gunjan-home.png',

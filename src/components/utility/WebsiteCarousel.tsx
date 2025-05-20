@@ -55,12 +55,12 @@ const WebsiteCarousel: React.FC<WebsiteCarouselProps> = ({ websites }) => {
         >
           Live Website
         </a>
-        <a
+        {/* <a
           href={websites[currentIndex].detailsUrl}
           className="w-full sm:w-auto px-6 py-3 bg-purple text-white font-semibold rounded-full hover:bg-purple-700 transition-colors duration-300 text-center"
         >
           Full Insights
-        </a>
+        </a> */}
       </div>
     </div>
   );
