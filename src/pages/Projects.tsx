@@ -71,10 +71,16 @@ const websites: Website[] = [
   }, 
   {
     id: '9', 
-    imageUrl: '/content/swati-kanodia.png', 
-    mobileImageUrl: '/content/swati-kanodia-mobile.png',
+    imageUrl: '/content/swati-homepage.png', 
+    mobileImageUrl: '/content/swati-mobile.png',
     liveUrl: 'https://kidsendocare.com',
      
+  },
+  {
+    id: '10', 
+    imageUrl: "/content/besturologist-desktop.png", 
+    mobileImageUrl: "/content/besturologist-mobile.png", 
+    liveUrl: "https://drrajdebsaha.com"
   }
  
 ];
