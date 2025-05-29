@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion } from 'framer-motion';
-import { FaCircleInfo, FaCirclePlay } from 'react-icons/fa6';
 import TextCarousel from "../components/utility/TextCarousel";
 import DropdownItem from "../components/utility/DropdownItem";
 import TinderCard from "react-tinder-card";
@@ -10,6 +9,7 @@ import LandingCarousel from "../components/utility/LandingCarousel";
 import AnimatedText from "../components/utility/AnimatedText";
 import { DesktopImageCarousel, ResponsiveImageCarousel } from "../components/utility/ImageCarousel";
 import { Helmet } from "react-helmet";
+// import TypeformFlow from "../components/utility/PackageBuilder";
 
 interface Gif {
     image: string,
@@ -74,8 +74,6 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ title, image }) => {
 
 const Home: React.FC = () => {
 
-
-    const ref = useRef(null);
     const navigate = useNavigate();
     const [state, handleSubmit] = useForm('mnnakeoq');
     console.log(state);
@@ -452,7 +450,8 @@ const Home: React.FC = () => {
                         </div>
                     </motion.div>
                 </motion.div>
-                {/* Overview section */}
+
+                 {/* Overview section */}
                 <motion.section
                     id="overview"
                     className="flex flex-col items-center mt-50 md:mt-20">

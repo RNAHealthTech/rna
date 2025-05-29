@@ -1,7 +1,6 @@
 import React from 'react';
 import { Routes, Route, useLocation } from "react-router-dom";
-
-import './index.css';
+ import './index.css';
 // layout
 import Layout from './layout/Layout';
 // pages
@@ -15,6 +14,7 @@ import AboutUs from './pages/AboutUs';
 import HealthTechServices from './pages/HealthTechServices';
 import HServiceTemplate from './pages/HServicesTemplate';
 import HTServices from './pages/HealthTechServices';
+import TypeformFlow from './components/utility/PackageBuilder';
 
 const useScrollToTop = () => {
   const { pathname } = useLocation();
@@ -38,6 +38,7 @@ const App: React.FC = () => {
           <Route path='/healthtech-services-best-healthtech-company-in-delhi-ncr' element={<HealthTechServices />} />
           <Route path='/healthtech-services-best-healthtech-company-in-delhi-ncr/:slug' element={<HServiceTemplate />} />
           <Route path='/projects/:id' element={<ProjectDetailPage />} />
+          <Route path='/package-builder' element={<TypeformFlow />} />
           <Route path='/services' element={<Services />} />
           <Route path='/contact' element={<Contact />} />
         </Routes>

@@ -18,7 +18,7 @@ import {
   Shield,
   Clock,
   TrendingUp,
-  Award,
+  
   Users2,
   Lightbulb
 } from 'lucide-react';
