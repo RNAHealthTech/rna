@@ -429,5 +429,20 @@ export const projects: Project[] = [
     "Enhanced online platform for showcasing urological expertise and services.",
     "Improved access for patients seeking information on advanced urological treatments."
   ]
-}
+},
+  {
+    id: "17",
+    title: "Neuropoint Medical Centre",
+    description: "Developed a professional website for Dr. Pratik Kishore at Neuropoint Medical Centre, specializing in diagnostic and therapeutic neurology and neurovascular intervention.",
+    imageUrl: "/content/neuropoint-desktop.png",
+    mobileImageUrl: "/content/neuropoint-mobile.png",
+    date: "20 May 2025",
+    subtitle: "Specialized Digital Platform for Neurology Expertise",
+    websiteUrl: "https://www.delhineuropointcentre.com",
+    technologies: ["React", "JavaScript", "Tailwind CSS"],
+    results: [
+      "Enhanced online platform for showcasing neurological expertise and diagnostic services.",
+      "Improved access for patients seeking information on advanced neurology treatments."
+    ]
+  }
 ];

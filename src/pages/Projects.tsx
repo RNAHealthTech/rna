@@ -81,6 +81,13 @@ const websites: Website[] = [
     imageUrl: "/content/besturologist-desktop.png", 
     mobileImageUrl: "/content/besturologist-mobile.png", 
     liveUrl: "https://drrajdebsaha.com"
+  },
+  {
+    id: '11', 
+    imageUrl: "/content/neuropoint-desktop.png", 
+    mobileImageUrl: "/content/neuropoint-mobile.png", 
+    liveUrl: "https://www.delhineuropointcentre.com",
+    detailsUrl: '/projects/17'
   }
  
 ];
