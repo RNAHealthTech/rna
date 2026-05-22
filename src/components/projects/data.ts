@@ -444,5 +444,21 @@ export const projects: Project[] = [
       "Enhanced online platform for showcasing neurological expertise and diagnostic services.",
       "Improved access for patients seeking information on advanced neurology treatments."
     ]
+  },
+  {
+    id: "18",
+    title: "Dr. Debashish Chowdhury",
+    description: "Developed a comprehensive professional website for Dr. Debashish Chowdhury, a leading headache specialist and neurologist at BLK-Max Hospital in Delhi.",
+    imageUrl: "/content/headache-desktop.png",
+    mobileImageUrl: "/content/headache-mobile.png",
+    date: "22 May 2025",
+    subtitle: "Digital Platform for Headache & Neurology Specialist",
+    websiteUrl: "https://headachespecialistindia.com",
+    overview: "RNA HealthTech designed and launched a specialized website for Dr. Debashish Chowdhury, providing a digital presence for his expertise in headache medicine and neurology. The platform highlights his extensive experience and makes it easy for patients to learn about and seek treatment for various neurological conditions.",
+    technologies: ["React", "JavaScript", "Tailwind CSS"],
+    results: [
+      "Enhanced online platform for showcasing expertise in headache and neurology.",
+      "Improved access for patients seeking specialized care for migraines, stroke, and epilepsy."
+    ]
   }
 ];
