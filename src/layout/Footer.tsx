@@ -8,7 +8,7 @@ import AnimatedLogo from '../components/utility/AnimatedLogo';
 
 
 const FooterLink = ({ href, children }: { href: string, children: React.ReactNode }) => (
-  <Link to="" className="hover:underline transition-all duration-300 text-white/80 hover:text-white">
+  <Link to={href} className="hover:underline transition-all duration-300 text-white/80 hover:text-white">
     {children}
   </Link>
 );
@@ -24,10 +24,6 @@ const Footer: React.FC = () => {
 
   const [isMobile, setIsMobile] = useState(false);
   console.log(isMobile);
-  // const [isModalOpen, setIsModalOpen] = useState(false);
-
-  // const openModal = () => setIsModalOpen(true);
-  // const closeModal = () => setIsModalOpen(false);
 
   useEffect(() => {
     const checkIfMobile = () => {
@@ -55,8 +51,6 @@ const Footer: React.FC = () => {
           {/* Column 1: About */}
 
           <motion.div className="w-full md:w-1/4 mb-8 md:mb-0 flex flex-col items-start">
-            {/* <h3 className="text-3xl md:text-2xl lg:text-4xl font-semibold ml-2 mb-2">RNA HealthTech</h3>
-            <p className="text-md md:text-md text-white/80 mt-2 mb-2 max-w-xs">Beyond the Pixels</p> */}
             <AnimatedLogo color='#fff' />
             <p className="text-sm md:text-lg text-white/80 mt-4 mb-6 max-w-xs">
             We tailor strategies to manage your online reputation with the nuance and understanding it deserves.
@@ -81,9 +75,10 @@ const Footer: React.FC = () => {
                 <ul className="space-y-1 text-xl md:space-y-2">
                   <li><FooterLink href="/">Home</FooterLink></li>
                   <li><FooterLink href="/services">Services</FooterLink></li>
-                  <li><FooterLink href="/about">About</FooterLink></li>
+                  <li><FooterLink href="/about-us">About Us</FooterLink></li>
+                  <li><FooterLink href="/#partners">Partners</FooterLink></li>
+                  <li><FooterLink href="/#faq">FAQ</FooterLink></li>
                   <li><FooterLink href="/contact">Contact</FooterLink></li>
-
                 </ul>
               </motion.div>
             </motion.div>
