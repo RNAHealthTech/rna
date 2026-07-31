@@ -9,8 +9,6 @@ import LandingCarousel from "../components/utility/LandingCarousel";
 import AnimatedText from "../components/utility/AnimatedText";
 import { DesktopImageCarousel, ResponsiveImageCarousel } from "../components/utility/ImageCarousel";
 import TestimonialsSection from "../components/utility/TestimonialsSection";
-import PartnersSection from "../components/utility/PartnersSection";
-import FaqSection from "../components/utility/FaqSection";
 import { Helmet } from "react-helmet";
 // import TypeformFlow from "../components/utility/PackageBuilder";
 
@@ -596,14 +594,8 @@ const Home: React.FC = () => {
                     </motion.div>
                 </motion.section>
 
-                {/* Our Events & Partners Section */}
-                <PartnersSection />
-
                 {/* Testimonials / Google Reviews section */}
                 <TestimonialsSection />
-
-                {/* FAQ Section */}
-                <FaqSection />
 
                 {/* Contact section */}
 

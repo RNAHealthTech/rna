@@ -238,18 +238,7 @@ const Header: React.FC = () => {
                             >
                                 Contact
                             </NavLink>
-                            <NavLink
-                                to="/#partners"
-                                onClick={(e) => handleNavigation(e, 'partners')}
-                            >
-                                Events & Partners
-                            </NavLink>
-                            <NavLink
-                                to="/#faq"
-                                onClick={(e) => handleNavigation(e, 'faq')}
-                            >
-                                FAQ
-                            </NavLink>
+
                         </div>
                         <div className="mt-4 md:hidden">
                             <Link

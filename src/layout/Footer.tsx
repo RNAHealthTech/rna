@@ -76,8 +76,6 @@ const Footer: React.FC = () => {
                   <li><FooterLink href="/">Home</FooterLink></li>
                   <li><FooterLink href="/services">Services</FooterLink></li>
                   <li><FooterLink href="/about-us">About Us</FooterLink></li>
-                  <li><FooterLink href="/#partners">Partners</FooterLink></li>
-                  <li><FooterLink href="/#faq">FAQ</FooterLink></li>
                   <li><FooterLink href="/contact">Contact</FooterLink></li>
                 </ul>
               </motion.div>
