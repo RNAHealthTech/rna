@@ -8,6 +8,7 @@ import { Link, useNavigate } from "react-router-dom";
 import LandingCarousel from "../components/utility/LandingCarousel";
 import AnimatedText from "../components/utility/AnimatedText";
 import { DesktopImageCarousel, ResponsiveImageCarousel } from "../components/utility/ImageCarousel";
+import TestimonialsSection from "../components/utility/TestimonialsSection";
 import { Helmet } from "react-helmet";
 // import TypeformFlow from "../components/utility/PackageBuilder";
 
@@ -593,9 +594,8 @@ const Home: React.FC = () => {
                     </motion.div>
                 </motion.section>
 
-
-
-
+                {/* Testimonials / Google Reviews section */}
+                <TestimonialsSection />
 
                 {/* Contact section */}
 
