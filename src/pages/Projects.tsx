@@ -88,8 +88,21 @@ const websites: Website[] = [
     mobileImageUrl: "/content/neuropoint-mobile.png", 
     liveUrl: "https://www.delhineuropointcentre.com",
     detailsUrl: '/projects/17'
+  },
+  {
+    id: '12',
+    imageUrl: "/content/randeep-desktop.png",
+    mobileImageUrl: "/content/randeep-mobile.png",
+    liveUrl: "https://drrandeepranagastro.com",
+    detailsUrl: '/projects/19'
+  },
+  {
+    id: '13',
+    imageUrl: "/content/humali-desktop.png",
+    mobileImageUrl: "/content/humali-mobile.png",
+    liveUrl: "https://drhumaligynae.com",
+    detailsUrl: '/projects/20'
   }
- 
 ];
 
 const ProjectsPage: React.FC = () => {

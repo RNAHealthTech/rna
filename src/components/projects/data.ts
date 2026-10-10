@@ -460,5 +460,53 @@ export const projects: Project[] = [
       "Enhanced online platform for showcasing expertise in headache and neurology.",
       "Improved access for patients seeking specialized care for migraines, stroke, and epilepsy."
     ]
+  },
+  {
+    id: "19",
+    title: "Dr. Randeep Rana",
+    description: "Developed a modern, responsive website for Dr. Randeep Rana, Consultant Gastroenterologist, Hepatologist & Advanced Endoscopist at Max Smart Super Speciality Hospital, Saket, New Delhi.",
+    imageUrl: "/content/randeep-desktop.png",
+    mobileImageUrl: "/content/randeep-mobile.png",
+    date: "10 Jun 2025",
+    subtitle: "Advanced Digital Platform for Gastroenterology & Hepatology Care",
+    websiteUrl: "https://drrandeepranagastro.com",
+    overview: "RNA HealthTech designed and launched a specialized, patient-centric website for Dr. Randeep Rana, Consultant Gastroenterologist at Max Smart Super Speciality Hospital, Saket. The platform showcases his super-specialized expertise in advanced GI endoscopy, EUS, ERCP, and hepatology, establishing high clinical authority and streamlining patient OPD appointments.",
+    keyFeatures: [
+      "Responsive, modern healthcare interface optimized across all screen sizes",
+      "Detailed clinical focus on Advanced Endoscopy (EUS & ERCP), Liver Care, and GI Diagnostics",
+      "Streamlined OPD appointment booking and clinic timings for Max Smart Saket",
+      "Academic credentials and international research showcase (AIIMS, DMCH, RMLH)",
+      "SEO and Schema markup optimization for gastroenterology and liver care queries"
+    ],
+    technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
+    results: [
+      "Significant increase in online OPD appointment consultations and inquiries.",
+      "Enhanced digital visibility and top search rankings for gastroenterology and liver care in South Delhi.",
+      "Streamlined patient access to advanced endoscopic procedure information and care guidance."
+    ]
+  },
+  {
+    id: "20",
+    title: "Dr. Huma Ali",
+    description: "Developed a compassionate, modern healthcare platform for Dr. Huma Ali, an experienced Obstetrician and Gynaecologist at Sir Ganga Ram Hospital (SGRH), New Delhi.",
+    imageUrl: "/content/humali-desktop.png",
+    mobileImageUrl: "/content/humali-mobile.png",
+    date: "18 Jun 2025",
+    subtitle: "Empowering Women's Health & Gynaecology Platform",
+    websiteUrl: "https://drhumaligynae.com",
+    overview: "RNA HealthTech designed and launched an elegant, patient-centric digital platform for Dr. Huma Ali, specialist in Obstetrics & Gynaecology at Sir Ganga Ram Hospital. The website showcases comprehensive women's healthcare services—including high-risk pregnancy management, laparoscopic surgery, infertility care, and adolescent/menopausal health—enabling seamless patient consultation scheduling.",
+    keyFeatures: [
+      "Warm, responsive, and accessible user experience across all devices",
+      "Comprehensive service sections covering maternity, laparoscopic surgery, and hormonal health",
+      "Direct consultation booking and patient inquiry integration",
+      "Structured doctor profile with qualifications (MBBS, DGO, DNB) and hospital affiliation at SGRH",
+      "Medical SEO & Schema.org markup for obstetrics and gynaecology keywords in Delhi"
+    ],
+    technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Schema.org JSON-LD"],
+    results: [
+      "Substantial growth in online consultation bookings for maternity and gynaecological care.",
+      "Enhanced online authority and prominence for obstetrics care in Central Delhi.",
+      "Streamlined patient onboarding with easy access to clinical timings and service information."
+    ]
   }
 ];
