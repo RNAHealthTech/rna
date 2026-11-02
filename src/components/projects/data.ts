@@ -508,5 +508,53 @@ export const projects: Project[] = [
       "Enhanced online authority and prominence for obstetrics care in Central Delhi.",
       "Streamlined patient onboarding with easy access to clinical timings and service information."
     ]
+  },
+  {
+    id: "21",
+    title: "Dr. Gourav Siwas",
+    description: "Developed a high-performance digital healthcare platform for Dr. Gourav Siwas, dual board-certified Hand, Wrist & Reconstructive Plastic Surgeon at Sir Ganga Ram Hospital, New Delhi.",
+    imageUrl: "/content/gourav-desktop.jpg",
+    mobileImageUrl: "/content/gourav-mobile.jpg",
+    date: "28 Jul 2025",
+    subtitle: "Dual Board Certified Hand, Wrist & Reconstructive Surgery Platform",
+    websiteUrl: "https://www.drgouravsiwas.com/",
+    overview: "RNA HealthTech designed and launched an advanced, patient-first surgical platform for Dr. Gourav Siwas, India’s youngest European board-certified Hand Surgeon and Plastic & Reconstructive specialist at Sir Ganga Ram Hospital. The platform highlights his specialized clinical expertise in complex hand trauma, brachial plexus repair, microvascular replantation, and peripheral nerve surgery, while facilitating seamless OPD appointment bookings.",
+    keyFeatures: [
+      "Modern, responsive healthcare UI engineered for high speed and mobile accessibility",
+      "Comprehensive surgical care modules detailing Hand & Wrist procedures, Brachial Plexus, and Microsurgery",
+      "Direct OPD consultation booking and live schedule integration for Sir Ganga Ram Hospital",
+      "European Diploma in Hand Surgery (EDHS Switzerland) and academic credentials showcase",
+      "Advanced medical SEO and Schema.org structured data for hand and reconstructive surgery queries"
+    ],
+    technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Framer Motion", "Schema.org JSON-LD"],
+    results: [
+      "Substantial increase in online OPD consultation bookings and specialized surgical inquiries.",
+      "Top-tier organic search rankings for hand and wrist surgery specialists in Delhi NCR.",
+      "Streamlined emergency trauma navigation and patient educational content delivery."
+    ]
+  },
+  {
+    id: "22",
+    title: "Dr. Aditi Garg",
+    description: "Developed a modern, patient-focused ENT & Head-Neck Surgery platform for Dr. Aditi Garg, Associate Consultant in the Department of ENT at Sir Ganga Ram Hospital, New Delhi.",
+    imageUrl: "/content/aditi-desktop.jpg",
+    mobileImageUrl: "/content/aditi-mobile.jpg",
+    date: "15 Aug 2025",
+    subtitle: "Specialized ENT & Head-Neck Surgery Digital Care Platform",
+    websiteUrl: "https://draditigargent.com/",
+    overview: "RNA HealthTech designed and launched a compassionate, comprehensive digital presence for Dr. Aditi Garg, Associate Consultant ENT Surgeon at Sir Ganga Ram Hospital and lead specialist at Shivasha ENT Clinic. The platform highlights her specialized clinical mastery in microscopic ear surgery, endoscopic sinus surgery (FESS), voice disorders, and pediatric ENT care, providing an effortless appointment scheduling and educational journey for patients across Delhi NCR.",
+    keyFeatures: [
+      "Clean, modern healthcare user interface optimized for seamless mobile and desktop navigation",
+      "Detailed clinical care modules for Ear, Nose, Throat, Sinus, Hearing, and Voice disorders",
+      "Integrated OPD consultation booking and clinical timings for Sir Ganga Ram Hospital & Shivasha ENT Clinic",
+      "Academic credentials showcase featuring DNB ENT (Mumbai), AOI Life Membership, and Best Dissector honors",
+      "Advanced healthcare SEO and Schema.org medical markup for otorhinolaryngology keywords in Central Delhi"
+    ],
+    technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Framer Motion", "Schema.org JSON-LD"],
+    results: [
+      "Prominent organic search visibility for ENT specialists and sinus surgery in New Delhi.",
+      "Substantial rise in digital consultation requests and direct clinic appointments.",
+      "Enhanced patient awareness through structured clinical guides and procedural information."
+    ]
   }
 ];

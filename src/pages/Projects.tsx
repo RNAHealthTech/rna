@@ -102,6 +102,20 @@ const websites: Website[] = [
     mobileImageUrl: "/content/humali-mobile.png",
     liveUrl: "https://drhumaligynae.com",
     detailsUrl: '/projects/20'
+  },
+  {
+    id: '14',
+    imageUrl: "/content/gourav-desktop.jpg",
+    mobileImageUrl: "/content/gourav-mobile.jpg",
+    liveUrl: "https://www.drgouravsiwas.com/",
+    detailsUrl: '/projects/21'
+  },
+  {
+    id: '15',
+    imageUrl: "/content/aditi-desktop.jpg",
+    mobileImageUrl: "/content/aditi-mobile.jpg",
+    liveUrl: "https://draditigargent.com/",
+    detailsUrl: '/projects/22'
   }
 ];
 

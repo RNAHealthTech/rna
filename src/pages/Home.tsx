@@ -195,7 +195,9 @@ const Home: React.FC = () => {
         { src: "/content/gunjan-home.png", alt: "Dr. Gangesh Gunjan", title: "Dr. Gangesh Gunjan" },
         { src: "/content/neuropoint-desktop.png", alt: "Neuropoint Medical Centre", title: "Neuropoint Medical Centre" },
         { src: "/content/randeep-desktop.png", alt: "Dr. Randeep Rana", title: "Dr. Randeep Rana" },
-        { src: "/content/humali-desktop.png", alt: "Dr. Huma Ali", title: "Dr. Huma Ali" }
+        { src: "/content/humali-desktop.png", alt: "Dr. Huma Ali", title: "Dr. Huma Ali" },
+        { src: "/content/gourav-desktop.jpg", alt: "Dr. Gourav Siwas", title: "Dr. Gourav Siwas" },
+        { src: "/content/aditi-desktop.jpg", alt: "Dr. Aditi Garg", title: "Dr. Aditi Garg" }
     ]
 
 
