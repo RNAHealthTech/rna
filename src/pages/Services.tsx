@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet';
-import { Bot } from 'lucide-react';
+import { Bot, ShieldCheck } from 'lucide-react';
 
 
 interface Service {
@@ -81,7 +81,7 @@ const Services: React.FC = () => {
             <Helmet>
                 <title>Health Sector Website Development, SEO, Social Media Management</title>
                 <meta name="description" content="Seeking a trusted partner for digital growth? RNA HealthTech provides deep healthcare insight with tech expertise. Call Now 9311666193." />
-                <meta name="keywords" content="digital marketing for doctors, healthcare seo, hospital digital marketing, rna healthcare, digital agency for healthcare, SEO for doctors, health tech companies" />
+                <meta name="keywords" content="ai digital, ai digital marketing, ai digital healthcare, ai healthcare solutions, digital marketing for doctors, healthcare seo, hospital digital marketing, rna healthcare, digital agency for healthcare, SEO for doctors, health tech companies" />
 
                 <link rel="canonical" href="https://rnahealthtech.com" />
 
@@ -291,6 +291,32 @@ const Services: React.FC = () => {
                                 </div>
                             </motion.div>
                         ))}
+                    </div>
+
+                    {/* NMC Compliance Callout Banner */}
+                    <div className="mt-16 bg-gradient-to-r from-purple/10 via-lavender/40 to-purple/10 border border-purple/20 rounded-3xl p-8 sm:p-10 flex flex-col md:flex-row items-center justify-between gap-6 shadow-sm">
+                        <div className="flex items-start space-x-4">
+                            <div className="w-12 h-12 rounded-2xl bg-purple text-white flex items-center justify-center shrink-0 mt-1">
+                                <ShieldCheck className="w-6 h-6" />
+                            </div>
+                            <div>
+                                <span className="inline-block bg-purple/15 text-purple text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-2">
+                                    NMC Regulatory Standards
+                                </span>
+                                <h3 className="text-2xl font-bold font-fraunces-slab text-gray-900 mb-1">
+                                    100% NMC-Compliant Healthcare Marketing
+                                </h3>
+                                <p className="text-gray-600 font-work-sans-slab text-sm max-w-2xl">
+                                    Protect your medical license with ethical healthcare branding. Zero misleading claims, strictly vetted clinical content, and no prohibited patient testimonials.
+                                </p>
+                            </div>
+                        </div>
+                        <a
+                            href="/nmc-guidelines"
+                            className="shrink-0 bg-purple hover:bg-lightpurple text-white font-semibold px-6 py-3 rounded-[40px] text-sm shadow-md transition-all duration-300 hover:scale-105"
+                        >
+                            Explore NMC Guidelines
+                        </a>
                     </div>
                 </main>
 

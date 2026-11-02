@@ -233,6 +233,12 @@ const Header: React.FC = () => {
                               Health Tech Services
                             </NavLink>
                             <NavLink
+                                to="/nmc-guidelines"
+                                onClick={(e) => { e.preventDefault(); navigate('/nmc-guidelines'); setIsMenuOpen(false); }}
+                            >
+                                NMC Guidelines
+                            </NavLink>
+                            <NavLink
                                 to="/contact"
                                 onClick={() => { console.log('contact'); setIsMenuOpen(false); }}
                             >

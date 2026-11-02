@@ -24,7 +24,7 @@ const AboutUs: React.FC = () => {
          <Helmet>
                 <title>Best Health Marketing In India | RNA HealthTech</title>
                 <meta name="description" content="RNA HealthTech offers the best health marketing services in India. The company provided end-to-end solutions in health sector with proven growth strategies. Call now 9311666193!" />
-                <meta name="keywords" content="digital marketing for doctors, healthcare seo, hospital digital marketing, rna healthcare, digital agency for healthcare, SEO for doctors, health tech companies" />
+                <meta name="keywords" content="ai digital, ai digital marketing, ai digital healthcare, digital marketing for doctors, healthcare seo, hospital digital marketing, rna healthcare, digital agency for healthcare, SEO for doctors, health tech companies" />
                 
                 <link rel="canonical" href="https://rnahealthtech.com" />
 

@@ -75,6 +75,7 @@ const Footer: React.FC = () => {
                 <ul className="space-y-1 text-xl md:space-y-2">
                   <li><FooterLink href="/">Home</FooterLink></li>
                   <li><FooterLink href="/services">Services</FooterLink></li>
+                  <li><FooterLink href="/nmc-guidelines">NMC Guidelines</FooterLink></li>
                   <li><FooterLink href="/about-us">About Us</FooterLink></li>
                   <li><FooterLink href="/contact">Contact</FooterLink></li>
                 </ul>

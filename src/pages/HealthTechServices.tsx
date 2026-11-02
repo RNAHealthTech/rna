@@ -49,7 +49,7 @@ const HTServices: React.FC = () => {
             <Helmet>
                 <title>Health Tech Services | EMR, Appointment System, Medical Billing</title>
                 <meta name="description" content="Expert health technology services with easy-to-use design & smooth functionality. Customized solutions across healthcare ecosystem. Call now." />
-                <meta name="keywords" content="digital marketing for doctors, healthcare seo, hospital digital marketing, rna healthcare, digital agency for healthcare, SEO for doctors, health tech companies" />
+                <meta name="keywords" content="ai digital, ai digital health, ai digital healthcare, ai health automation, digital marketing for doctors, healthcare seo, hospital digital marketing, rna healthcare, digital agency for healthcare, SEO for doctors, health tech companies" />
 
                 <link rel="canonical" href="https://rnahealthtech.com" />
 

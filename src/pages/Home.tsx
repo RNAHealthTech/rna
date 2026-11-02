@@ -228,7 +228,7 @@ const Home: React.FC = () => {
             <Helmet>
                 <title>RNA HealthTech | Digital Marketing for Doctors & Hospitals | Healthcare SEO | Medical SEO | SEO for Doctors Services India</title>
                 <meta name="description" content="Best health marketing & seo for hospitals, doctors, and clinics in India, US, UK, UAE, Australia. Call now 9311666193" />
-                <meta name="keywords" content="digital marketing for doctors, healthcare seo, hospital digital marketing, rna healthcare, digital agency for healthcare, SEO for doctors, health tech companies" />
+                <meta name="keywords" content="ai digital, ai digital marketing, ai digital healthcare, ai healthtech, digital marketing for doctors, healthcare seo, hospital digital marketing, rna healthcare, digital agency for healthcare, SEO for doctors, health tech companies" />
 
                 <link rel="canonical" href="https://rnahealthtech.com" />
 

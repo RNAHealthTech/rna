@@ -15,6 +15,7 @@ import HealthTechServices from './pages/HealthTechServices';
 import HServiceTemplate from './pages/HServicesTemplate';
 import HTServices from './pages/HealthTechServices';
 import TypeformFlow from './components/utility/PackageBuilder';
+import NmcGuidelines from './pages/NmcGuidelines';
 
 
 const useScrollToTop = () => {
@@ -42,6 +43,7 @@ const App: React.FC = () => {
           <Route path='/projects/:id' element={<ProjectDetailPage />} />
           <Route path='/package-builder' element={<TypeformFlow />} />
           <Route path='/services' element={<Services />} />
+          <Route path='/nmc-guidelines' element={<NmcGuidelines />} />
           <Route path='/contact' element={<Contact />} />
         </Routes>
       </Layout>
