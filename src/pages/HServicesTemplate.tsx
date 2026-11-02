@@ -20,7 +20,8 @@ import {
   TrendingUp,
   
   Users2,
-  Lightbulb
+  Lightbulb,
+  Bot
 } from 'lucide-react';
 import AppointmentModal from '../components/utility/AppointmentModal';
 
@@ -32,7 +33,8 @@ const iconMap = {
   video: Video,
   'dollar-sign': DollarSign,
   'user-circle': UserCircle,
-  'bar-chart': BarChart
+  'bar-chart': BarChart,
+  bot: Bot
 };
 
 interface HServiceTemplateProps {

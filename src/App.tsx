@@ -15,7 +15,7 @@ import HealthTechServices from './pages/HealthTechServices';
 import HServiceTemplate from './pages/HServicesTemplate';
 import HTServices from './pages/HealthTechServices';
 import TypeformFlow from './components/utility/PackageBuilder';
-import SecurityCheck from './components/SecurityCheck';
+
 
 const useScrollToTop = () => {
   const { pathname } = useLocation();
@@ -30,7 +30,7 @@ const App: React.FC = () => {
 
   return (
     <ParallaxProvider>
-      <SecurityCheck />
+
       <Layout>
         <Routes>
           <Route path='/' element={<Home />} />

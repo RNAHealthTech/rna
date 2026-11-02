@@ -15,7 +15,8 @@ import {
     MapPin,
     Star,
     CheckCircle,
-    Zap
+    Zap,
+    Bot
 } from 'lucide-react';
 import { Helmet } from 'react-helmet';
 
@@ -31,7 +32,8 @@ const iconMap = {
     video: Video,
     'dollar-sign': DollarSign,
     'user-circle': UserCircle,
-    'bar-chart': BarChart
+    'bar-chart': BarChart,
+    bot: Bot
 };
 
 const HTServices: React.FC = () => {

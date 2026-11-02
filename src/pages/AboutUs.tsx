@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, Search, Palette, Users, MessageSquare, PenTool, MessageCircle, Award, Target, Briefcase } from 'lucide-react';
+import { ArrowRight, Search, Palette, Users, MessageSquare, PenTool, MessageCircle, Award, Target, Briefcase, Bot } from 'lucide-react';
 import Helmet from 'react-helmet';
 
 const AboutUs: React.FC = () => {
@@ -10,6 +10,7 @@ const AboutUs: React.FC = () => {
         { icon: <MessageSquare size={24} />, name: "Marketing Strategies" },
         { icon: <MessageCircle size={24} />, name: "Social Media Management" },
         { icon: <PenTool size={24} />, name: "Content Writing" },
+        { icon: <Bot size={24} />, name: "AI Digital" },
     ];
 
     const values = [

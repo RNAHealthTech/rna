@@ -110,6 +110,7 @@ const Home: React.FC = () => {
         "SEO",
         "Social Media Management",
         "Content Writing",
+        "AI Digital",
         "RNA Health Tech"
     ]
 
@@ -175,6 +176,10 @@ const Home: React.FC = () => {
         {
             title: "Web Design",
             image: "/images/website.jpg",
+        },
+        {
+            title: "AI Digital",
+            image: "/images/marketing.jpg",
         },
 
     ]);

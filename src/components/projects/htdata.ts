@@ -265,13 +265,44 @@ export const healthTechServices: HealthTechService[] = [
     ],
     icon: 'bar-chart',
     slug: 'healthcare-analytics'
+  },
+  {
+    id: 'ai-digital',
+    title: 'AI Digital Health & Automation',
+    description: 'Next-generation AI-driven healthcare solutions, smart diagnostics assistance, patient engagement bots, and automated clinical workflows.',
+    keyFeatures: [
+      'AI-powered clinical decision support and triage assistance',
+      'Intelligent patient chatbots and 24/7 engagement workflows',
+      'Automated medical documentation and transcription',
+      'Predictive analytics for patient outcomes and retention',
+      'Smart patient communication and follow-up automation',
+      'Seamless integration with existing EHR/EMR platforms',
+      'Secure, HIPAA-compliant AI infrastructure'
+    ],
+    benefits: [
+      'Reduces administrative documentation time by up to 50%',
+      'Improves diagnostic accuracy with AI-driven insights',
+      'Enhances patient engagement and 24/7 responsiveness',
+      'Streamlines clinical workflows and staff efficiency',
+      'Lowers operational overhead and eliminates repetitive tasks',
+      'Delivers measurable ROI with intelligent health automation'
+    ],
+    useCases: [
+      'Hospitals deploying AI patient triage and navigation',
+      'Clinics automating appointment queries and medical documentation',
+      'Specialists leveraging AI assistance for predictive diagnostics',
+      'Telehealth providers offering 24/7 AI-guided preliminary assessments',
+      'Healthcare networks automating patient follow-ups and care plans'
+    ],
+    icon: 'bot',
+    slug: 'ai-digital-health'
   }
 ];
 
 export const serviceCategories = {
   'Practice Management': ['appointment-system', 'clinic-management', 'medical-billing'],
   'Clinical Solutions': ['emr-systems', 'telemedicine-platform', 'patient-portal'],
-  'Business Growth': ['patient-lead-generation', 'health-analytics']
+  'Business Growth': ['patient-lead-generation', 'health-analytics', 'ai-digital']
 };
 
 export const getServiceById = (id: string): HealthTechService | undefined => {
