@@ -10,6 +10,7 @@ import AnimatedText from "../components/utility/AnimatedText";
 import { DesktopImageCarousel, ResponsiveImageCarousel } from "../components/utility/ImageCarousel";
 import TestimonialsSection from "../components/utility/TestimonialsSection";
 import { Helmet } from "react-helmet";
+import { ShieldCheck, CheckCircle2, XCircle, FileText, ArrowRight } from "lucide-react";
 // import TypeformFlow from "../components/utility/PackageBuilder";
 
 interface Gif {
@@ -110,7 +111,7 @@ const Home: React.FC = () => {
         "SEO",
         "Social Media Management",
         "Content Writing",
-        "AI Digital",
+        "Digital AI",
         "RNA Health Tech"
     ]
 
@@ -178,7 +179,7 @@ const Home: React.FC = () => {
             image: "/images/website.jpg",
         },
         {
-            title: "AI Digital",
+            title: "Digital AI",
             image: "/images/marketing.jpg",
         },
 
@@ -187,6 +188,7 @@ const Home: React.FC = () => {
 
 
     const imageCarousel = [
+        { src: "/content/headache-desktop.png", alt: "Dr. Debashish Chowdhury", title: "Dr. Debashish Chowdhury" },
         { src: "/content/ajay-homepage.png", alt: "Dr. Ajay Aggarwal", title: "Dr. Ajay Aggarwal" },
         { src: "/content/setu-home.png", alt: "Dr. Setu Gupta", title: "Dr. Setu Gupta" },
         { src: "/content/karuna-home.png", alt: "Kaurna Hospital", title: "Karuna Hospital" },
@@ -196,8 +198,8 @@ const Home: React.FC = () => {
         { src: "/content/neuropoint-desktop.png", alt: "Neuropoint Medical Centre", title: "Neuropoint Medical Centre" },
         { src: "/content/randeep-desktop.png", alt: "Dr. Randeep Rana", title: "Dr. Randeep Rana" },
         { src: "/content/humali-desktop.png", alt: "Dr. Huma Ali", title: "Dr. Huma Ali" },
-        { src: "/content/gourav-desktop.jpg", alt: "Dr. Gourav Siwas", title: "Dr. Gourav Siwas" },
-        { src: "/content/aditi-desktop.jpg", alt: "Dr. Aditi Garg", title: "Dr. Aditi Garg" }
+        { src: "/content/gourav-desktop.png", alt: "Dr. Gourav Siwas", title: "Dr. Gourav Siwas" },
+        { src: "/content/aditi-desktop.png", alt: "Dr. Aditi Garg", title: "Dr. Aditi Garg" }
     ]
 
 
@@ -601,6 +603,167 @@ const Home: React.FC = () => {
                         </motion.div>
 
                     </motion.div>
+                </motion.section>
+
+                {/* NMC Guidelines Section */}
+                <motion.section
+                    id="nmc-guidelines"
+                    className="py-16 lg:py-24 max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8"
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: false, amount: 0.2 }}
+                    transition={{ duration: 0.6, ease: "easeOut" }}
+                >
+                    <div className="bg-gradient-to-br from-lavender/40 via-white to-purple/5 border border-purple/20 rounded-[30px] p-6 sm:p-10 lg:p-14 shadow-xl relative overflow-hidden">
+                        {/* Decorative background element */}
+                        <div className="absolute top-0 right-0 w-96 h-96 bg-purple/5 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20" />
+
+                        {/* Top Badge & Header */}
+                        <div className="text-center max-w-3xl mx-auto mb-12 relative z-10">
+                            <div className="inline-flex items-center space-x-2 bg-purple/10 border border-purple/20 px-4 py-1.5 rounded-full text-purple font-semibold text-xs sm:text-sm mb-4">
+                                <ShieldCheck className="w-4 h-4 text-purple" />
+                                <span>National Medical Commission (NMC) Framework</span>
+                            </div>
+
+                            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-fraunces-slab text-gray-900 mb-4 leading-tight">
+                                100% NMC-Compliant Healthcare Marketing
+                            </h2>
+
+                            <p className="text-base sm:text-lg text-gray-600 font-work-sans-slab leading-relaxed">
+                                Grow your medical practice and patient trust without risking regulatory notices from State Medical Councils. RNA HealthTech ensures zero-risk, ethical digital communication tailored for Registered Medical Practitioners (RMPs) and hospitals across India.
+                            </p>
+
+                            {/* Direct link pill to official NMC PDF */}
+                            <div className="mt-5 inline-block">
+                                <a
+                                    href="https://www.nmc.org.in/whats-new/download/1874"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center space-x-2 bg-purple text-white hover:bg-lightpurple px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold shadow-md transition-all duration-300 hover:scale-105"
+                                >
+                                    <FileText className="w-4 h-4 text-yellow-300" />
+                                    <span>Read the official PDF (14 pages) ↗</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        {/* 4 Pillars Grid */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10 relative z-10">
+                            {[
+                                {
+                                    title: "Doctor Disclosures",
+                                    desc: "Mandatory display of verified State Medical Council registration numbers and recognized degrees on all channels.",
+                                    tag: "Identity Transparency"
+                                },
+                                {
+                                    title: "Zero Superlatives",
+                                    desc: "Strict elimination of claims like 'No. 1 Doctor', 'Best Hospital', or '100% Guaranteed Cure'.",
+                                    tag: "Zero False Claims"
+                                },
+                                {
+                                    title: "Educational Content",
+                                    desc: "Public health awareness and science-backed advice instead of prohibited commercial patient testimonials.",
+                                    tag: "Ethical Awareness"
+                                },
+                                {
+                                    title: "Clinical Pre-Screening",
+                                    desc: "Every post, video script, and ad copy vetted by our healthcare editorial desk before going live.",
+                                    tag: "Pre-Audit Protocol"
+                                }
+                            ].map((pillar, idx) => (
+                                <motion.div
+                                    key={idx}
+                                    className="bg-white/90 backdrop-blur-sm border border-gray-200/80 rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between"
+                                >
+                                    <div>
+                                        <span className="text-[11px] font-bold tracking-wider uppercase text-purple bg-purple/10 px-2.5 py-1 rounded-md inline-block mb-3">
+                                            {pillar.tag}
+                                        </span>
+                                        <h3 className="text-xl font-bold font-fraunces-slab text-gray-900 mb-2">{pillar.title}</h3>
+                                        <p className="text-xs sm:text-sm text-gray-600 leading-relaxed font-work-sans-slab">{pillar.desc}</p>
+                                    </div>
+                                    <div className="mt-4 flex items-center space-x-1.5 text-xs font-semibold text-purple">
+                                        <CheckCircle2 className="w-4 h-4 text-green-600" />
+                                        <span>NMC Verified</span>
+                                    </div>
+                                </motion.div>
+                            ))}
+                        </div>
+
+                        {/* Quick Comparison Box: Permitted vs Restricted */}
+                        <div className="bg-white border border-gray-200 rounded-2xl p-6 sm:p-8 shadow-sm mb-10 relative z-10">
+                            <h3 className="text-xl sm:text-2xl font-bold font-fraunces-slab text-gray-900 mb-6 text-center">
+                                What NMC Allows vs. What Is Prohibited
+                            </h3>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div className="bg-green-50/60 border border-green-200 rounded-xl p-5">
+                                    <div className="flex items-center space-x-2 text-green-900 font-bold mb-3 font-fraunces-slab">
+                                        <CheckCircle2 className="w-5 h-5 text-green-600 shrink-0" />
+                                        <span>Permitted (Ethical & Safe)</span>
+                                    </div>
+                                    <ul className="space-y-2 text-xs sm:text-sm text-gray-700 font-work-sans-slab">
+                                        <li className="flex items-start space-x-2">
+                                            <span className="text-green-600 font-bold">✓</span>
+                                            <span>Doctor registration number, medical degrees, and clinic address</span>
+                                        </li>
+                                        <li className="flex items-start space-x-2">
+                                            <span className="text-green-600 font-bold">✓</span>
+                                            <span>Science-backed disease awareness & preventive healthcare guidance</span>
+                                        </li>
+                                        <li className="flex items-start space-x-2">
+                                            <span className="text-green-600 font-bold">✓</span>
+                                            <span>Objective explanations of procedures, technologies, and clinical risks</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div className="bg-red-50/60 border border-red-200 rounded-xl p-5">
+                                    <div className="flex items-center space-x-2 text-red-900 font-bold mb-3 font-fraunces-slab">
+                                        <XCircle className="w-5 h-5 text-red-600 shrink-0" />
+                                        <span>Prohibited (High Regulatory Risk)</span>
+                                    </div>
+                                    <ul className="space-y-2 text-xs sm:text-sm text-gray-700 font-work-sans-slab">
+                                        <li className="flex items-start space-x-2">
+                                            <span className="text-red-600 font-bold">✗</span>
+                                            <span>Commercial patient video testimonials, star ratings, and reviews</span>
+                                        </li>
+                                        <li className="flex items-start space-x-2">
+                                            <span className="text-red-600 font-bold">✗</span>
+                                            <span>Superlatives like "No. 1 Surgeon", "Best Clinic", or guaranteed cure</span>
+                                        </li>
+                                        <li className="flex items-start space-x-2">
+                                            <span className="text-red-600 font-bold">✗</span>
+                                            <span>Festive discounts, referral commissions, or package price cuts</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Bottom CTA Actions */}
+                        <div className="flex flex-col sm:flex-row items-center justify-between pt-6 border-t border-purple/20 gap-4 relative z-10">
+                            <p className="text-xs sm:text-sm text-gray-600 text-center sm:text-left">
+                                Want a complete audit of your website, social media, and ads against NMC directives?
+                            </p>
+                            <div className="flex flex-wrap items-center justify-center gap-3 shrink-0">
+                                <button
+                                    onClick={() => navigate('/nmc-guidelines')}
+                                    className="bg-purple hover:bg-lightpurple text-white font-semibold px-6 py-2.5 rounded-[40px] text-sm shadow-md transition-all duration-300 hover:scale-105 flex items-center space-x-1.5"
+                                >
+                                    <span>Explore Full NMC Guide</span>
+                                    <ArrowRight className="w-4 h-4" />
+                                </button>
+                                <a
+                                    href="https://www.nmc.org.in/whats-new/download/1874"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="border border-purple text-purple hover:bg-purple hover:text-white font-semibold px-5 py-2.5 rounded-[40px] text-sm transition-all duration-300"
+                                >
+                                    Official Circular PDF ↗
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </motion.section>
 
                 {/* Testimonials / Google Reviews section */}

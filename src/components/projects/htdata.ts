@@ -268,7 +268,7 @@ export const healthTechServices: HealthTechService[] = [
   },
   {
     id: 'ai-digital',
-    title: 'AI Digital Health & Automation',
+    title: 'Digital AI Health & Automation',
     description: 'Next-generation AI-driven healthcare solutions, smart diagnostics assistance, patient engagement bots, and automated clinical workflows.',
     keyFeatures: [
       'AI-powered clinical decision support and triage assistance',

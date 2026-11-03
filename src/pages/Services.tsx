@@ -66,7 +66,7 @@ const services: Service[] = [
         ),
     },
     {
-        name: 'AI Digital',
+        name: 'Digital AI',
         description: 'Empower your healthcare practice with smart AI automation, intelligent patient engagement, virtual assistants, and next-generation digital healthcare solutions.',
         icon: (
             <Bot className="h-8 w-8" />

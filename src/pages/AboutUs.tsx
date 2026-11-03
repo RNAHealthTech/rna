@@ -10,7 +10,7 @@ const AboutUs: React.FC = () => {
         { icon: <MessageSquare size={24} />, name: "Marketing Strategies" },
         { icon: <MessageCircle size={24} />, name: "Social Media Management" },
         { icon: <PenTool size={24} />, name: "Content Writing" },
-        { icon: <Bot size={24} />, name: "AI Digital" },
+        { icon: <Bot size={24} />, name: "Digital AI" },
     ];
 
     const values = [

@@ -41,22 +41,14 @@ const Header: React.FC = () => {
     console.log(isSticky)
 
     useEffect(() => {
-        const handleResize = () => {
-            if (window.innerWidth >= 768 && isMenuOpen) {
-                setIsMenuOpen(false);
-            }
-        };
-
         const handleScroll = () => {
             setIsSticky(window.scrollY > 0);
             setIsScrolled(window.scrollY > 0);
         };
 
-        window.addEventListener('resize', handleResize);
         window.addEventListener('scroll', handleScroll);
 
         return () => {
-            window.removeEventListener('resize', handleResize);
             window.removeEventListener('scroll', handleScroll);
         };
     }, [isMenuOpen]);
@@ -81,26 +73,42 @@ const Header: React.FC = () => {
 
     return (
         <header
-            className={`font-pt-serif-regular fixed top-0 left-0 right-0 z-[9999] transition-all duration-300 w-full ${isScrolled ? 'bg-white' : 'bg-transparent'
-                }`}
+            className={`font-pt-serif-regular fixed top-0 left-0 right-0 z-[9999] transition-all duration-300 w-full ${
+                isMenuOpen
+                    ? (isScrolled ? 'bg-white text-black shadow-md' : 'bg-purple text-white shadow-md')
+                    : (isScrolled ? 'bg-white text-black shadow-md' : 'bg-transparent text-white')
+            }`}
         >
-            <div className="container mx-auto px-4 w-full">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
                 <nav className="flex justify-between items-center w-full">
-                    <div className='flex items-center'>
-                        <Link to="/" className="flex items-center mt-4 mb-4">
+                    <div className='flex items-center shrink-0'>
+                        <Link to="/" className="flex items-center mt-3 mb-3">
                             <AnimatedLogo color={isScrolled ? '#000' : '#FFF'} />
                         </Link>
                     </div>
 
                     {/* desktop menu button and appointment button */}
-                    <div className="hidden md:flex items-center">
+                    <div className="hidden md:flex items-center space-x-4 shrink-0">
+                        <Link
+                            to='#'
+                            onClick={(e) => handleNavigation(e, 'contact')}
+                            className={`border-2 border-solid ${
+                                isScrolled
+                                    ? 'text-black border-black hover:bg-black hover:text-white'
+                                    : 'text-purple bg-white border-white hover:bg-gray-100'
+                            } px-5 py-2 rounded-[40px] transition-all text-sm lg:text-base font-semibold whitespace-nowrap shrink-0 shadow-sm`}
+                        >
+                            Book Appointment
+                        </Link>
                         <button
-                            className={`flex items-center mr-4 ${isScrolled ? 'text-black' : 'text-white'}`}
+                            className={`flex items-center justify-center p-2 rounded-lg transition-colors ${
+                                isScrolled ? 'text-black hover:bg-gray-100' : 'text-white hover:bg-white/10'
+                            }`}
                             onClick={toggleMenu}
-                            aria-label='menu'
+                            aria-label='Toggle menu'
                         >
                             <svg
-                                className="w-12 h-12"
+                                className="w-9 h-9"
                                 fill="none"
                                 stroke="currentColor"
                                 viewBox="0 0 48 48"
@@ -110,51 +118,38 @@ const Header: React.FC = () => {
                                     <path
                                         strokeLinecap="round"
                                         strokeLinejoin="round"
-                                        strokeWidth={2}
-                                        d="M8 40L40 8M8 8l32 32"
+                                        strokeWidth={2.5}
+                                        d="M10 38L38 10M10 10l28 28"
                                     />
                                 ) : (
                                     <g>
                                         <path
                                             strokeLinecap="round"
                                             strokeLinejoin="round"
-                                            strokeWidth={2}
+                                            strokeWidth={2.5}
                                             d="M6 12h36"
-                                            className="origin-center"
                                         />
                                         <path
                                             strokeLinecap="round"
                                             strokeLinejoin="round"
-                                            strokeWidth={2}
+                                            strokeWidth={2.5}
                                             d="M10 24h28"
-                                            className="origin-center"
                                         />
                                         <path
                                             strokeLinecap="round"
                                             strokeLinejoin="round"
-                                            strokeWidth={2}
+                                            strokeWidth={2.5}
                                             d="M14 36h20"
-                                            className="origin-center"
                                         />
                                     </g>
                                 )}
                             </svg>
                         </button>
-                        <Link
-                            to='#'
-                            onClick={(e) => handleNavigation(e, 'contact')}
-                            className={`border-2 border-solid ${isScrolled
-                                    ? 'text-black border-black hover:bg-black hover:text-white'
-                                    : 'text-purple bg-white'
-                                } px-6 py-2 rounded-[40px] transition-colors text-lg font-semibold`}
-                        >
-                            Book Appointment
-                        </Link>
                     </div>
 
                     {/* mobile menu button */}
                     <button
-                        className={`md:hidden ${isScrolled ? 'text-black' : 'text-white'}`}
+                        className={`md:hidden p-2 rounded-lg ${isScrolled ? 'text-black' : 'text-white'}`}
                         onClick={toggleMenu}
                         aria-label="Toggle menu"
                     >
@@ -198,9 +193,9 @@ const Header: React.FC = () => {
 
             {/* Dropdown Menu */}
             {isMenuOpen && (
-                <div className={`absolute top-full left-0 w-full shadow-lg ${isScrolled ? 'bg-white text-black' : 'bg-purple text-white'}`}>
-                    <div className="container mx-auto px-4 py-4">
-                        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+                <div className={`absolute top-full left-0 w-full shadow-xl border-t border-white/10 ${isScrolled ? 'bg-white text-black border-gray-200' : 'bg-purple text-white'}`}>
+                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
+                        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 lg:gap-4 items-center">
                             <NavLink
                                 to="/"
                                 onClick={(e) => { e.preventDefault(); navigate('/'); setIsMenuOpen(false); }}
@@ -221,36 +216,28 @@ const Header: React.FC = () => {
                             </NavLink>
                             <NavLink
                                 to="/services"
-                                onClick={() => { console.log('services'); setIsMenuOpen(false); }}
+                                onClick={(e) => { e.preventDefault(); navigate('/services'); setIsMenuOpen(false); }}
                             >
-                                AI & Digital Services
+                                Digital AI
                             </NavLink>
-
                             <NavLink
                                 to="/healthtech-services-best-healthtech-company-in-delhi-ncr"
-                                onClick={() => { console.log('services'); setIsMenuOpen(false); }}
+                                onClick={(e) => { e.preventDefault(); navigate('/healthtech-services-best-healthtech-company-in-delhi-ncr'); setIsMenuOpen(false); }}
                             >
-                              Health Tech Services
-                            </NavLink>
-                            <NavLink
-                                to="/nmc-guidelines"
-                                onClick={(e) => { e.preventDefault(); navigate('/nmc-guidelines'); setIsMenuOpen(false); }}
-                            >
-                                NMC Guidelines
+                                Health Tech Services
                             </NavLink>
                             <NavLink
                                 to="/contact"
-                                onClick={() => { console.log('contact'); setIsMenuOpen(false); }}
+                                onClick={(e) => { e.preventDefault(); navigate('/contact'); setIsMenuOpen(false); }}
                             >
                                 Contact
                             </NavLink>
-
                         </div>
                         <div className="mt-4 md:hidden">
                             <Link
                                 to="#"
                                 onClick={(e) => { handleNavigation(e, 'contact'); setIsMenuOpen(false); }}
-                                className="block w-full text-purple px-6 py-2 rounded-[40px] bg-white text-center transition-colors text-lg font-semibold"
+                                className="block w-full text-purple px-6 py-2.5 rounded-[40px] bg-white text-center font-semibold shadow-md"
                             >
                                 Book Appointment
                             </Link>

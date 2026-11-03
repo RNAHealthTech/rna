@@ -17,6 +17,22 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    id: "18",
+    title: "Dr. Debashish Chowdhury",
+    description: "Developed a comprehensive professional website for Dr. Debashish Chowdhury, a leading headache specialist and neurologist at BLK-Max Hospital in Delhi.",
+    imageUrl: "/content/headache-desktop.png",
+    mobileImageUrl: "/content/headache-mobile.png",
+    date: "22 May 2025",
+    subtitle: "Digital Platform for Headache & Neurology Specialist",
+    websiteUrl: "https://headachespecialistindia.com",
+    overview: "RNA HealthTech designed and launched a specialized website for Dr. Debashish Chowdhury, providing a digital presence for his expertise in headache medicine and neurology. The platform highlights his extensive experience and makes it easy for patients to learn about and seek treatment for various neurological conditions.",
+    technologies: ["React", "JavaScript", "Tailwind CSS"],
+    results: [
+      "Enhanced online platform for showcasing expertise in headache and neurology.",
+      "Improved access for patients seeking specialized care for migraines, stroke, and epilepsy."
+    ]
+  },
+  {
     id: "1",
     title: "Karuna Hospital",
     description:
@@ -446,22 +462,6 @@ export const projects: Project[] = [
     ]
   },
   {
-    id: "18",
-    title: "Dr. Debashish Chowdhury",
-    description: "Developed a comprehensive professional website for Dr. Debashish Chowdhury, a leading headache specialist and neurologist at BLK-Max Hospital in Delhi.",
-    imageUrl: "/content/headache-desktop.png",
-    mobileImageUrl: "/content/headache-mobile.png",
-    date: "22 May 2025",
-    subtitle: "Digital Platform for Headache & Neurology Specialist",
-    websiteUrl: "https://headachespecialistindia.com",
-    overview: "RNA HealthTech designed and launched a specialized website for Dr. Debashish Chowdhury, providing a digital presence for his expertise in headache medicine and neurology. The platform highlights his extensive experience and makes it easy for patients to learn about and seek treatment for various neurological conditions.",
-    technologies: ["React", "JavaScript", "Tailwind CSS"],
-    results: [
-      "Enhanced online platform for showcasing expertise in headache and neurology.",
-      "Improved access for patients seeking specialized care for migraines, stroke, and epilepsy."
-    ]
-  },
-  {
     id: "19",
     title: "Dr. Randeep Rana",
     description: "Developed a modern, responsive website for Dr. Randeep Rana, Consultant Gastroenterologist, Hepatologist & Advanced Endoscopist at Max Smart Super Speciality Hospital, Saket, New Delhi.",
@@ -513,8 +513,8 @@ export const projects: Project[] = [
     id: "21",
     title: "Dr. Gourav Siwas",
     description: "Developed a high-performance digital healthcare platform for Dr. Gourav Siwas, dual board-certified Hand, Wrist & Reconstructive Plastic Surgeon at Sir Ganga Ram Hospital, New Delhi.",
-    imageUrl: "/content/gourav-desktop.jpg",
-    mobileImageUrl: "/content/gourav-mobile.jpg",
+    imageUrl: "/content/gourav-desktop.png",
+    mobileImageUrl: "/content/gourav-mobile.png",
     date: "28 Jul 2025",
     subtitle: "Dual Board Certified Hand, Wrist & Reconstructive Surgery Platform",
     websiteUrl: "https://www.drgouravsiwas.com/",
@@ -537,8 +537,8 @@ export const projects: Project[] = [
     id: "22",
     title: "Dr. Aditi Garg",
     description: "Developed a modern, patient-focused ENT & Head-Neck Surgery platform for Dr. Aditi Garg, Associate Consultant in the Department of ENT at Sir Ganga Ram Hospital, New Delhi.",
-    imageUrl: "/content/aditi-desktop.jpg",
-    mobileImageUrl: "/content/aditi-mobile.jpg",
+    imageUrl: "/content/aditi-desktop.png",
+    mobileImageUrl: "/content/aditi-mobile.png",
     date: "15 Aug 2025",
     subtitle: "Specialized ENT & Head-Neck Surgery Digital Care Platform",
     websiteUrl: "https://draditigargent.com/",

@@ -14,6 +14,13 @@ interface Website {
 
 const websites: Website[] = [
   {
+    id: '18',
+    imageUrl: '/content/headache-desktop.png',
+    mobileImageUrl: '/content/headache-mobile.png',
+    liveUrl: 'https://headachespecialistindia.com',
+    detailsUrl: '/projects/18',
+  },
+  {
     id: '1',
     imageUrl: '/content/karuna-home.png',
     mobileImageUrl: '/content/karuna-mobile.png',
@@ -105,15 +112,15 @@ const websites: Website[] = [
   },
   {
     id: '14',
-    imageUrl: "/content/gourav-desktop.jpg",
-    mobileImageUrl: "/content/gourav-mobile.jpg",
+    imageUrl: "/content/gourav-desktop.png",
+    mobileImageUrl: "/content/gourav-mobile.png",
     liveUrl: "https://www.drgouravsiwas.com/",
     detailsUrl: '/projects/21'
   },
   {
     id: '15',
-    imageUrl: "/content/aditi-desktop.jpg",
-    mobileImageUrl: "/content/aditi-mobile.jpg",
+    imageUrl: "/content/aditi-desktop.png",
+    mobileImageUrl: "/content/aditi-mobile.png",
     liveUrl: "https://draditigargent.com/",
     detailsUrl: '/projects/22'
   }
